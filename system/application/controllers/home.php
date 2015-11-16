@@ -96,12 +96,15 @@ class Home extends MY_Controller
         $this->viewfront($dis);
     }
 
+
     function searchs(){
         $value = $this->input->post('value');
-        redirect(base_url().'tim-kiem?value='.urldecode($value));
+        redirect(base_url().'tim-kiem/?value='.urldecode($value));
     }
 
+
     function searchParams(){
+        echo 1; die;
         parse_str(array_pop(explode('?', $_SERVER['REQUEST_URI'], 2)), $_GET);
 
         $value = $_GET['value'];

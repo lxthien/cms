@@ -11,13 +11,13 @@
         <?php if( $this->menu_active == 'home' ): ?>
             <?php $this->load->view($view); ?>
         <?php else: ?>
-            <div class="row">
-                <?php $this->load->view('front/includes/col-left'); ?>
+            <div class="row" id="wrapper">
                 <?php $this->load->view($view); ?>
+                <?php $this->load->view('front/includes/col-left'); ?>
             </div>
         <?php endif; ?>
         <div class="cl"></div>
-        <?php //$this->load->view('front/includes/partner'); ?>
+        <?php $this->load->view('front/includes/partner'); ?>
     </div>
     <div class="cl"></div>
     <?php echo $this->load->view('front/includes/footer'); ?>

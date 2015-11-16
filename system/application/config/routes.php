@@ -44,11 +44,12 @@
 
 
 $route['media/(:any)']              = 'media/resize/$1';
+/*
 $route['load-so-sanh']              = 'fproduct/loadCompareProductSmall';
 $route['so-sanh']                   = 'fproduct/compare';
 $route['them-so-sanh/(:any)']       = 'fproduct/addCompareProduct/$1';
-//$route['tim-kiem']                  = 'fproduct/search';
-//$route['tim-kiem/(:any)']           = 'fproduct/search/$1';
+$route['tim-kiem']                  = 'fproduct/search';
+$route['tim-kiem/(:any)']           = 'fproduct/search/$1';
 $route['tim']                       = 'fproduct/ajaxSearch';
 $route['tim/(:any)']                = 'fproduct/ajaxSearch/$1';
 $route['tim-nang-cao']              = 'fproduct/advangeSearch';
@@ -80,15 +81,15 @@ $route['cap-nhat-gio-hang']         = 'cart/updateCart';
 $route['huong-dan-mua-hang-tu-xa']  = 'fnews/shopingCartGuide';
 $route['chinh-sach-bao-hanh']       = 'fnews/warranty';
 $route['tro-giup']                   = 'fnews/helpCenter';
-
+*/
 
 // Router for tag
-$route['^tag/(:any)']               		= "home/tags/$1";
-$route['^tag']                      		= "home/tags";
+$route['tag/(:any)']               			= "home/tags/$1";
+$route['tag']                      			= "home/tags";
 
 // Router for search
-$route['^tim-kiem(:any)']                   = "home/searchParams";
-$route['^search']                      		= "home/searchs";
+$route['tim-kiem/(:any)']                   = "home/searchParams";
+$route['search']                      		= "home/searchs";
 
 
 $route['default_controller'] 	     		= "home";

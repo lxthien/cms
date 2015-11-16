@@ -12,6 +12,7 @@ body{background: #f0f0f0; color: #000000;}
 
 ul li, ol li{list-style: none;}
 .container{background: #ffffff;}
+#wrapper{margin-top: 10px; margin-bottom: 10px;}
 .cl{clear: both;}
 
 /**
@@ -242,7 +243,7 @@ ul.ul-partner-home li img{padding: 0;border-width: 3px;border-radius: 0;width: 1
 /**
  * Footer
  */
-.bs-docs-footer{margin-top: 30px;}
+.bs-docs-footer{margin-top: 5px;}
 .bs-docs-footer{text-align: left;border-top: 1px solid #e5e5e5;box-shadow: inset 0px 10px 10px #e5e5e5;}
 
 .footer-top .footer-services h4, .footer-top .footer-tag h4{color: #202020; font-weight: 600;}
