@@ -1,0 +1,1 @@
+<?php foreach($newletter as $row){echo $row->email.";";};?>

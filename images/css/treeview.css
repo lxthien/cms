@@ -1,0 +1,54 @@
+/* CSS Document */
+.noteTable{
+	width:100%;
+}
+.noteTable td{
+	color:#662608;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:600;
+}
+.notePopup{
+	width:800px;
+	height:400px;
+	background:url(../Popup.png) no-repeat;
+	overflow:hidden;
+}
+.noteContainer{
+	height:370px;
+	width:800px;
+}
+.note-left{
+	width:150px;
+	float:left;
+	display:inline;
+	margin-left:30px;
+}
+.note-right{
+	width:600px;
+	float:left;
+	display:inline;
+}
+.addChildNote{
+	margin-left:10px;
+	border:1px #CCC solid;
+	background-color:green;
+	color:white !important;
+	padding:3px;
+}
+.editChildNote{
+	margin-left:10px;
+	border:1px #CCC solid;
+	background-color:#FF0;
+	color:red !important;
+	padding:3px;
+}
+.deleteChildNote{
+	margin-left:10px;
+	border:1px #CCC solid;
+	background-color:red;
+	color:yellow !important;
+	padding:3px;
+}
+.highlight{
+	background-color:#CF6 !important;
+}

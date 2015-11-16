@@ -1,0 +1,16 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2013-01-21 16:14:30 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/a5771bce93e200c36f7cd9dfd0e5deaa) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 16:14:31 --> Severity: Warning  --> chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 73
+ERROR - 2013-01-21 16:14:31 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/c0c7c76d30bd3dcaefc96f40275bdc0a) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 16:50:39 --> Severity: Warning  --> html_entity_decode() expects parameter 2 to be long, string given F:\xampp\htdocs\toxic\system\application\controllers\fproduct.php 328
+ERROR - 2013-01-21 17:24:32 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/b6d767d2f8ed5d21a44b0e5886680cb9) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 17:37:23 --> Severity: Notice  --> Undefined offset: 1 F:\xampp\htdocs\toxic\system\libraries\Pagination.php 340
+ERROR - 2013-01-21 19:29:32 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/e2ef524fbf3d9fe611d5a8e90fefdc9c) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 19:29:46 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/f899139df5e1059396431415e770c6dd) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 19:33:23 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/1f0e3dad99908345f7439f8ffabdffc4) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 19:33:24 --> Severity: Warning  --> chmod() [<a href='function.chmod'>function.chmod</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 73
+ERROR - 2013-01-21 19:33:24 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/33e75ff09dd601bbe69f351039152189) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 19:58:04 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/c74d97b01eae257e44aa9d5bade97baf) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74
+ERROR - 2013-01-21 20:02:08 --> Severity: Warning  --> chmod() [<a href='function.chmod'>function.chmod</a>]: Permission denied F:\xampp\htdocs\toxic\system\codeigniter\Common.php 73
+ERROR - 2013-01-21 20:02:08 --> Severity: Warning  --> unlink(F:\xampp\htdocs\toxic/system/cache/1c383cd30b7c298ab50293adfecb7b18) [<a href='function.unlink'>function.unlink</a>]: No such file or directory F:\xampp\htdocs\toxic\system\codeigniter\Common.php 74

@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+/******* GENERAL RESET *******/
+
+.clear{
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	display: block;
+}
+/******* GENERAL RESET *******/
+/******* LOGO *******/
+#logo{
+	margin-top: 1em;
+	display: block;
+}
+/******* /LOGO  *******/
+/******* MENU *******/
+#tab_container{
+}
+#tab_container ul{
+	list-style: none;
+	list-style-position: outside;
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+}
+#tab_container ul.menu li{
+	float: left;
+	margin-left: -5px;
+}
+#tab_container ul.menu li{
+	font-weight: 700;
+	display: block;
+	width: 95px;
+	height: 23px;
+	text-align: center;
+	line-height: 23px;
+	text-transform: uppercase;
+	background: url("../../bg_tab.png") no-repeat scroll left top transparent;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+}
+#tab_container ul.menu li.active{
+	background: url("../../bg_tab_h.png") no-repeat scroll left top transparent;
+}
+/******* /MENU *******/
+/******* CONTENT *******/
+.tab_content{
+	/*padding: 10px 0;*/
+}
+.tab_content h1{
+	line-height: 1em;
+	vertical-align: middle;
+	height: 48px;
+	padding: 10px 10px 10px 52px;
+	font-size: 32px;
+}
+/******* /CONTENT *******/
+
+.tab_content.parameter{
+	display: block;
+}
+.tab_content.img, .tab_content.video, .tab_content.paper, .tab_content.accessory, .tab_content.customer_idea{
+	display: none;
+}
+#tab_container ul.menu li.long_tab{
+	width: 150px;
+	background: url("../../bg_tab_150.png") no-repeat scroll left top transparent;
+}
+#tab_container ul.menu li.long_tab_active{
+	width: 150px;
+	background: url("../../bg_tab_150_h.png") no-repeat scroll left top transparent;
+}
+#tab_container ul.menu li#specifications{
+	width: 150px;
+	background: url("../../bg_tab_150.png") no-repeat scroll left top transparent;
+}

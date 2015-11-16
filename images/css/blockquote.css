@@ -1,0 +1,13 @@
+blockquote {
+	margin: 0 auto;
+}
+	
+/*
+ |	The #quote_wrap div is created
+ |	by Quovolver to wrap the quotes
+*/
+
+#quote_wrap { 
+	/*background: url(http://sandbox.sebnitu.com/jquery/quovolver/demo/images/quote-mark.png) no-repeat 20px 20px;*/
+	/*margin: 40px 0; padding: 20px; border: 1px solid #edffaf;*/
+	}

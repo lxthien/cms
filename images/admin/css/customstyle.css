@@ -1,0 +1,18 @@
+table.table_input{
+	margin-bottom:0px;
+	width:100%;
+}
+table.table_input td{
+	padding:5px;
+	
+}
+.button_bar{
+	clear:both;
+	display:table;
+	margin:auto;
+}
+.ui-progressbar-value { background-image: url(../images/pbar-ani.gif); }
+.requiredinput{
+	color:#F00;
+	font-size:14px;
+}

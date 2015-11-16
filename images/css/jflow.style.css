@@ -1,0 +1,75 @@
+/* 
+
+jFlow Plus v2 Demo CSS 
+
+Description: Demonstation CSS for jFlow Plus
+
+Creator: Devin Walker
+
+Date: July 29, 2010
+
+
+*/
+
+#sliderContainer {}
+
+.slideContent {position: absolute;}
+
+.slide h3 {  font: 26px/1em 'Rokkitt', serif; color: #FFF;  margin: 0 0 5px 0; }
+
+.slide p { font-size: 14px; color: #FFF; margin: 0; }
+
+.jFlowSlideContainer { overflow: hidden; }
+
+.jFlowSlideContainer a { color: #F90; text-decoration: none; font-style: italic; }
+
+.jFlowSlideContainer a:hover { text-decoration: none; }
+
+.jFlowSlideContainer a:focus { position: relative; top: 1px; }
+
+
+#jFlowSlide{ 
+	/*
+	background:#DBF3FD; 
+	font-family: Georgia; 
+	*/
+}
+#myController { 
+	width:755px; 
+	position: absolute;
+	margin-top: -37px;
+	text-align: right;
+	z-index: 10;
+}
+#myController span.jFlowSelected { 
+	background: url("../bullet_w.png") no-repeat scroll center center transparent;
+	width: 11px;
+	height: 11px;
+	margin-right:0px; 
+}
+
+.slide-wrapper { 
+	/* padding: 5px; */
+}
+.slide-thumbnail { width:300px; float:left; }
+.slide-thumbnail img {max-width:300px; }
+.slide-details { width:290px; float:right; margin-left:10px;}
+.slide-details h2 { font-size:1.5em; font-style: italic; font-weight:normal; line-height: 1; margin:0; }
+.slide-details .description { margin-top:10px; }
+
+.jFlowControl, .jFlowPrev, .jFlowNext { 
+	color:#FFF; 
+	cursor:pointer; 
+	padding-left:5px; 
+	padding-right:5px; 
+	padding-top:2px; 
+	padding-bottom:2px; 
+	background: url("../bullet_g.png") no-repeat scroll center center transparent;
+	width: 11px;
+	height: 11px;
+}
+.jFlowControl:hover, .jFlowPrev:hover, .jFlowNext:hover { 
+	background: url("../bullet_w.png") no-repeat scroll center center transparent;
+	width: 11px;
+	height: 11px;
+}
