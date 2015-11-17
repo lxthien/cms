@@ -71,45 +71,11 @@ ul li, ol li{list-style: none;}
 /**
  * Homepage
  */
-.news-and-comment{border-bottom: 1px solid #cccccc;}
-.news-and-comment h2.title{color: #00549a;}
 
-.news-home .top-partner .title-news-hot{float: left;margin: 15px 0;}
-.news-home .top-partner .nav-partner{float: right;margin: 18px 0 15px;}
-
-.news-hot ul{padding-left: 0px;}
-.news-hot ul>li {float: left;}
-.news-hot ul li{padding-left: 0;}
-.news-hot ul li li{list-style: none;padding-left: 25px;}
-.news-hot ul li li{background: url("../../icon-li.jpg") no-repeat;background-position: 0px 4px;}
-.news-hot ul li a{color: #202020;font-weight: 600;}
-.news-hot ul li p{color: #3f3f3f;text-align: justify;margin: 5px 0 10px;}
-
-.comment-home ul{padding-left: 0px;}
-.comment-home .img-customer{float: left;padding: 0px;border-radius: 0px;border: none; margin-right: 15px;}
-.comment-home ul>li {float: left;}
-.comment-home ul li{margin-bottom: 20px;}
-.comment-home ul li a{color: #202020;font-weight: 600;}
-.comment-home ul li p{color: #3f3f3f;text-align: justify;}
-
-.services-and-advisory{padding-bottom: 25px;border-bottom: 1px solid #ccc;}
-
-.services-and-advisory h2.title{color: #00549a;}
-.services-home ul{padding-left: 0px;}
-.services-home ul h3{color: #ffffff; background: #00549c;font-size: 16px;line-height: 40px;padding-left: 15px;}
-.services-home ul h3 a{color: #ffffff;}
-
-.services-and-advisory h2.title a{float: right;font-size: 15px;line-height: 43px;color: #202020;font-weight: 600;text-decoration: underline;}
-
-.advisory ul{padding-left: 0;}
-.advisory h3{color: #ffffff; background: #00549c;font-size: 20px;line-height: 40px;padding-left: 15px;
-    background: url("../../assets/icon-title-advisory.png") no-repeat top right #00549c;}
-.advisory ul a{color: #202020;font-weight: 600;}
-.advisory ul li p{color: #3f3f3f;line-height: 18px;}
-
-.advisory h3 a{float: right;font-size: 15px;color: #ffffff;margin-right: 15px;}
-
-.advisory .img-advisory{padding: 0;border: none;border-radius: 0;margin-right: 12px;float: left;}
+.row-homepage .col-md-12 h3{
+	background: #fdd504; float: left; margin: 5px 0 10px; padding: 5px; font-size: 18px; width: 48%; font-weight: 400; line-height: 20px; text-transform: uppercase; height: 28px;
+}
+.row-homepage .col-md-6 .td-module-image img {width: 100%;}
 
 .slide-partner{width: 100%;float: left;min-height: 150px;}
 .slide-partner .caroufredsel_wrapper{min-height: 150px;}
