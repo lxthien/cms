@@ -104,7 +104,6 @@ class Home extends MY_Controller
 
 
     function searchParams(){
-        echo 1; die;
         parse_str(array_pop(explode('?', $_SERVER['REQUEST_URI'], 2)), $_GET);
 
         $value = $_GET['value'];

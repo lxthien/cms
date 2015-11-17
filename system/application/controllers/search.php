@@ -55,7 +55,6 @@ class Search extends MY_Controller{
                 }
             }
         } else {
-            echo 2; die;
             // Set action for news.
             if( strpos($this->uri->uri_string, '.html') ){
                 $title_none = gettitlenonefromlink(get_url($this->uri->uri_string));

@@ -12,21 +12,81 @@
 	                	</a>
 	                </div>
                 </div>
-            	<h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a></h3>
-            	<div class="td-module-meta-info">
-                	<div class="td-post-author-name">
-                		<a itemprop="author" href="http://ehomesnamlong.com/author/sandatvang">Ehome 3 Tây Sài Gòn</a>
-                		<span>-</span>
-                	</div>
-                	<div class="td-post-date">
-                		<time itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2015-11-03T16:29:39+00:00">03/11/2015</time>
-                		<meta itemprop="interactionCount" content="UserComments:0">
-                	</div>
-                	<div class="td-module-comments"><a href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html#comments">0</a></div>
-                </div>
-	            <div class="td-excerpt">&nbsp;Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a>
+            	</h4>
+	            <div class="td-excerpt">Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
 			</div>
-			<div class="col-md-6">def</div>
+			<div class="col-md-6">
+				<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -42,21 +102,81 @@
 	                	</a>
 	                </div>
                 </div>
-            	<h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a></h3>
-            	<div class="td-module-meta-info">
-                	<div class="td-post-author-name">
-                		<a itemprop="author" href="http://ehomesnamlong.com/author/sandatvang">Ehome 3 Tây Sài Gòn</a>
-                		<span>-</span>
-                	</div>
-                	<div class="td-post-date">
-                		<time itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2015-11-03T16:29:39+00:00">03/11/2015</time>
-                		<meta itemprop="interactionCount" content="UserComments:0">
-                	</div>
-                	<div class="td-module-comments"><a href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html#comments">0</a></div>
-                </div>
-	            <div class="td-excerpt">&nbsp;Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a>
+            	</h4>
+	            <div class="td-excerpt">Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
 			</div>
-			<div class="col-md-6">def</div>
+			<div class="col-md-6">
+				<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -72,21 +192,81 @@
 	                	</a>
 	                </div>
                 </div>
-            	<h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a></h3>
-            	<div class="td-module-meta-info">
-                	<div class="td-post-author-name">
-                		<a itemprop="author" href="http://ehomesnamlong.com/author/sandatvang">Ehome 3 Tây Sài Gòn</a>
-                		<span>-</span>
-                	</div>
-                	<div class="td-post-date">
-                		<time itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2015-11-03T16:29:39+00:00">03/11/2015</time>
-                		<meta itemprop="interactionCount" content="UserComments:0">
-                	</div>
-                	<div class="td-module-comments"><a href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html#comments">0</a></div>
-                </div>
-	            <div class="td-excerpt">&nbsp;Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a itemprop="url" href="http://ehomesnamlong.com/can-ho-3-phong-ngu-ehome-3.html" rel="bookmark" title="Căn hộ 3 Phòng Ngủ Ehome 3">Căn hộ 3 Phòng Ngủ Ehome 3</a>
+            	</h4>
+	            <div class="td-excerpt">Căn hộ 3 Phòng Ngủ Ehome 3 có 2 loại thiết kế là 3PN-2WC và 3PN-3WC. Chủ đầu tư Nam Long muốn đem lại...</div>
 			</div>
-			<div class="col-md-6">def</div>
+			<div class="col-md-6">
+				<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+        		<div class="td_module_6 td_module_wrap td-animation-stack" itemscope="" itemtype="http://schema.org/Article">
+	        		<div class="td-module-thumb">
+	        			<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" rel="bookmark" title="Tham quan nhà mẫu Ehome 3">
+	        				<img width="100" height="70" itemprop="image" class="entry-thumb td-animation-stack-type0-1" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="" title="Tham quan nhà mẫu Ehome 3">
+	        			</a>
+	        		</div>
+	        		<div class="item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://ehomesnamlong.com/tham-quan-nha-mau-ehome-3.html" title="Tham quan nhà mẫu Ehome 3">Tham quan nhà mẫu Ehome 3</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>04/11/2015</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+			</div>
 		</div>
 	</div>
 </div>

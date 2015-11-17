@@ -1,4 +1,4 @@
-<header class="navbar navbar-static-top bs-docs-nav navbar-fixed-top" id="top" role="banner">
+<header class="navbar navbar-static-top bs-docs-nav navbar-fixed-tops" id="top" role="banner">
     <div class="container">
         <div class="row">
             <div class="top-head">

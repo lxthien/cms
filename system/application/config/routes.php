@@ -88,7 +88,8 @@ $route['tag/(:any)']               			= "home/tags/$1";
 $route['tag']                      			= "home/tags";
 
 // Router for search
-$route['tim-kiem/(:any)']                   = "home/searchParams";
+$route['tim-kiem']			                = "home/searchParams";
+$route['tim-kiem(:any)']                    = "home/searchParams";
 $route['search']                      		= "home/searchs";
 
 
