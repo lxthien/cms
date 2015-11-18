@@ -141,22 +141,22 @@ class Search extends MY_Controller{
         $news = new Article();
         $news->where('title_none',$title_none);
         $news->get();
-        if(!$news->exists())
+        if(!$news->exists()) {
             show_404();
+        }
         
         // links counter
-        $news->where('title_none',$title_none)->update('clicks', $news->clicks + 1);
+        $news->where('title_none', $title_none)->update('clicks', $news->clicks + 1);
         $dis['news'] = $news;
         
         $related_news = new Article();
         $related_news->where('recycle',0);
         $related_news->where('active',1);
         $related_news->where('newscatalogue_id',$news->newscatalogue_id);
-        $related_news->where("id !=",$news->id);
+        $related_news->where("id !=", $news->id);
         $related_news->order_by('created', 'DESC');
         $related_news->get_paged(0, 10, TRUE);
         $dis['related_news'] = $related_news;
-        
         
         $category = new Newscatalogue();
         $category->where(array('id' => $news->newscatalogue_id))->get();

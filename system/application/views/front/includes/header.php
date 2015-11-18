@@ -14,10 +14,9 @@
             </div>
             <nav class="collapse navbar-collapse bs-navbar-collapse menu-navigation" role="navigation">
                 <ul class="nav navbar-nav">
+                    <li><a class="alone <?php if($this->menu_active == "homepage") echo ' black_bg' ;?>" href="<?php echo $base_url; ?>">Trang chủ</a></li>
                     <?php foreach($this->menu as $rowMenu):?>
-                    <li>
-                        <a class="alone <?php if($this->menu_active == $rowMenu->active) echo ' black_bg' ;?>" href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a>
-                    </li>
+                    <li><a class="alone <?php if($this->menu_active == $rowMenu->active) echo ' black_bg' ;?>" href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a></li>
                     <?php endforeach;?>
                 </ul>
             </nav>

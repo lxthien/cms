@@ -1,4 +1,5 @@
 <div class="col-md-9 col-right">
+    
     <?php $this->load->view('front/includes/breadcrumb'); ?>
 
     <h1 class="name-cat"><?php echo $news->title_vietnamese; ?></h1>
@@ -19,6 +20,7 @@
         </div>
     </div>
     <div class="cl"></div>
+    <?php if($related_news->result_count() > 0): ?>
     <div class="news-sames">
         <h1 class="name-cat">Tin liên quan</h1>
         <div class="list-news-related">
@@ -29,4 +31,5 @@
             </ul>
         </div>
     </div>
+    <?php endif; ?>
 </div>
