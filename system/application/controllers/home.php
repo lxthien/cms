@@ -17,29 +17,9 @@ class Home extends MY_Controller
     }
    
     function GL() {
-        $news_hot = new Article();
-        $news_hot->where('recycle',0);
-        $news_hot->where('active',1);
-        $news_hot->where('newscatalogue_id', 66);
-        $news_hot->order_by('created', 'DESC');
-        $news_hot->get_iterated(3);
-        $dis['news_hot'] = $news_hot;
-
-        $news_promotions = new Article();
-        $news_promotions->where('recycle',0);
-        $news_promotions->where('active',1);
-        $news_promotions->where('newscatalogue_id', 68);
-        $news_promotions->order_by('created', 'DESC');
-        $news_promotions->get_iterated(3);
-        $dis['news_promotions'] = $news_promotions;
-
-        $news_drive_hot = new Article();
-        $news_drive_hot->where('recycle',0);
-        $news_drive_hot->where('active',1);
-        $news_drive_hot->where('newscatalogue_id', 82);
-        $news_drive_hot->order_by('created', 'DESC');
-        $news_drive_hot->get_iterated(3);
-        $dis['news_drive_hot'] = $news_drive_hot;
+        $dis['services'] = $this->getNewsHomePage(59, 5);
+        $dis['advices'] = $this->getNewsHomePage(85, 5);
+        $dis['priceLists'] = $this->getNewsHomePage(83, 5);
 
         //load view
         $dis['base_url'] = base_url();

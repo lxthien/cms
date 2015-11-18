@@ -244,7 +244,7 @@ class MY_Controller extends Controller{
         }
     }
 
-    public function getNewsHomePage($categoryID = null, $limit = 5) {
+    public function getNewsHomePage($categoryID = null, $limit = null) {
         $newsHomepage = new Article();
         $newsHomepage->where('recycle', 0);
         $newsHomepage->where('active', 1);
