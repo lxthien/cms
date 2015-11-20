@@ -26,7 +26,7 @@
         <div class="list-news-related">
             <ul>
                 <?php foreach($related_news as $row): ?>
-                <li><a href="<?=$base_url?>tin-tuc/<?=$row->title_none.'.html'?>" title="<?=$row->title_vietnamese?>" ><?=$row->title_vietnamese?></a></li>
+                <li><a href="<?php echo create_url($_row->id); ?>" title="<?=$row->title_vietnamese?>" ><?=$row->title_vietnamese?></a></li>
                 <?php endforeach ?>
             </ul>
         </div>

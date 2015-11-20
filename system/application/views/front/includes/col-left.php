@@ -6,19 +6,6 @@
         </form>
     </div>
     <div class="cl"></div>
-    <div class="col-left-comment">
-        <h2>Ý kiến khách hàng</h2>
-        <div class="list">
-            <?php foreach($this->comments as $row): ?>
-            <div class="item">
-                <img class="img-thumbnail img-customer text-left" alt="<?php echo $row->name; ?>" src="<?php echo image($row->logo, 'commment_70_70'); ?>" data-holder-rendered="true" style="width: 70px; height: 70px;">
-                <a class="text-left fl" href="javascript:void(0)"><?php echo $row->name; ?></a>
-                <p class="text-left fl"><?php echo $row->description; ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="cl"></div>
     <div class="col-left-advertsing">
         <h2>Quảng cáo</h2>
         <div class="advertsing-item">

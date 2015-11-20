@@ -31,7 +31,7 @@ a:hover, a:focus {color: #555555;}
 
 
 .navbar{margin-bottom: 0; z-index: 9999; background: #f0f0f0;}
-.bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav>li>a{padding-top: 10px; padding-bottom: 10px; text-transform: uppercase; font-weight: 600;}
+.bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav>li>a{padding-top: 10px; padding-bottom: 10px; text-transform: uppercase; font-weight: 600; color: #000000;}
 .bs-docs-nav .navbar-nav>li>a:hover, .bs-docs-nav .navbar-nav>li>a:focus{background: #ebebeb;}
 .bs-docs-nav .navbar-nav>li>a.active{background: #ebebeb;}
 
