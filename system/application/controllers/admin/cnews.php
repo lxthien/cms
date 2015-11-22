@@ -400,7 +400,7 @@ class Cnews extends MY_Controller{
     }
     
 
-    function isolate_edit($catalogue_id=0,$news_id=0)
+    function isolate_edit($catalogue_id=0, $news_id=0)
     {
         $newscatalogue=new newscatalogue($catalogue_id);
         if(!$newscatalogue->exists())
@@ -431,15 +431,13 @@ class Cnews extends MY_Controller{
             $new_image=$this->input->post('newimage');
             $news->pagi = $this->input->post('pagi');
 
-            if($_FILES['image']['name'] != "")
-            {
-                $dataupload=$this->file_lib->upload('image',$news->dir);
-                if(!is_array($dataupload))
-                {
+            $folder = 'img/news/';
+            if($_FILES['image']['name'] != "") {
+                $dataupload=$this->file_lib->upload('image', $folder);
+                if (!is_array($dataupload)) {
                     flash_message('error',$dataupload);
-                }
-                else{
-                    $news->image=$dataupload['file_name'];
+                } else {
+                    $news->image = $folder.$dataupload['file_name'];
                 }
             }
 
@@ -495,8 +493,8 @@ class Cnews extends MY_Controller{
         }
       
         $newscat = new newscatalogue();
-        $newscat->where('parentcat_id !=','NULL');
-        $newscat->where('parentcat_id',$newscatalogue->parentcat_id);
+        //$newscat->where('parentcat_id !=','NULL');
+        $newscat->where('parentcat_id', $newscatalogue->parentcat_id);
         $newscat->order_by('position','asc');
         $newscat->get();
 

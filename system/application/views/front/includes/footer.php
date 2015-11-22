@@ -40,7 +40,9 @@
             </div>
         </div>
         <div class="row footer-bottom">
-            <p class="text-right">Online <?php echo $this->hit_counter->getUsersOnlineCount();?> | Visit: <?php echo $this->hit_counter->getTotalVisitCount();?></p>
+            <div class="col-md-12">
+                <p class="text-right">Online <?php echo $this->hit_counter->getUsersOnlineCount();?> | Visit: <?php echo $this->hit_counter->getTotalVisitCount();?></p>
+            </div>
         </div>
     </div>
 </footer>

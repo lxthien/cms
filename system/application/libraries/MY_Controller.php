@@ -249,7 +249,7 @@ class MY_Controller extends Controller{
         $newsHomepage->where('recycle', 0);
         $newsHomepage->where('active', 1);
         $newsHomepage->where('newscatalogue_id', $categoryID);
-        $newsHomepage->order_by('created', 'ASC');
+        $newsHomepage->order_by('created', 'DESC');
         $newsHomepage->get_iterated($limit);
 
         return $newsHomepage;

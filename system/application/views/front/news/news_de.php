@@ -7,28 +7,18 @@
     <div class="content">
         <?php echo $news->full_vietnamese; ?>
     </div>
-    <div class="tags">
-        <span>Tag:</span>
-        <?php $i=0; foreach($tag as $k => $v): $i++;?>
-        <a href="<?=$base_url?>tag/<?=remove_vn($v).'.html'?>" target="_self"><?=$v?></a> <?php echo $i<count($tag) ? ',':''; ?>
-        <?php endforeach; ?>
-    </div>
-    <div class="share-social">
-        <span>Chia sẻ:</span>
-        <div class="social">
-            <div class="addthis_sharing_toolbox"></div>
-        </div>
-    </div>
     <div class="cl"></div>
     <?php if($related_news->result_count() > 0): ?>
-    <div class="news-sames">
-        <h1 class="name-cat">Tin liên quan</h1>
-        <div class="list-news-related">
-            <ul>
-                <?php foreach($related_news as $row): ?>
-                <li><a href="<?php echo create_url($_row->id); ?>" title="<?=$row->title_vietnamese?>" ><?=$row->title_vietnamese?></a></li>
-                <?php endforeach ?>
-            </ul>
+    <div class="row">
+        <div class="col-md-12 news-sames">
+            <h2 class="name-cat">Tin liên quan</h2>
+            <div class="list-news-related">
+                <ul>
+                    <?php foreach($related_news as $row): ?>
+                    <li><a href="<?php echo create_url($row->id); ?>" title="<?=$row->title_vietnamese?>" ><?=$row->title_vietnamese?></a></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
         </div>
     </div>
     <?php endif; ?>

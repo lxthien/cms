@@ -7,6 +7,7 @@ function gettitlenonefromlink($url)
     }
     return $arrTitle[0];
 }
+
 function create_url($id){
     $CI =& get_instance();
     $object = new Article($id);
@@ -18,13 +19,35 @@ function create_url($id){
         return base_url().$cat_01->name_none.'/'.$object->title_none.'.html';
     }
 }
+
 function get_url($url_string){
     $array_url = explode('/', $url_string);
-    if( strpos($url_string, '.html') )
+    if (strpos($url_string, '.html')) {
         return $array_url[count($array_url) - 1];
-    else
-        return $array_url[count($array_url) - 1];
+    } else {
+        $url = $array_url[count($array_url) - 1];
+        if (is_numeric($url)){
+            return $array_url[count($array_url) - 2];
+        } else {
+            return $array_url[count($array_url) - 1];
+        }
+    }
 }
+
+function get_offset($url_string){
+    $array_url = explode('/', $url_string);
+    if (strpos($url_string, '.html')) {
+        return $array_url[count($array_url) - 1];
+    } else {
+        $url = $array_url[count($array_url) - 1];
+        if (is_numeric($url)){
+            return $array_url[count($array_url) - 1];
+        } else {
+            return 1;
+        }
+    }
+}
+
 function redirect_admin()
 {
     $CI =& get_instance();
@@ -35,6 +58,7 @@ function redirect_admin()
     $redirect_link=substr($redirect_link,1,$l-1);
     redirect($redirect_link);
 }
+
 function getrealuri($st)
 {
     $l=strlen($st);

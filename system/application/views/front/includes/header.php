@@ -2,7 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="top-head">
-                <a href="<?php echo $base_url; ?>" class="navbar-brand logo-page"><img src="<?php echo $base_url.'images/assets/logo.gif'; ?>" alt=""/></a>
+                <div class="logo-sologan">
+                    <a href="<?php echo $base_url; ?>" class="navbar-brand logo-page">
+                        <img src="<?php echo $base_url.'images/assets/logo.gif'; ?>" alt=""/>
+                        <span>Niềm Tin Ngôi Nhà Việt</span>
+                    </a>
+                </div>
             </div>
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">

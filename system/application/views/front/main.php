@@ -7,6 +7,8 @@
     <div class="cl"></div>
     <?php echo $this->load->view('front/includes/slide'); ?>
     <div class="cl"></div>
+    <?php echo $this->load->view('front/includes/slogan'); ?>
+    <div class="cl"></div>
     <div class="container">
         <?php if( $this->menu_active == 'home' ): ?>
             <?php $this->load->view($view); ?>

@@ -167,7 +167,7 @@ input[type="text"] {
                             </tr>
                             <tr>
                             	<td><label>Hình đại diện<span style="color:red">*</span></label></td>
-                                <td><img src="<?=image($object->dir.$object->image,'news_160');?>" width="127" /></td>
+                                <td><img src="<?=image($object->image,'news_160');?>" width="127" /></td>
                             </tr>
                             <input type="hidden" name="imagelink" value="<?=$object->image;?>" >
                             <input type="hidden" name="dir" value="<?=$object->dir;?>" >

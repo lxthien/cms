@@ -25,7 +25,7 @@
         <tr style="cursor: pointer;" onclick="window.location.href = '<?=$this->admin_url.'cnews/isolate_edit/'.$row->newscatalogue_id.'/'.$row->id;?>' "   >
             <td widtd="6%"><div align="center"><?php echo $i;?></div></td>
             <td><div align="center"><input type="checkbox" class="checkinput" value="<?=$row->id?>" name="checkinput[]" ></div></td>
-            <td widtd="68%"><div align="center"><a href="<?=$this->admin_url.'cnews/isolate_edit/'.$row->newscatalogue_id.'/'.$row->id;?>"><img src="<?=image($row->dir.$row->image,'news_75_50');?>"  /></a></div></td>
+            <td widtd="68%"><div align="center"><a href="<?=$this->admin_url.'cnews/isolate_edit/'.$row->newscatalogue_id.'/'.$row->id;?>"><img src="<?=image($row->image,'news_75_50');?>"  /></a></div></td>
             <td widtd="68%"><a href="<?=$this->admin_url.'cnews/isolate_edit/'.$row->newscatalogue_id.'/'.$row->id;?>"><?php echo $row->title_vietnamese;?> <span style="color:#9C3">(<?=get_from_datetime($row->created);?>)</span></a></td>
            
             <td widtd="26%">

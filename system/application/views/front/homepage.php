@@ -11,7 +11,7 @@
 				<div class="td-module-image">
 	                <div class="td-module-thumb">
 	                	<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/11261691_1552663628328645_7716332463626704001_n-324x235.jpg" alt="" title="<?php echo $row->title_vietnamese; ?>">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="<?php echo image($row->image, 'news_list_large'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	                	</a>
 	                </div>
                 </div>
@@ -28,7 +28,7 @@
 				<div class="row td_module_6 td_module_wrap td-animation-stack">
 	        		<div class="col-md-4 td-module-thumb">
 	        			<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	        				<img src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="<?php echo $row->title_vietnamese; ?>">
+	        				<img src="<?php echo image($row->image, 'news_list_small'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	        			</a>
 	        		</div>
 	        		<div class="col-md-8 item-details">
@@ -59,7 +59,7 @@
 				<div class="td-module-image">
 	                <div class="td-module-thumb">
 	                	<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/11261691_1552663628328645_7716332463626704001_n-324x235.jpg" alt="" title="<?php echo $row->title_vietnamese; ?>">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="<?php echo image($row->image, 'news_list_large'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	                	</a>
 	                </div>
                 </div>
@@ -76,7 +76,7 @@
 				<div class="row td_module_6 td_module_wrap td-animation-stack">
 	        		<div class="col-md-4 td-module-thumb">
 	        			<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	        				<img src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="<?php echo $row->title_vietnamese; ?>">
+	        				<img src="<?php echo image($row->image, 'news_list_small'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	        			</a>
 	        		</div>
 	        		<div class="col-md-8 item-details">
@@ -107,7 +107,7 @@
 				<div class="td-module-image">
 	                <div class="td-module-thumb">
 	                	<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://ehomesnamlong.com/wp-content/uploads/2015/11/11261691_1552663628328645_7716332463626704001_n-324x235.jpg" alt="" title="<?php echo $row->title_vietnamese; ?>">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="<?php echo image($row->image, 'news_list_large'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	                	</a>
 	                </div>
                 </div>
@@ -124,7 +124,7 @@
 				<div class="row td_module_6 td_module_wrap td-animation-stack">
 	        		<div class="col-md-4 td-module-thumb">
 	        			<a href="<?php echo create_url($row->id); ?>" title="<?php echo $row->title_vietnamese; ?>">
-	        				<img src="http://ehomesnamlong.com/wp-content/uploads/2015/11/nha-mau-ehome3-hinh-3_142013144647-100x70.jpeg" alt="<?php echo $row->title_vietnamese; ?>">
+	        				<img src="<?php echo image($row->image, 'news_list_small'); ?>" alt="<?php echo $row->title_vietnamese; ?>">
 	        			</a>
 	        		</div>
 	        		<div class="col-md-8 item-details">

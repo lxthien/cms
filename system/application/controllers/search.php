@@ -70,49 +70,28 @@ class Search extends MY_Controller{
     * Description: get news from category
     * Return: list news for category
     */
-    public function newCategory( $cat = NULL, $offset = 0, $limit = 15 ) {
+    public function newCategory( $cat = NULL, $offset = 0, $limit = 6 ) {
         // Find offset pagination
-        if( isset($_GET['page']) ){
-            $offset = ($_GET['page'] - 1)*$limit;
-        }
+        $offset = get_offset($this->uri->uri_string);
         
         $category = new Newscatalogue();
         $category->where(array('name_none' => $cat))->get();
         if(!$category->exists()){
             show_404();
         }
-
-        $cat = $category->id;
-        $dis['cat_id'] = $category->id;
-        $dis['cat_name'] = $category->{'name_vietnamese'};
-        $dis['name_none'] = $category->name_none;
+        $dis['category'] = $category;
         
         //Category news
         $cat_news = new Article();
-        $cat_news->where(array('recycle'=>0));
-        $cat_news->where('active',1);
-        $cat_news->where('newscatalogue_id', $cat);
+        $cat_news->where(array('recycle'=>0, 'active'=>1));
+        $cat_news->where('newscatalogue_id', $category->id);
         $cat_news->order_by('created','desc');
         $cat_news->get_paged($offset, $limit, TRUE);
         $dis['cat_news'] = $cat_news;
 
         // Pagination
-        setPaginationVb('tin-tuc/'.gen_seo_url($dis['cat_name']), $cat_news->paged->total_rows, $limit, 2);
-        
-        //DDV news
-        $ddv_news = new Article();
-        $ddv_news->where('recycle',0);
-        $ddv_news->where('active',1);
-        $ddv_news->where('newscatalogue_id',59);
-        $ddv_news->order_by('created', 'DESC');
-        $ddv_news->get_paged(0,4,TRUE);
-        $dis['ddv_news'] = $ddv_news;
-        
-        $cat_ddv = new Newscatalogue();
-        $cat_ddv->where(array('id' => 59))->get();
-        $dis['cat_ddv'] = $cat_ddv->name_vietnamese;
-        $dis['cat_ddv_none'] = $cat_ddv->name_none;
-        
+        setPaginationVb(gen_seo_url($category->name_none), $cat_news->paged->total_rows, $limit, 2);
+              
         //link counter
         $links_counter = new Article();
         $links_counter->where('recycle',0);
