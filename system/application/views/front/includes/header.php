@@ -8,6 +8,16 @@
                         <span>Niềm Tin Ngôi Nhà Việt</span>
                     </a>
                 </div>
+                <div class="company">
+                    <p class="first">CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ - XÂY DỰNG PHỐ VIỆT</p>
+                    <p>Số 52/21, Đường 15, KP.9, P.Bình Hưng Hòa, Q.Bình Tân, TP.HCM</p>
+                    <p>Email: xaynhaphoviet@gmail.com</p>
+                    <p>Website: www.xaynhaphoviet.com</p>
+                </div>
+                <div class="hotline">
+                    <img src="<?php echo $base_url.'images/assets/icon-phone.gif'; ?>"><br />
+                    <span>0903.931.595 A.Tý</span>
+                </div>
             </div>
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">

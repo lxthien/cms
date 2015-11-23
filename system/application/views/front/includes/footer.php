@@ -5,11 +5,10 @@
                 <h5 class="text-uppercase text-left" style="font-size: 15px; font-weight: 600;">Công ty TNHH Thương Mại - Dịch vụ - Xây Dựng Phố Việt</h5>
                 <p class="text-uppercase text-left">Văn phòng giao dịch</p>
                 <p class="text-left">Số 52/21 Đường số 15, Khu phố 9 - Phường Bình Hưng Hòa - Quận Bình Tân - TP. Hồ Chí Minh</p>
-                <p class="text-left">Di Động: 0909.354.942</p>
-                <p class="text-left">Điện Thoại: 08.3767.1260</p>
+                <p class="text-left">Di Động: 0903.931.595</p>
                 <p class="text-left">Mã Số Thuế: 031.324.05.07</p>
-                <p class="text-left">EMAIL: xaydungphoviethcm@gmail.com</p>
-                <p class="text-left">WEBSITE: www.xaydungphoviet.vn</p>
+                <p class="text-left">EMAIL: xaynhaphoviet@gmail.com</p>
+                <p class="text-left">WEBSITE: www.xaynhaphoviet.com</p>
             </div>
             <div class="col-md-3 footer-services">
                 <h4 class="text-uppercase text-left">Dịch vụ</h4>
