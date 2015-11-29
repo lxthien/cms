@@ -51,7 +51,14 @@ class Search extends MY_Controller{
                     }
                 }else
                 { 
-                   $this->test();
+                   // Set action for news.
+                    if( strpos($this->uri->uri_string, '.html') ){
+                        $title_none = gettitlenonefromlink(get_url($this->uri->uri_string));
+                        $this->newsDetail($title_none);
+                    }else{
+                        $cat = get_url($this->uri->uri_string);
+                        $this->newCategory($cat);
+                    }
                 }
             }
         } else {
@@ -857,9 +864,9 @@ class Search extends MY_Controller{
         $this->pagination->initialize($config);      
         
         if($viewMode == 'ma-tran')
-            $dis['view']='product/product_grid';
+            $dis['view']='front/product/product_grid';
         else
-            $dis['view']='product/product_list';
+            $dis['view']='front/product/product_list';
                  
         
         $productSaleOff = new product();

@@ -1,50 +1,47 @@
-<div class="row partner-home">
-    <div class="col-md-12 top-partner">
-        <h2 class="title title-news-hot">Đối tác</h2>
-        <div class="nav-partner">
-            <a href="javascript:void(0)" id="partner-prev" class="icon-prev"></a>
-            <a href="javascript:void(0)" id="partner-next" class="icon-next"></a>
-        </div>
-    </div>
-    <div class="cl"></div>
-    <div class="col-md-12 slide-partner">
-        <ul class="ul-partner-home">
-            <li>
-                <a href=""><img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner.jpg' ?>" alt=""/></a>
-            </li>
-            <li>
-                <a href=""><img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-01.jpg' ?>" alt=""/></a>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-02.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-03.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-04.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-05.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-01.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-02.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-03.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-04.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-05.jpg' ?>" alt=""/>
-            </li>
-        </ul>
-    </div>
-</div>
+<br class="clear"/>
+            <script type="text/javascript" language="javascript">
+                $(function () {
+                    // Croll images
+                    $("#partners").jCarouselLite({
+                        btnNext: ".nextPartner",
+                        btnPrev: ".prevPartner",
+                        visible: 5,
+                        circular: true,
+                        speed: 1500,
+                        auto: 1500
+                    });
+
+                });
+            </script>
+
+            <div class="prevPartner"><a href="javascript:void(0)"><strong><img
+                    src="http://dienlanhtheviet.com.vn/assets/shared/icons/back.png" alt="back" title=""/></strong></a></div>
+            <div class="nextPartner"><a href="javascript:void(0)"><strong><img
+                    src="http://dienlanhtheviet.com.vn/assets/shared/icons/next.png" alt="next" title=""/></strong></a></div>
+            <!--br class="clear"/-->
+            <div class="partners" id="partners">
+                <!--marquee scrollamount="4" onmousemove="javascript:stop();" onmouseout="javascript:start();"-->
+                <ul>
+                    <li><span><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-lanh.html" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/4dbe5179bdbfb4274cca2bd15108f2ea.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+                    <li><span><a href="http://dienlanhtheviet.com.vn/dich-vu/bao-tri-ve-sinh-may-lanh.html" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/2cc333d43e9abfc43aed458c36f4274b.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+                    <li><span><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-tu-lanh.html" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/db12f76e270e903a7dc4f4b3cce1e566.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+                    <li><span><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-giat.html" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/3cb697128b2a1ca1ab67e956fd7ed58e.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+                    <li><span><a href="http://dienlanhtheviet.com.vn" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/76d28fcd186382e7531c9160ead68449.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+                    <li><span><a href="http://dienlanhtheviet.com.vn" target="_blank"><img
+                            src="http://dienlanhtheviet.com.vn/uploads/partner/47402b3fb70e70522cbd8cfa7fcede52.jpeg" width="193"
+                            height="95" alt=""/></a></span></li>
+
+                </ul>
+                <!--/marquee-->
+                <br class="clear"/>
+            </div>
