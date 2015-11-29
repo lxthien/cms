@@ -237,3 +237,10 @@ ul.ul-partner-home li img{padding: 0;border-width: 3px;border-radius: 0;width: 1
 .footer-top .footer-services ul, .footer-top .footer-tag ul{padding: 0px;}
 .footer-top .footer-services ul li a, .footer-top .footer-tag ul li a{color: #1f1f1f;}
 .bs-docs-footer p{color: #000000;}
+
+
+/**
+ * Form contact
+ **/
+.form-contact{padding-top: 15px; padding-bottom: 15px;}
+.form-contact .block{margin-top: 5px; margin-bottom: 5px;}

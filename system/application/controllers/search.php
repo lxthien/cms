@@ -149,6 +149,11 @@ class Search extends MY_Controller{
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         $dis['base_url'] = base_url();
         $dis['view'] = 'front/news/news_de';
+
+        if($title_none == 'lien-he'){
+            $dis['view']='front/contact';
+        }
+
         $this->viewfront($dis) ;
     }
     

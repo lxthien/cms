@@ -431,6 +431,10 @@ class Cnews extends MY_Controller{
             $new_image=$this->input->post('newimage');
             $news->pagi = $this->input->post('pagi');
 
+            $tags = remove_vn($this->input->post('title_vietnamese') . ' ' . $this->input->post('title_english') .' '. $this->input->post('tag_vietnamese'). ' ' . $this->input->post('tag_english'). ' ' . $this->input->post('keyword_vietnamese'). ' ' . $this->input->post('keyword_english'));
+            $tags = explode('-', $tags);
+            $news->tag_search = implode(' ', $tags);
+
             $folder = 'img/news/';
             if($_FILES['image']['name'] != "") {
                 $dataupload=$this->file_lib->upload('image', $folder);
@@ -442,52 +446,38 @@ class Cnews extends MY_Controller{
             }
 
             //newstopic
-            $newstp=new newstopic($this->input->post('newstopic'));
-            $newsc=new newscatalogue($this->input->post('newscatalogue'));
+            $newstp = new newstopic($this->input->post('newstopic'));
+            $newsc = new newscatalogue($this->input->post('newscatalogue'));
             $isnews = $news->exists();
-            if(!$news->exists())
-            {
+            if(!$news->exists()) {
                 $news->active=1;
             }
-            if($news->save(array($newsc,$newstp)))
-            {
+
+            if($news->save(array($newsc,$newstp))) {
                 $this->session->unset_userdata('dir_for_news');
-                if($isnews)
-                {
+                if($isnews) {
                     flash_message("success","Cập nhật thành công");
-                }
-                else
-                {
+                } else {
                     flash_message("success","Thêm mới thành công");
                 }
-                if($news->navigation != "")
-                {
+
+                if($news->navigation != "") {
                     $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>$newscatalogue->navigation));
-                    if(empty($newscatalogue->menu_active))
-                    {
+                    if(empty($newscatalogue->menu_active)) {
                         $dis['menu_active'] = "Tin";
-                    }
-                    else
-                    {
+                    } else {
                         $dis['menu_active'] = $newscatalogue->menu_active;
                     }
-                }
-                else
-                {
+                } else {
                     $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>$news->navigation));
-                    if(empty($newscatalogue->menu_active))
-                    {
+                    if(empty($newscatalogue->menu_active)) {
                         $dis['menu_active'] = "Tin";
-                    }
-                    else
-                    {
+                    } else {
                         $dis['menu_active'] = $news->title_vietnamese;
                     }
                 }
                 redirect($this->admin.'cnews/isolate_edit/'.$news->newscatalogue->id.'/'.$news->id);
-            }
-            else
-            {
+            } else {
                 flash_message("error","Lỗi");
             }
         }
@@ -498,11 +488,11 @@ class Cnews extends MY_Controller{
         $newscat->order_by('position','asc');
         $newscat->get();
 
-        $newstopic=new newstopic();
+        $newstopic = new newstopic();
         $newstopic->order_by('id','desc');
         $newstopic->get();
 
-        $sitelanguage=new Sitelanguage();
+        $sitelanguage = new Sitelanguage();
         $sitelanguage->order_by('position','asc');
         $sitelanguage->get();
 
@@ -514,12 +504,9 @@ class Cnews extends MY_Controller{
         $dis['title']="Thêm/ Sửa tin tức";
         $dis['menu_active']="Tin";
         
-        if($catalogue_id == 39)
-        {
+        if($catalogue_id == 39) {
             $dis['view'] = "news/isolate_full_hirarchy_edit";
-        }
-        else
-        {
+        } else {
             $dis['view']="news/isolate_edit";
         }
 
