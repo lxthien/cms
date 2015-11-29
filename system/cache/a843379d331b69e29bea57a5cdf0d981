@@ -1,0 +1,469 @@
+1448381083TS---><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Xây Nhà Phố Việt</title>
+    <meta name="description" content="Xây Nhà Phố Việt" />
+    <meta name="keywords" content="Xây Nhà Phố Việt" />
+    <meta name="language" content="vietnamese" />
+        <meta name="ROBOTS" content="INDEX,FOLLOW" />
+        <link rel="canonical" href="" />
+	
+		<meta property="og:site_name" content="dichvusuanhadandung.com" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://xaynhaphoviet.com/images/boostrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="http://xaynhaphoviet.com/images/boostrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <link href="http://xaynhaphoviet.com/images/boostrap/css/docs.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://xaynhaphoviet.com/images/boostrap/css/styles.css" rel="stylesheet">
+
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="http://xaynhaphoviet.com/images/css/revolution/style.css" media="screen" />
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="http://xaynhaphoviet.com/images/css/revolution/extralayers.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://xaynhaphoviet.com/images/css/revolution/settings.css" media="screen" />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="http://xaynhaphoviet.com/images/boostrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://xaynhaphoviet.com/images/boostrap/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="http://xaynhaphoviet.com/images/css/flexslider/flexslider.css" type="text/css" media="screen" />
+
+</head>
+<body role="document">
+    <header class="navbar navbar-static-top bs-docs-nav navbar-fixed-tops" id="top" role="banner">
+    <div class="container">
+        <div class="row">
+            <div class="top-head">
+                <div class="logo-sologan">
+                    <a href="http://xaynhaphoviet.com/" class="navbar-brand logo-page">
+                        <img src="http://xaynhaphoviet.com/images/assets/logo.gif" alt=""/>
+                        <span>Niềm Tin Ngôi Nhà Việt</span>
+                    </a>
+                </div>
+                <div class="company">
+                    <p class="first">CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ - XÂY DỰNG PHỐ VIỆT</p>
+                    <p>Số 52/21, Đường 15, KP.9, P.Bình Hưng Hòa, Q.Bình Tân, TP.HCM</p>
+                    <p>Email: xaynhaphoviet@gmail.com</p>
+                    <p>Website: www.xaynhaphoviet.com</p>
+                </div>
+                <div class="hotline">
+                    <img src="http://xaynhaphoviet.com/images/assets/icon-phone.gif"><br />
+                    <span>0903.931.595 A.Tý</span>
+                </div>
+            </div>
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>        
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse menu-navigation" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a class="alone  black_bg" href="http://xaynhaphoviet.com/">Trang chủ</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/gioi-thieu.html">Giới thiệu</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/dich-vu">Dịch vụ</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/du-an">Dự án</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/bang-gia">Bảng giá</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/tin-tuc">Tin tức</a></li>
+                                        <li><a class="alone " href="http://xaynhaphoviet.com/lien-he.html">Liên hệ</a></li>
+                                    </ul>
+            </nav>
+        </div>
+    </div>
+</header>    <div class="cl"></div>
+    <div class="slider container">
+    <div class="row">
+        <div class="tp-banner">
+            <ul>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/SLIDER-38-1030x400.jpg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/SLIDER-8-1030x400.jpg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/Ford_Fiesta-1030x400.jpeg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/Ford_Focus-1030x400.jpeg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/Ford_Ranger-1030x400.jpeg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="http://xaynhaphoviet.com/images/slider/homeslider_thumb1.jpg"
+                    data-saveperformance="on" data-title="Intro Slide">
+                    <img src="http://xaynhaphoviet.com/images/slider/dummy.png" alt="" data-lazyload="http://xaynhaphoviet.com/media/img/banner/Ford_Transit-1030x400.jpeg" data-bgposition="center top"
+                         data-bgfit="cover" data-bgrepeat="no-repeat">
+                </li>
+                            </ul>
+        </div>
+    </div>
+</div>    <div class="cl"></div>
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12 slogan">
+		    <marquee scrolldelay="50" scrollamount="3" onmouseout="this.start()" onmouseover="this.stop()">
+		        <span><a href="http://xaynhaphoviet.com/" title="sua nha">http://xaynhaphoviet.com</a> - Sửa nhà, sửa chữa nhà, sửa chữa nhà tại Tp Hồ Chí Minh, sửa chữa nhà dân dụng, sửa nhà cấp 4, sửa quán cafe, cải tạo nhà cũ, dịch vụ sơn nhà, dich vụ quét vôi tường. Hotline: 0973.52.52.17 - A. Minh. Email: ldminh1988@gmail.com</span>
+		    </marquee>
+		</div>
+	</div>
+</div>    <div class="cl"></div>
+    <div class="container">
+                    <div class="row" id="wrapper">
+                <div class="col-md-9">
+		<div class="row">
+		<div class="row-homepage service-home">
+			<div class="col-md-12 title-server-home">
+				<h3>Dịch vụ</h3>
+			</div>
+									<div class="col-md-6">
+				<div class="td-module-image">
+	                <div class="td-module-thumb">
+	                	<a href="http://xaynhaphoviet.com/dich-vu/sua-chua-nha-cap-4.html" title="Sửa chữa nhà cấp 4">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://xaynhaphoviet.com/media/img/news/phong-khach-2-356x258.jpg" alt="Sửa chữa nhà cấp 4">
+	                	</a>
+	                </div>
+                </div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a href="http://xaynhaphoviet.com/dich-vu/sua-chua-nha-cap-4.html" title="Sửa chữa nhà cấp 4">Sửa chữa nhà cấp 4</a>
+            	</h4>
+	            <div class="td-excerpt">Saigon Ford - Phổ Quang: Mua lại xe ôtô cũ - đã qua sử dụng với giá cao của tất cả các hãng Ford, Toyota, Honda, Mazda, Chevrolet, Hyundai, Kia... Lh: 0936.135.135 - Minh Hà để được hỗ trợ tốt nhất</div>
+			</div>
+												<div class="col-md-6">
+																<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/dich-vu/thiet-ke-xay-dung-nha-quan-1.html" title="Thiết kế, xây dựng nhà quận 1">
+	        				<img src="http://xaynhaphoviet.com/media/img/news/11-100x70.jpg" alt="Thiết kế, xây dựng nhà quận 1">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/dich-vu/thiet-ke-xay-dung-nha-quan-1.html" title="Thiết kế, xây dựng nhà quận 1">Thiết kế, xây dựng nhà quận 1</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 15/01/2013</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+												<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/dich-vu/sua-chua-nha-pho-ho-chi-minh.html" title="Sửa chữa nhà phố Hồ Chí Minh">
+	        				<img src="http://xaynhaphoviet.com/media/img/news/51-100x70.jpg" alt="Sửa chữa nhà phố Hồ Chí Minh">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/dich-vu/sua-chua-nha-pho-ho-chi-minh.html" title="Sửa chữa nhà phố Hồ Chí Minh">Sửa chữa nhà phố Hồ Chí Minh</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 14/01/2013</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+							</div>
+		</div>
+	</div>
+			<div class="row">
+		<div class="row-homepage advices-home">
+			<div class="col-md-12 advices-home">
+				<h3>Tư vấn</h3>
+			</div>
+									<div class="col-md-6">
+				<div class="td-module-image">
+	                <div class="td-module-thumb">
+	                	<a href="http://xaynhaphoviet.com/tu-van/xay-nha-hop-phong-thuy.html" title="Xây nhà hợp phong thủy">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://xaynhaphoviet.com/media/img/news/phong-ngu-3-356x258.jpg" alt="Xây nhà hợp phong thủy">
+	                	</a>
+	                </div>
+                </div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a href="http://xaynhaphoviet.com/tu-van/xay-nha-hop-phong-thuy.html" title="Xây nhà hợp phong thủy">Xây nhà hợp phong thủy</a>
+            	</h4>
+	            <div class="td-excerpt">Xây nhà hợp phong thủy</div>
+			</div>
+												<div class="col-md-6">
+																<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/tu-van/hoi-dong-quan-tri.html" title="Hội đồng quản trị">
+	        				<img src="http://xaynhaphoviet.com/media/./logo-moi2-100x70.jpg" alt="Hội đồng quản trị">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/tu-van/hoi-dong-quan-tri.html" title="Hội đồng quản trị">Hội đồng quản trị</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 02/06/2012</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+												<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/tu-van/bao-cao-tai-chinh.html" title="Báo cáo tài chính">
+	        				<img src="http://xaynhaphoviet.com/media/img/default/no-img-100x70.gif" alt="Báo cáo tài chính">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/tu-van/bao-cao-tai-chinh.html" title="Báo cáo tài chính">Báo cáo tài chính</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 02/06/2012</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+												<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/tu-van/chon-huong-lam-nha-phu-hop-theo-tuoi.html" title="Chọn hướng làm nhà phù hợp theo tuổi">
+	        				<img src="http://xaynhaphoviet.com/media/img/news/31-100x70.jpg" alt="Chọn hướng làm nhà phù hợp theo tuổi">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/tu-van/chon-huong-lam-nha-phu-hop-theo-tuoi.html" title="Chọn hướng làm nhà phù hợp theo tuổi">Chọn hướng làm nhà phù hợp theo tuổi</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 22/05/2012</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+							</div>
+		</div>
+	</div>
+			<div class="row">
+		<div class="row-homepage price-list-home">
+			<div class="col-md-12 price-list-home">
+				<h3>Bảng giá</h3>
+			</div>
+									<div class="col-md-6">
+				<div class="td-module-image">
+	                <div class="td-module-thumb">
+	                	<a href="http://xaynhaphoviet.com/bang-gia/bang-gia-xay-to-cong-trinh.html" title="Bảng giá xây tô công trình">
+	                		<img class="entry-thumb td-animation-stack-type0-2" src="http://xaynhaphoviet.com/media/img/news/phong-bep-4-356x258.jpg" alt="Bảng giá xây tô công trình">
+	                	</a>
+	                </div>
+                </div>
+            	<h4 itemprop="name" class="entry-title td-module-title">
+            		<a href="http://xaynhaphoviet.com/bang-gia/bang-gia-xay-to-cong-trinh.html" title="Bảng giá xây tô công trình">Bảng giá xây tô công trình</a>
+            	</h4>
+	            <div class="td-excerpt">Bảng giá xây tô công trình</div>
+			</div>
+												<div class="col-md-6">
+																<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/bang-gia/ford-viet-nam.html" title="Ford Việt Nam">
+	        				<img src="http://xaynhaphoviet.com/media/./ford_711-100x70.jpg" alt="Ford Việt Nam">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/bang-gia/ford-viet-nam.html" title="Ford Việt Nam">Ford Việt Nam</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 31/10/2014</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+												<div class="row td_module_6 td_module_wrap td-animation-stack">
+	        		<div class="col-md-4 td-module-thumb">
+	        			<a href="http://xaynhaphoviet.com/bang-gia/bang-bao-gia-xay-dung-phan-tho.html" title="Bảng báo giá xây dựng phần thô">
+	        				<img src="http://xaynhaphoviet.com/media/img/news/1-100x70.jpg" alt="Bảng báo giá xây dựng phần thô">
+	        			</a>
+	        		</div>
+	        		<div class="col-md-8 item-details">
+		            	<h5 class="entry-title td-module-title">
+		            		<a href="http://xaynhaphoviet.com/bang-gia/bang-bao-gia-xay-dung-phan-tho.html" title="Bảng báo giá xây dựng phần thô">Bảng báo giá xây dựng phần thô</a>
+		            	</h5>
+		            	<div class="td-module-meta-info">
+			                <div class="td-post-date">
+			                	<span>Ngày tạo: 31/10/2014</span>
+			                </div>
+		                </div>
+		            </div>
+        		</div>
+							</div>
+		</div>
+	</div>
+	</div>                <div class="col-md-3 hidden-xs hidden-sm col-left">
+    <div class="form-search">
+        <form action="http://xaynhaphoviet.com/search" method="post">
+            <input type="text" name="value" placeholder="Tìm kiếm"/>
+            <input type="submit" value=""/>
+        </form>
+    </div>
+    <div class="cl"></div>
+    <div class="col-left-advertsing">
+        <h2>Quảng cáo</h2>
+        <div class="advertsing-item">
+            <a href=""><img src="http://xaynhaphoviet.com/images/assets/advertsing.jpg" alt=""/></a>
+        </div>
+        <div class="advertsing-item">
+            <a href=""><img src="http://xaynhaphoviet.com/images/assets/advertsing-2.jpg" alt=""/></a>
+        </div>
+        <div class="advertsing-item">
+            <a href=""><img src="http://xaynhaphoviet.com/images/assets/advertsing-3.jpg" alt=""/></a>
+        </div>
+        <div class="advertsing-item">
+            <a href=""><img src="http://xaynhaphoviet.com/images/assets/advertsing-4.jpg" alt=""/></a>
+        </div>
+    </div>
+</div>            </div>
+                <div class="cl"></div>
+        <div class="row partner-home">
+    <div class="col-md-12 top-partner">
+        <h2 class="title title-news-hot">Đối tác</h2>
+        <div class="nav-partner">
+            <a href="javascript:void(0)" id="partner-prev" class="icon-prev"></a>
+            <a href="javascript:void(0)" id="partner-next" class="icon-next"></a>
+        </div>
+    </div>
+    <div class="cl"></div>
+    <div class="col-md-12 slide-partner">
+        <ul class="ul-partner-home">
+            <li>
+                <a href=""><img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner.jpg" alt=""/></a>
+            </li>
+            <li>
+                <a href=""><img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-01.jpg" alt=""/></a>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-02.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-03.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-04.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-05.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-01.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-02.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-03.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-04.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img-thumbnail" src="http://xaynhaphoviet.com/images/assets/partner-05.jpg" alt=""/>
+            </li>
+        </ul>
+    </div>
+</div>    </div>
+    <div class="cl"></div>
+    <footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <div class="row footer-top">
+            <div class="col-md-6">
+                <h5 class="text-uppercase text-left" style="font-size: 15px; font-weight: 600;">Công ty TNHH Thương Mại - Dịch vụ - Xây Dựng Phố Việt</h5>
+                <p class="text-uppercase text-left">Văn phòng giao dịch</p>
+                <p class="text-left">Số 52/21 Đường số 15, Khu phố 9 - Phường Bình Hưng Hòa - Quận Bình Tân - TP. Hồ Chí Minh</p>
+                <p class="text-left">Di Động: 0903.931.595</p>
+                <p class="text-left">Mã Số Thuế: 031.324.05.07</p>
+                <p class="text-left">EMAIL: xaynhaphoviet@gmail.com</p>
+                <p class="text-left">WEBSITE: www.xaynhaphoviet.com</p>
+            </div>
+            <div class="col-md-3 footer-services">
+                <h4 class="text-uppercase text-left">Dịch vụ</h4>
+                <ul>
+                                    </ul>
+            </div>
+            <div class="col-md-3 footer-tag">
+                <h4 class="text-uppercase text-left">Tag</h4>
+                <ul>
+                    <li><a title=" permalink to xay nha dep pages" href="http://xaynhaphoviet.com/tag/xay-nha-dep.html">Xây nhà đẹp</a></li>
+                    <li><a title=" permalink to xay nha 2013 pages" href="http://xaynhaphoviet.com/tag/xay-nha-2013.html">Xây nhà 2013</a></li>
+                    <li><a title=" permalink to xay nha  pages" href="http://xaynhaphoviet.com/tag/xay-nha.html">Xây nhà</a>, <a href="http://xaynhathienan.com/dich-vu/xay-lap-va-sua-chua/xay-dung-nha-khung-nha-thep-chuyen-nghiep.html" title="permalink to nha thep  pages">nha thep</a></li>
+                    <li><a title=" permalink to thu tuc xay nha pages" href="http://xaynhaphoviet.com/tag/thu-tuc-xay-nha.html">Thủ tục xây nhà</a></li>
+                    <li><a title=" permalink to giay phep xay nha pages" href="http://xaynhaphoviet.com/tag/giay-phep-xay-nha.html">Giấy phép xây nhà</a></li>
+                    <li><a title=" permalink to thiet ke nha dep pages" href="http://xaynhaphoviet.com/tag/thiet-ke-nha-dep.html">Thiết kế nhà đẹp</a></li>
+                    <li><a title=" permalink to khung nha thep pages" href="http://xaynhaphoviet.com/dich-vu/xay-lap-va-sua-chua/xay-dung-nha-khung-nha-thep-chuyen-nghiep.html">Khung Nha Thep</a></li>
+                    <li><a title=" permalink to tu van xay nha pages" href="http://xaynhaphoviet.com/tag/tu-van-xay-nha.html">Tư vấn xây nhà</a></li>
+                    <li><a title=" permalink to xay nha gia re pages" href="http://xaynhaphoviet.com/tag/xay-nha-gia-re.html">Xây nhà giá rẻ</a></li>
+                    <li><a title=" permalink to thiet ke nha dep pages" href="http://xaynhaphoviet.com/dich-vu/thiet-ke">Thiet ke nha dep</a></li>
+                    <li><a href="http://xaynhaphoviet.com/dich-vu/son-nuoc" title="dich vu son nuoc">dich vu son nuoc</a></li>
+                    <li><a href="http://xaynhaphoviet.com/dich-vu/tran-vach-thach-cao" title="tran thach cao">tran thach cao</a></li>
+                    <li><a href="http://xaynhaphoviet.com/dich-vu/tran-vach-thach-cao" title="vach thach cao">vach thach cao</a></li>
+                    <li><a href="http://xaynhaphoviet.com/tag/nha-thep.html" title="permalink to nha thep  pages">nha thep</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row footer-bottom">
+            <div class="col-md-12">
+                <p class="text-right">Online 4 | Visit: 33</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://xaynhaphoviet.com/images/js/jquery.min.js"></script>
+<script src="http://xaynhaphoviet.com/images/boostrap/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="http://xaynhaphoviet.com/images/boostrap/js/ie10-viewport-bug-workaround.js"></script>
+
+<!--jQuery caroufredsel-->
+<script src="http://xaynhaphoviet.com/images/js/jquery.carouFredSel-5.6.4-packed.js"></script>
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="http://xaynhaphoviet.com/images/js/revolution/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="http://xaynhaphoviet.com/images/js/revolution/jquery.themepunch.revolution.min.js"></script>
+
+<!-- FlexSlider -->
+<script defer src="http://xaynhaphoviet.com/images/js/flexslider/jquery.flexslider.js"></script>
+
+<!-- Jquery to validator -->
+<script type="text/javascript" src="http://xaynhaphoviet.com/images/js/jquery.validate.min.js"></script>
+
+<!--Main jquery site app.js-->
+<script src="http://xaynhaphoviet.com/images/js/app.js"></script></body>
+</html>

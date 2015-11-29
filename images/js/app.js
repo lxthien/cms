@@ -28,7 +28,7 @@ $(document).ready(function(){
     /**
      * Jquery to run caroufredsel project hot
      */
-    $('ul.ul-project-hot').carouFredSel({
+    /*$('ul.ul-project-hot').carouFredSel({
         responsive: true,
         width: '100%',
         height: '140',
@@ -47,12 +47,12 @@ $(document).ready(function(){
                 max: 5
             }
         }
-    });
+    });*/
 
     /**
      * Jquery to run caroufredsel for customer
      */
-    $('ul.ul-comment-customer').carouFredSel({
+    /*$('ul.ul-comment-customer').carouFredSel({
         responsive: true,
         width: '100%',
         auto: false,
@@ -70,12 +70,12 @@ $(document).ready(function(){
                 max: 1
             }
         }
-    });
+    });*/
 
     /**
      * Jquery to run caroufredsel for news homepage
      */
-    $('ul.ul-news-home').carouFredSel({
+    /*$('ul.ul-news-home').carouFredSel({
         responsive: true,
         width: '100%',
         auto: false,
@@ -93,7 +93,7 @@ $(document).ready(function(){
                 max: 1
             }
         }
-    });
+    });*/
 
     /**
      * Jquery to run caroufredsel for banner

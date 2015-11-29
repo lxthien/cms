@@ -16,7 +16,10 @@ function create_url($id){
         $cat_02 = new Newscatalogue($cat_01->parentcat_id);
         return base_url().$cat_02->name_none.'/'.$cat_01->name_none.'/'.$object->title_none.'.html';
     }else{
-        return base_url().$cat_01->name_none.'/'.$object->title_none.'.html';
+        if ($cat_01->isSystem == false)
+            return base_url().$cat_01->name_none.'/'.$object->title_none.'.html';
+        else
+            return base_url().$object->title_none.'.html';
     }
 }
 

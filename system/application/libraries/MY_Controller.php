@@ -330,11 +330,12 @@ class MY_Controller extends Controller{
 
 
     function viewfront($data) {
-        //$this->isCache = false;
-        /*if($this->isCache)
-        {
-            $this->output->cache(1440);
-        }*/
+        //$this->isCache = true;
+        //if($this->isCache)
+        //{
+            //$this->output->cache(1440);
+        //}
+        
         $this->load->view('front/main', $data);
     }
 

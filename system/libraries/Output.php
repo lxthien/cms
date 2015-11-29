@@ -350,6 +350,7 @@ class CI_Output {
 			
 		if ( ! is_dir($cache_path) OR ! is_really_writable($cache_path))
 		{
+			echo 1; die;
 			return FALSE;
 		}
 		

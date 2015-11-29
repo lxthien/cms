@@ -40,8 +40,7 @@ class Home extends MY_Controller
     function messageBox()
     {
         $dis['base_url'] = base_url();
-        $this->load->view('front/includes/contactBox',$dis);
-        //exit;
+        $this->load->view('front/includes/contactBox', $dis);
     }    
 	
 	
@@ -50,12 +49,13 @@ class Home extends MY_Controller
 
         $tags = explode('-', $title);
         $title = implode(' ', $tags);
+        $dis['q'] = $title;
 
         $news = new Article();
         $news->group_start();
+        $news->like('title_vietnamese', '%'.$title.'%');
         $news->like('tag_search', '%'.$title.'%');
-        $news->where(array('recycle'=>0));
-        $news->where_not_in('id', array(397, 9, 66));
+        $news->where(array('recycle'=>0, 'active'=>1));
         $news->order_by('created','desc');
         $news->group_end();
         $news->get();
@@ -67,8 +67,6 @@ class Home extends MY_Controller
         $this->page_description = "Có ".$news->result_count()." kết quả tìm kiếm với từ khóa ".$title .' | '.$this->page_description;
         $this->page_keyword = $this->page_keyword;
 
-        $this->menu_active = "home1-function";
-        $this->column = 2;
         $dis['base_url']=base_url();
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         $dis['view']='front/tags';
@@ -79,36 +77,33 @@ class Home extends MY_Controller
 
     function searchs(){
         $value = $this->input->post('value');
-        redirect(base_url().'tim-kiem/?value='.urldecode($value));
+        redirect(base_url().'tim-kiem/?q='.urldecode($value));
     }
 
 
     function searchParams(){
         parse_str(array_pop(explode('?', $_SERVER['REQUEST_URI'], 2)), $_GET);
 
-        $value = $_GET['value'];
+        $value = $_GET['q'];
+        $dis['q'] = $value;
 
         $news = new Article();
         $news->group_start();
         $news->like('title_vietnamese', '%'.$value.'%');
         $news->like('tag_search', '%'.$value.'%');
-        $news->where(array('recycle'=>0));
-        $news->where_not_in('id', array(9, 367, 397));
+        $news->where(array('recycle' => 0, 'active' => 1));
+        //$news->where_not_in('id', array(9, 367, 397));
         $news->group_end();
         $news->get();
         $dis['news'] = $news;
-
 
         // seo
         $this->page_title = $value.' | '.$this->page_title;
         $this->page_description = "Có ".$news->result_count()." kết quả tìm kiếm với từ khóa ".$value .' | '.$this->page_description;
         $this->page_keyword = $this->page_keyword;
 
-        $this->column = 2;
         $dis['base_url'] = base_url();
-        $dis['value'] = $value;
-        $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
-        $dis['view'] = 'front/search';
+        $dis['view'] = 'front/searchpage';
 
         $this->viewfront($dis);
     }
