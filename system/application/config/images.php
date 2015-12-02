@@ -58,6 +58,7 @@ $config["image_sizes"]["news_hot"] = array(60,60);
 $config["image_sizes"]["news_list"] = array(120,120);
 $config["image_sizes"]["news_list_large"] = array(356,258);
 $config["image_sizes"]["news_list_small"] = array(100,70);
+$config["image_sizes"]["news_130_100"] = array(130,100);
 
 $config["image_sizes"]["product_list"] = array(214,135);
 $config["image_sizes"]["product_slide"] = array(485,250);

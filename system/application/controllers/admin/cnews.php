@@ -28,14 +28,15 @@ class Cnews extends MY_Controller{
      * @param integer $limit
      * @return
      */
-    function list_all($offset=0,$limit=5)
+    function list_all($offset=0, $limit=50)
     {      
-        $news=new article();
-        $news->where(array('recycle'=>0));
-        $news->where_related_newscatalogue('group',1);
+        $news = new article();
+        $news->where(array('recycle'=>0,'active'=>1));
         $news->order_by('id','desc');
         $news->get_paged($offset,$limit,TRUE);
-        setPagination($this->admin.'cnews/list_all/',$news->paged->total_rows,$limit,4);
+        
+        setPagination($this->admin.'cnews/list_all/', $news->paged->total_rows, $limit, 4);
+        
         $dis['base_url']=base_url();
         $dis['view']='news/list';
         $dis['news']=$news;

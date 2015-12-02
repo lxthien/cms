@@ -172,25 +172,20 @@ input[type="text"] {
                             <input type="hidden" name="imagelink" value="<?=$object->image;?>" >
                             <input type="hidden" name="dir" value="<?=$object->dir;?>" >
                  			<tr>
-                            	<td>Chọn hình :</td>
-                                <td><input type="checkbox" id="newbanner" name="newimage"  value="1"/></td>
-                            </tr>
-                            <tr id="fileupload">
                              	<td>
                         			<label for="name">Chọn đại diện:</label></td>
                                 <td><input type="file" name="image" class="smallInput medium" /></td>
                             </tr>
-                           
                             <tr>
                              	<td>
-                        			<label for="name">Tác giả:</label></td>
-                                <td><input type="text" name="author" class="smallInput big" value="<?=$object->author;?>" /></td>
+                        			<label for="name">Keyword:</label></td>
+                                <td><input type="text" name="tag" class="smallInput big" value="<?=$object->tag;?>" /></td>
                             </tr>
                             <tr>
-                             	<td>
-                        			<label for="name">Tag:</label></td>
-                                <td><input type="text"  class="smallInput big"  name="tag" value="<?=$object->tag;?>" /></td>
+                             	<td><label for="name">Description:</label></td>
+                                <td><textarea style="height: 100px;" name="short_vietnamese" class="smallInput big"><?=$object->short_vietnamese;?></textarea></td>
                             </tr>
+                            
                             <?php if($this->logged_in_user->adminrole->id  ==  1) { ?>
                                 <tr>
                                     <td>
@@ -210,15 +205,7 @@ input[type="text"] {
                                 </tr>
                             <?php } ?>
                           
-                            <tr>
-                            	<td><label for="parent"> Topic: </label> </td>
-                                <td><select name="newstopic" class="smallInput big" >
-                                            <option value="0">No-topic</option>
-                                        <?php foreach($newstopic as $row) : ?>
-                                            <option value="<?=$row->id;?>" <?php if($row->id==$object->newstopic_id) echo 'selected="selected"';?>><?php echo $row->name;?></option>
-                                        <?php endforeach;?>
-                                        </select></td>
-                            </tr>
+
                         </table>
                    <div id="container_language" style="margin-top:10px;">
                                         <ul>

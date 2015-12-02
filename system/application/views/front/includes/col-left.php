@@ -49,32 +49,29 @@
         }
     </script>
     <div class="support">
-        <p class="img"><img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/pic_170x109.jpg"
-                            width="170" height="109" alt=""/></p>
-
+        <p class="img">
+            <img src="<?php echo $base_url.'images/assets/dienlanh/pic_170x109.jpg'; ?>" width="170" height="109" alt=""/>
+        </p>
         <h2>Tư vấn trực tuyến</h2>
-
         <div class="chatter">
-
             <ul class="yahoo_online">
-                <li><p class="offline"><a href="ymsgr:SendIM?congtydienlanhtheviet">Tư vấn kỹ thuật</a></p></li>
-                <li><p class="offline"><a href="ymsgr:SendIM?congtydienlanhtheviet">Kinh doanh</a></p></li>
-
+                <li><p class="offline"><a href="ymsgr:SendIM?<?php echo getconfigkey('yahoo1'); ?>">Tư vấn kỹ thuật</a></p></li>
+                <li><p class="offline"><a href="ymsgr:SendIM?<?php echo getconfigkey('skype1'); ?>">Kinh doanh</a></p></li>
             </ul>
-
-
         </div>
         <div class="phone">
-            <p><span><img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/ico_tel.jpg" width="29"
-                          height="20" alt=""/></span>
-                08.6672.9818 </p>
-
-            <p><span><img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/ico_tel.jpg" width="29"
-                          height="20" alt=""/></span>
-                08.6672.9819 </p>
+            <p>
+                <span><img src="<?php echo $base_url.'images/assets/dienlanh/ico_tel.jpg'; ?>" width="29" height="20" alt=""/></span>
+                <?php echo getconfigkey('hot_line_1'); ?>
+            </p>
+            <p>
+                <span><img src="<?php echo $base_url.'images/assets/dienlanh/ico_tel.jpg'; ?>" width="29" height="20" alt=""/></span>
+                <?php echo getconfigkey('hot_line_2'); ?>
+            </p>
         </div>
-        <p class="img"><img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/bg_support_bottom.gif"
-                            width="170" height="12" alt=""/></p>
+        <p class="img">
+            <img src="<?php echo $base_url.'images/assets/dienlanh/bg_support_bottom.gif'; ?>" width="170" height="12" alt=""/>
+        </p>
     </div>
     <div class="tieude">Liên kết web</div>
     <div class="weblink">
@@ -105,7 +102,7 @@
         </ul>
     </div>
     <ul class="visitor">
-        <li>Lượt truy cập : <span>580985</span></li>
-        <li>Đang truy cập : <span>1</span></li>
+        <li>Lượt truy cập : <span><?php echo $this->hit_counter->getTotalVisitCount();?></span></li>
+        <li>Đang truy cập : <span><?php echo $this->hit_counter->getUsersOnlineCount();?></span></li>
     </ul>
 </div>

@@ -5,7 +5,9 @@
   <dl class="products">
                                 
         <dt>
-          <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc9bm9.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+          <p class="img">
+            <span>
+            <a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc9bm9.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
 <ul>
 <li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường. C&amp;ocirc;ng suất: 1Hp. </span></li>
 <li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
@@ -1363,7 +1365,9 @@
 <p><span style=&quot;font-size: small;&quot;><strong>Night set mode - Chế độ c&amp;agrave;i đặt ban đ&amp;ecirc;m</strong><br />Nhấn n&amp;uacute;t hẹn giờ tắt, m&amp;aacute;y sẽ tự động chọn sang chế độ c&amp;agrave;i đặt ban đ&amp;ecirc;m. Chức năng n&amp;agrave;y gi&amp;uacute;p tr&amp;aacute;nh sự thay đổi nhiệt độ đột ngột trong ph&amp;ograve;ng trong khi ngủ bằng c&amp;aacute;ch nhẹ nh&amp;agrave;ng tăng hay giảm nhiệt độ trước khi m&amp;aacute;y điều h&amp;ograve;a tự động tắt</span></p>">MÁY LẠNH DAIKIN FTKE25GV1/RKE25GV1</a></p>
         </dt>
                 <dd class="clear"></dd>
-          </dl>
-    <div class="pages"><span class="selected">1</span>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>2</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/3.html"><strong>3</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/4.html"><strong>4</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/5.html"><strong>5</strong></a>&nbsp;<span class="del"><a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>›</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/7.html"><strong>»</strong></a>&nbsp;</span></div>
-    
-</div>    </div>
+    </dl>
+    <div class="pages">
+      <span class="selected">1</span>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>2</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/3.html"><strong>3</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/4.html"><strong>4</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/5.html"><strong>5</strong></a>&nbsp;<span class="del"><a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>›</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/7.html"><strong>»</strong></a>&nbsp;</span>
+    </div>  
+  </div>
+</div>

@@ -1,10 +1,9 @@
 <div class="header reset">
     <div class="logo" id="logo"></div>
     <div class="slogan" id="slogan">
-        <img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/slogan.gif" width="729" height="58" alt="dien lanh the viet"/>
+        <img src="<?php echo $base_url.'images/assets/dienlanh/slogan.gif'; ?>" width="729" height="58" alt=""/>
     </div>
     <div class="bn_970x269" id="bn_970x269"></div>
-    <link rel="shortcut icon" href="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/favicon.png"/>
     <script type="text/javascript">
         var logo = new SWFObject("http://dienlanhtheviet.com.vn/assets/public/the-viet/images/logo_104x95.swf", "vidPlayer", "104", "95", "0", "");
         logo.addParam("wmode", "transparent");
@@ -25,18 +24,18 @@
     <div id="myslidemenu" class="jqueryslidemenu">
         <ul class="nav">
             <li class="padL_vn">
-                <img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/nav_header_ln.gif" width="1" height="44" alt=""/>
+                <img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/>
             </li>
             <?php foreach($this->menu as $rowMenu):?>
             <li class="<?php if($this->menu_active == $rowMenu->active) echo ' act' ;?>">
                 <a href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a>
-                <ul>
+                <!-- <ul>
                     <li><a href="http://dienlanhtheviet.com.vn/khuyen-mai/khuyen-mai-da-qua.html">Khuyến mãi đã qua</a>
                     </li>
-                </ul>
+                </ul> -->
             </li>
             <?php endforeach;?>
-            <li><img src="http://dienlanhtheviet.com.vn/assets/public/the-viet/images/nav_header_ln.gif" width="1" height="44" alt=""/></li>
+            <li><img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/></li>
         </ul>
     </div>
     <br class="clear"/>
@@ -65,10 +64,10 @@
     </script>
 
     <div class="box_search">
-        <form action="http://dienlanhtheviet.com.vn/tim-kiem" method="post" name="frmSearch" id="frmSearch">
+        <form action="<?php echo $base_url.'search'; ?>" method="post" name="frmSearch" id="frmSearch">
             <p class="btn_red"><a href="#" onclick="return SendFormSearch();"><strong>Tìm</strong></a></p>
             <p>
-                <select class="input_select" name="findw" id="findw">
+                <select class="input_select" name="value" id="findw">
                     <option value="">Tất cả</option>
                     <option value="40">Kho đông lạnh thực phẩm</option>
                     <option value="17">Máy lạnh dân dụng</option>

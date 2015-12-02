@@ -94,7 +94,7 @@ class Search extends MY_Controller{
         $cat_news->where('newscatalogue_id', $category->id);
         $cat_news->order_by('created','desc');
         $cat_news->get_paged($offset, $limit, TRUE);
-        $dis['cat_news'] = $cat_news;
+        $dis['news'] = $cat_news;
 
         // Pagination
         setPaginationVb(gen_seo_url($category->name_none), $cat_news->paged->total_rows, $limit, 2);
