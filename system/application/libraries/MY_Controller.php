@@ -154,12 +154,9 @@ class MY_Controller extends Controller{
             $news_product_related->order_by('created', 'ASC');
             $news_product_related->get_iterated(10);
             
-            //store load
-            //$store = new Store();
-            //$store->order_by('id','asc');
-            //$store->get_iterated();
-            //TODO: will delete
-            //$this->visitedProduct = $this->getVisitedProduct();
+            $khachhang = new khachhang();
+            $khachhang->order_by('position','asc');
+            $khachhang->get();
             
             
             
@@ -167,7 +164,7 @@ class MY_Controller extends Controller{
             //$this->productCat = $productCat;
             //$this->productCatAll = $productCatAll;
             //$this->productViewMore = $productViewMore;
-            //$this->productRelated = $productRelated;
+            $this->partners = $khachhang;
             $this->news = $news;
             $this->news_cat = $news_cat;
             $this->services_cat = $services_cat;

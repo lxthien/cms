@@ -1,20 +1,22 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 $cache = array (
-  'table' => 'productcomments',
+  'table' => 'khachhangs',
   'fields' => 
   array (
     0 => 'id',
-    1 => 'product_id',
-    2 => 'title',
-    3 => 'name',
-    4 => 'email',
-    5 => 'phone',
-    6 => 'content',
-    7 => 'likes',
-    8 => 'dislikes',
-    9 => 'creationDate',
-    10 => 'created',
-    11 => 'updated',
+    1 => 'position',
+    2 => 'name_vietnamese',
+    3 => 'name_english',
+    4 => 'logo',
+    5 => 'link',
+    6 => 'phone',
+    7 => 'email',
+    8 => 'address_vietnamese',
+    9 => 'address_english',
+    10 => 'description',
+    11 => 'is_show',
+    12 => 'created',
+    13 => 'updated',
   ),
   'validation' => 
   array (
@@ -26,30 +28,37 @@ $cache = array (
         0 => 'integer',
       ),
     ),
-    'product_id' => 
+    'position' => 
     array (
-      'field' => 'product_id',
+      'field' => 'position',
       'rules' => 
       array (
       ),
     ),
-    'title' => 
+    'name_vietnamese' => 
     array (
-      'field' => 'title',
+      'field' => 'name_vietnamese',
       'rules' => 
       array (
       ),
     ),
-    'name' => 
+    'name_english' => 
     array (
-      'field' => 'name',
+      'field' => 'name_english',
       'rules' => 
       array (
       ),
     ),
-    'email' => 
+    'logo' => 
     array (
-      'field' => 'email',
+      'field' => 'logo',
+      'rules' => 
+      array (
+      ),
+    ),
+    'link' => 
+    array (
+      'field' => 'link',
       'rules' => 
       array (
       ),
@@ -61,30 +70,37 @@ $cache = array (
       array (
       ),
     ),
-    'content' => 
+    'email' => 
     array (
-      'field' => 'content',
+      'field' => 'email',
       'rules' => 
       array (
       ),
     ),
-    'likes' => 
+    'address_vietnamese' => 
     array (
-      'field' => 'likes',
+      'field' => 'address_vietnamese',
       'rules' => 
       array (
       ),
     ),
-    'dislikes' => 
+    'address_english' => 
     array (
-      'field' => 'dislikes',
+      'field' => 'address_english',
       'rules' => 
       array (
       ),
     ),
-    'creationDate' => 
+    'description' => 
     array (
-      'field' => 'creationDate',
+      'field' => 'description',
+      'rules' => 
+      array (
+      ),
+    ),
+    'is_show' => 
+    array (
+      'field' => 'is_show',
       'rules' => 
       array (
       ),
@@ -103,27 +119,9 @@ $cache = array (
       array (
       ),
     ),
-    'product' => 
-    array (
-      'field' => 'product',
-      'rules' => 
-      array (
-      ),
-    ),
   ),
   'has_one' => 
   array (
-    'product' => 
-    array (
-      'class' => 'product',
-      'other_field' => 'productcomment',
-      'join_self_as' => 'productcomment',
-      'join_other_as' => 'product',
-      'join_table' => '',
-      'reciprocal' => false,
-      'auto_populate' => NULL,
-      'cascade_delete' => true,
-    ),
   ),
   'has_many' => 
   array (

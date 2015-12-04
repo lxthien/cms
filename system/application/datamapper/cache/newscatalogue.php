@@ -18,8 +18,9 @@ $cache = array (
     12 => 'keyword',
     13 => 'navigation',
     14 => 'menu_active',
-    15 => 'created',
-    16 => 'updated',
+    15 => 'isSystem',
+    16 => 'created',
+    17 => 'updated',
   ),
   'validation' => 
   array (
@@ -133,6 +134,13 @@ $cache = array (
     'menu_active' => 
     array (
       'field' => 'menu_active',
+      'rules' => 
+      array (
+      ),
+    ),
+    'isSystem' => 
+    array (
+      'field' => 'isSystem',
       'rules' => 
       array (
       ),

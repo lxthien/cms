@@ -107,8 +107,7 @@ class Cnews extends MY_Controller{
         $this->viewadmin($dis);
     }
     
-    
-    
+
     function isolate_list_by_cat($catalogue_id=0,$offset=0,$limit=10)
     {
         

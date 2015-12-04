@@ -53,6 +53,8 @@ $config["image_sizes"]["news_75_50"] = array(75,50);
 $config["image_sizes"]["adv_left"] = array(140,80);
 $config["image_sizes"]["product_left"] = array(170,90);
 
+$config["image_sizes"]["partner_193_95"] = array(193,95);
+
 $config["image_sizes"]["news_hot_homepage"] = array(85,85);
 $config["image_sizes"]["news_hot"] = array(60,60);
 $config["image_sizes"]["news_list"] = array(120,120);

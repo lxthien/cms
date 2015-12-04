@@ -31,14 +31,10 @@ $cache = array (
     25 => 'home_hot',
     26 => 'home_hot_position',
     27 => 'tag',
-    28 => 'created',
-    29 => 'updated',
-    30 => 'file1',
-    31 => 'file2',
-    32 => 'file3',
-    33 => 'file4',
-    34 => 'file5',
-    35 => 'clicks',
+    28 => 'tag_search',
+    29 => 'created',
+    30 => 'updated',
+    31 => 'clicks',
   ),
   'validation' => 
   array (
@@ -260,6 +256,13 @@ $cache = array (
       array (
       ),
     ),
+    'tag_search' => 
+    array (
+      'field' => 'tag_search',
+      'rules' => 
+      array (
+      ),
+    ),
     'created' => 
     array (
       'field' => 'created',
@@ -270,41 +273,6 @@ $cache = array (
     'updated' => 
     array (
       'field' => 'updated',
-      'rules' => 
-      array (
-      ),
-    ),
-    'file1' => 
-    array (
-      'field' => 'file1',
-      'rules' => 
-      array (
-      ),
-    ),
-    'file2' => 
-    array (
-      'field' => 'file2',
-      'rules' => 
-      array (
-      ),
-    ),
-    'file3' => 
-    array (
-      'field' => 'file3',
-      'rules' => 
-      array (
-      ),
-    ),
-    'file4' => 
-    array (
-      'field' => 'file4',
-      'rules' => 
-      array (
-      ),
-    ),
-    'file5' => 
-    array (
-      'field' => 'file5',
       'rules' => 
       array (
       ),

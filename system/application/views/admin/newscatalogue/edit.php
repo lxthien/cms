@@ -2,12 +2,11 @@
     <form id="form" class="table_input" action="<?=$base_url;?>admin/newscatalogues/edit/<?=$object->id != '' ? $object->id : 0;?>" method="post">
         <label for="name">Tên tiếng việt:</label>
         <input type="text" name="name_vietnamese" value="<?=$object->name_vietnamese;?>" class="smallInput wide" />
-        <!--
-        <label for="name">Tên tiếng anh:</label>
-        <input type="text" name="name_english" value="<?/*=$object->name_english;*/?>" class="smallInput wide" />
-        -->
         <label>Tên ko dấu:</label>
-        <?=$object->name_none;?>
+        <?=$object->name_none?>
+        <label for="name">Dạng hiển thị:</label>
+        <label><input <?php echo $object->show == 0 ? '' : 'checked="checked"'; ?> type="radio" name="show" value="0" class="smallInput" /> Hiển thị danh mục</label>
+        <label><input <?php echo $object->show != 0 ? '' : 'checked="checked"'; ?> type="radio" name="show" value="1" class="smallInput" /> Hiển thị bài viết</label>
         <label for="parent">Danh mục cha : </label>
         <select name="parentcat" class="smallInput" >
             <option value="0">Root Catalogue</option>
@@ -17,8 +16,6 @@
         </select>
         <label for="name">Seo Title:</label>
         <input type="text" name="title_bar" value="<?=$object->title_bar;?>" class="smallInput wide" />
-        <!-- <label for="name">Slogan:</label>
-        <input type="text" name="slogan" value="<?=$object->slogan;?>" class="smallInput wide" /> -->
         <label for="name">Seo Description:</label>
         <textarea style="height: 60px;" name="slogan" class="smallInput wide"><?=$object->slogan;?></textarea>
         <label for="name">Seo Keyword:</label>

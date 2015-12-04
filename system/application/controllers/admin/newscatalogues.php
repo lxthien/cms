@@ -6,10 +6,12 @@ class Newscatalogues extends MY_Controller{
         $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>91));
         $this->load->library('login_manager');
     }
+
     function index()
     {
         $this->list_all();
     }
+
     function list_all()
     {
         $dis['base_url']=base_url();
@@ -30,6 +32,7 @@ class Newscatalogues extends MY_Controller{
          );
         $this->viewadmin($dis);
     }
+
     function list_by_catparent($catparent_id)
     {
         
@@ -45,32 +48,29 @@ class Newscatalogues extends MY_Controller{
         $dis['newscatalogue']=$newscatalogue;
         $this->viewadmin($dis);
     }
-    function edit($id=0)
-    {
+
+    function edit($id=0) {
         $newscatalogue=new newscatalogue($id);
-        if($_SERVER['REQUEST_METHOD']=="GET")
-        {
+        if($_SERVER['REQUEST_METHOD']=="GET") {
         }
-        else
-        {
-               $newscatalogue->name_vietnamese=$this->input->post('name_vietnamese');
-               $newscatalogue->name_english=$this->input->post('name_english');
-               $parentcat=new newscatalogue(trim($this->input->post('parentcat')));
-               $newscatalogue->title_bar=$this->input->post('title_bar');
-               $newscatalogue->slogan=$this->input->post('slogan');
-               $newscatalogue->keyword=$this->input->post('keyword');
-               $newscatalogue->group=$this->input->post('group');
-               if($this->logged_in_user->adminrole->id == 1)
-               {
-                   $newscatalogue->navigation=$this->input->post('navigation');
-                   $newscatalogue->menu_active=$this->input->post('menu_active');
-               }
-               $this->load->helper('remove_vn_helper');
-               $newscatalogue->name_none=remove_vn($newscatalogue->name_vietnamese);
-               if($newscatalogue->save(array('parentcat'=>$parentcat)))
-               {
-                    redirect($this->admin.'newscatalogues/list_all/');
-               }
+        else {
+           $newscatalogue->name_vietnamese=$this->input->post('name_vietnamese');
+           $newscatalogue->name_english=$this->input->post('name_english');
+           $parentcat=new newscatalogue(trim($this->input->post('parentcat')));
+           $newscatalogue->title_bar=$this->input->post('title_bar');
+           $newscatalogue->slogan=$this->input->post('slogan');
+           $newscatalogue->keyword=$this->input->post('keyword');
+           $newscatalogue->group=$this->input->post('group');
+           $newscatalogue->show=$this->input->post('show');
+           if($this->logged_in_user->adminrole->id == 1) {
+               $newscatalogue->navigation=$this->input->post('navigation');
+               $newscatalogue->menu_active=$this->input->post('menu_active');
+           }
+           $this->load->helper('remove_vn_helper');
+           $newscatalogue->name_none=remove_vn($newscatalogue->name_vietnamese);
+           if($newscatalogue->save(array('parentcat'=>$parentcat))) {
+                redirect($this->admin.'newscatalogues/list_all/');
+           }
         }
         $parentcat = new newscatalogue();
         $parentcat->where('parentcat_id',NULL);
@@ -87,12 +87,12 @@ class Newscatalogues extends MY_Controller{
         $dis['view']="newscatalogue/edit";
         $dis['object']=$newscatalogue;
         $dis['nav_menu']=array(
-    			array(
-    				"type"=>"back",
-    				"text"=>"Back",
-    				"link"=>"{$this->admin_url}newscatalogues/",
-    				"onclick"=>""		
-    			)
+			array(
+				"type"=>"back",
+				"text"=>"Back",
+				"link"=>"{$this->admin_url}newscatalogues/",
+				"onclick"=>""		
+			)
          );
         $this->viewadmin($dis);
     }

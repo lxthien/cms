@@ -24,19 +24,15 @@
         var base_url = "http://dienlanhtheviet.com.vn/";
         // -->
     </script>
-    <link href="http://dienlanhtheviet.com.vn/assets/public/the-viet/css/screen.css" rel="stylesheet" type="text/css"/>
-    <link href="http://dienlanhtheviet.com.vn/assets/public/the-viet/css/qc.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/jquery.js"></script>
-    <script type="text/javascript"
-            src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/jquery.ifixpng2.js"></script>
-    <script type="text/javascript" src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/commons.js"></script>
-    <script type="text/javascript" src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/swfobject.js"></script>
-    <script type="text/javascript" language="javascript"
-            src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/script_jcarousellite.js"></script>
-    <link href="http://dienlanhtheviet.com.vn/assets/public/the-viet/css/jquerycssmenu.css" rel="stylesheet"
-          type="text/css"/>
-    <script type="text/javascript" language="javascript"
-            src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/jquerycssmenu.js"></script>
+    <link href="<?php echo $base_url.'images/assets/dienlanh//css/screen.css'; ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $base_url.'images/assets/dienlanh//css/qc.css'; ?>" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/jquery.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/jquery.ifixpng2.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/commons.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/swfobject.js'; ?>"></script>
+    <script type="text/javascript" language="javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/script_jcarousellite.js'; ?>"></script>
+    <link href="<?php echo $base_url.'images/assets/dienlanh/css/jquerycssmenu.css'; ?>" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/jquerycssmenu.js'; ?>"></script>
     <script type="text/javascript">
         function rnd() {
             return String((new Date()).getTime()).replace(/\D/gi, '')

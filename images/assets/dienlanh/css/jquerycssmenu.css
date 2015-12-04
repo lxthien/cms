@@ -1,0 +1,75 @@
+.jqueryslidemenu{	width:970px; text-align:center; font-size:0; float:left; bottom:0px; left:0px;  background:url(../images/line_nav.gif) left top repeat-x; position:relative; z-index:2;}
+	.jqueryslidemenu ul{ margin:0; padding: 0; list-style-type: none;}
+/*Top level list items*/
+.jqueryslidemenu ul li{ position: relative; display: inline; float: left;  /*background:url(../images/line_menu.gif) right center no-repeat; padding-right:2px; */}
+
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{ /*font-family:Verdana; font-size:12px; display: block; color:#fff; font-weight:bold;	 padding:15px 13px 15px 15px; text-decoration: none;text-transform:uppercase;*/}
+.jqueryslidemenu ul li .focus{color:#f9cf00; background:url(../images/line_menu_hover.gif) left center repeat-x; text-decoration:none;}
+* html .jqueryslidemenu ul li a{ 
+/*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block; }
+
+.jqueryslidemenu ul li a:hover{
+	 /*background of tabs (default state)*/
+	/*color:#f9cf00; background:url(../images/line_menu_hover.gif) left center repeat-x; text-decoration:none;*/
+}
+.jqueryslidemenu ul li.nav_act a { color:#f9cf00; background:url(../images/line_menu_hover.gif) left center repeat-x;}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+display: list-item;
+float: none;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+/*font: normal 12px Verdana;*/
+width:150px; /*width of sub menus*/
+/*padding: 5px;*/
+margin: 0;
+background: #1a6aae;
+border-top-width: 0;
+border-bottom: 1px solid #0e538d;
+border-right:none;
+text-align:left;
+text-transform:capitalize;
+
+}
+
+.jqueryslidemenu ul li ul li a:hover{ /*sub menus hover style*/
+background: #5d0808;
+color: white;
+}
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 20px;
+right:0px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}
+.jqueryslidemenu .box_search{width:274px; position:absolute; right:10px; bottom:5px; background:url(../images/bg_search.gif) left center no-repeat; padding:5px 0;}
+		.box_search .textbox{ width:208px; border:1px solid #636563; border:none; background:none; color:#1B6AAD}		
+		.box_search .fix_space_text_search{padding-top:3px; padding-left:2px; display:block; _padding-top:2px}
+		.box_search .btn_search{width:50px; font-weight:bold; color:#fff; border:none; background:none; cursor:pointer; height:20px;}
