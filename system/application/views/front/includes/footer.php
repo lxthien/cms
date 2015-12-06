@@ -2,21 +2,12 @@
     ﻿</ul>
     <ul class="address">
         <li class="w_copyright">
-            <p><span style="font-size: small;">CTY TNHH DV KỸ THUẬT &amp; TM THẾ VIỆT</span></p>
-            <p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 29 đường số 1, P.26, Q. B&igrave;nh Thạnh</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Hotline: (08) 35 03 68 73</p>
-            <p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Website: www.dienlanhtheviet.com</p>
+            <?php echo getconfigkey('address_company_1'); ?>
         </li>
         <li class="w_yofi">
-            <p style="text-align: center;"><span style="font-size: xx-small;"><span style="font-size: small;">CHI NH&Aacute;NH 1<br/></span></span></p>
-            <p style="text-align: center;">485 Quang Trung, p10, G&ograve; Vấp</p>
-            <p style="text-align: center;">Hot line:&nbsp; (08) 66 72 98 18</p>
-            <p style="text-align: center;">Website: www.dienlanhtheviet.com</p></li>
+            <?php echo getconfigkey('address_company_2'); ?>
         <li class="w_yofi">
-            <p style="text-align: center;"><span style="font-size: small;">CHI NH&Aacute;NH 2</span></p>
-            <p style="text-align: center;">A13 khu d&acirc;n cư Thạnh Mỹ Lợi, Q2</p>
-            <p style="text-align: center;">Hot line: (08) 66 72 98 19 - 091 7547 033</p>
-            <p style="text-align: center;">Website: www.dienlanhtheviet.com</p>
+            <?php echo getconfigkey('address_company_3'); ?>
         </li>
     </ul>
     <div class="nenfooter">

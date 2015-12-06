@@ -1,17 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 $cache = array (
-  'table' => 'productmanufactures',
+  'table' => 'configgroups',
   'fields' => 
   array (
     0 => 'id',
     1 => 'name',
-    2 => 'description',
-    3 => 'country',
-    4 => 'recycle',
-    5 => 'created',
-    6 => 'updated',
-    7 => 'image',
-    8 => 'isShow',
+    2 => 'created',
+    3 => 'updated',
+    4 => 'position',
+    5 => 'for_webmaster',
   ),
   'validation' => 
   array (
@@ -30,27 +27,6 @@ $cache = array (
       array (
       ),
     ),
-    'description' => 
-    array (
-      'field' => 'description',
-      'rules' => 
-      array (
-      ),
-    ),
-    'country' => 
-    array (
-      'field' => 'country',
-      'rules' => 
-      array (
-      ),
-    ),
-    'recycle' => 
-    array (
-      'field' => 'recycle',
-      'rules' => 
-      array (
-      ),
-    ),
     'created' => 
     array (
       'field' => 'created',
@@ -65,23 +41,23 @@ $cache = array (
       array (
       ),
     ),
-    'image' => 
+    'position' => 
     array (
-      'field' => 'image',
+      'field' => 'position',
       'rules' => 
       array (
       ),
     ),
-    'isShow' => 
+    'for_webmaster' => 
     array (
-      'field' => 'isShow',
+      'field' => 'for_webmaster',
       'rules' => 
       array (
       ),
     ),
-    'product' => 
+    'cauhinh' => 
     array (
-      'field' => 'product',
+      'field' => 'cauhinh',
       'rules' => 
       array (
       ),
@@ -92,12 +68,12 @@ $cache = array (
   ),
   'has_many' => 
   array (
-    'product' => 
+    'cauhinh' => 
     array (
-      'class' => 'product',
-      'other_field' => 'productmanufacture',
-      'join_self_as' => 'productmanufacture',
-      'join_other_as' => 'product',
+      'class' => 'cauhinh',
+      'other_field' => 'configgroup',
+      'join_self_as' => 'configgroup',
+      'join_other_as' => 'cauhinh',
       'join_table' => '',
       'reciprocal' => false,
       'auto_populate' => NULL,

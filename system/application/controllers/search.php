@@ -81,6 +81,10 @@ class Search extends MY_Controller{
         // Find offset pagination
         $offset = get_offset($this->uri->uri_string);
         
+        if($cat == "dich-vu") {
+            $cat = "dien-lanh-dan-dung";
+        }
+
         $category = new Newscatalogue();
         $category->where(array('name_none' => $cat))->get();
         if(!$category->exists()){
@@ -148,9 +152,9 @@ class Search extends MY_Controller{
         $category->where(array('id' => $news->newscatalogue_id))->get();
 
         // Create seo for news
-        $this->page_title = $news->{'title_vietnamese'};
-        $this->page_description = $news->short_vietnamese;
-        $this->page_keyword = $news->tag;
+        $this->page_title = $news->page_title;
+        $this->page_description = $news->page_description;
+        $this->page_keyword = $news->page_keyword;
 
         $dis['breadcum'] = $news->buildBreadCum();
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));

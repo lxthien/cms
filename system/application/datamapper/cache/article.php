@@ -32,9 +32,12 @@ $cache = array (
     26 => 'home_hot_position',
     27 => 'tag',
     28 => 'tag_search',
-    29 => 'created',
-    30 => 'updated',
-    31 => 'clicks',
+    29 => 'page_title',
+    30 => 'page_keyword',
+    31 => 'page_description',
+    32 => 'created',
+    33 => 'updated',
+    34 => 'clicks',
   ),
   'validation' => 
   array (
@@ -259,6 +262,27 @@ $cache = array (
     'tag_search' => 
     array (
       'field' => 'tag_search',
+      'rules' => 
+      array (
+      ),
+    ),
+    'page_title' => 
+    array (
+      'field' => 'page_title',
+      'rules' => 
+      array (
+      ),
+    ),
+    'page_keyword' => 
+    array (
+      'field' => 'page_keyword',
+      'rules' => 
+      array (
+      ),
+    ),
+    'page_description' => 
+    array (
+      'field' => 'page_description',
       'rules' => 
       array (
       ),

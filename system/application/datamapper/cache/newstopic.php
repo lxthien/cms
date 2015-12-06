@@ -1,18 +1,36 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 $cache = array (
-  'table' => 'productstatus',
+  'table' => 'newstopics',
   'fields' => 
   array (
     0 => 'id',
     1 => 'name',
-    2 => 'description',
-    3 => 'position',
+    2 => 'name_none',
+    3 => 'recycle',
     4 => 'created',
     5 => 'updated',
-    6 => 'isDefault',
   ),
   'validation' => 
   array (
+    'name' => 
+    array (
+      'label' => 'Tên dòng sự kiện',
+      'rules' => 
+      array (
+        0 => 'trim',
+        'max_length' => 200,
+      ),
+      'field' => 'name',
+    ),
+    'name_none' => 
+    array (
+      'label' => 'Tên không dấu',
+      'rules' => 
+      array (
+        0 => 'required',
+      ),
+      'field' => 'name_none',
+    ),
     'id' => 
     array (
       'field' => 'id',
@@ -21,23 +39,9 @@ $cache = array (
         0 => 'integer',
       ),
     ),
-    'name' => 
+    'recycle' => 
     array (
-      'field' => 'name',
-      'rules' => 
-      array (
-      ),
-    ),
-    'description' => 
-    array (
-      'field' => 'description',
-      'rules' => 
-      array (
-      ),
-    ),
-    'position' => 
-    array (
-      'field' => 'position',
+      'field' => 'recycle',
       'rules' => 
       array (
       ),
@@ -56,16 +60,9 @@ $cache = array (
       array (
       ),
     ),
-    'isDefault' => 
+    'article' => 
     array (
-      'field' => 'isDefault',
-      'rules' => 
-      array (
-      ),
-    ),
-    'product' => 
-    array (
-      'field' => 'product',
+      'field' => 'article',
       'rules' => 
       array (
       ),
@@ -76,12 +73,12 @@ $cache = array (
   ),
   'has_many' => 
   array (
-    'product' => 
+    'article' => 
     array (
-      'class' => 'product',
-      'other_field' => 'productstatu',
-      'join_self_as' => 'productstatu',
-      'join_other_as' => 'product',
+      'class' => 'article',
+      'other_field' => 'newstopic',
+      'join_self_as' => 'newstopic',
+      'join_other_as' => 'article',
       'join_table' => '',
       'reciprocal' => false,
       'auto_populate' => NULL,

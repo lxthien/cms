@@ -7,7 +7,7 @@
                 <p class="img">
                     <span>
                         <a href="<?php echo create_url($row->id); ?>">
-                            <img src="<?= image('img/news/'.$row->image, 'news_130_100'); ?>" width="130" height="100" alt="<?php echo $row->title_vietnamese; ?>">
+                            <img src="<?= image($row->image, 'news_130_100'); ?>" width="130" height="100" alt="<?php echo $row->title_vietnamese; ?>">
                         </a>
                     </span>
                 </p>
