@@ -44,6 +44,9 @@ $config["image_sizes"]["product_listPageSale"] = array(0, 70);
 $config["image_sizes"]["product_homeSale"] = array(0, 56);
 $config["image_sizes"]["product_admin_list"] = array(50,  0);
 $config["image_sizes"]["product_detailSameCategory"] = array(0,  50);
+
+$config["image_sizes"]["product_list_138_108"] = array(138,108);
+
 $config["image_sizes"]["news_270_225"] = array(270, 225);
 $config["image_sizes"]["news_80_60"] = array(270, 225);
 $config["image_sizes"]["news_235_175"] = array(235, 175);
@@ -53,6 +56,7 @@ $config["image_sizes"]["news_75_50"] = array(75,50);
 $config["image_sizes"]["adv_left"] = array(140,80);
 $config["image_sizes"]["product_left"] = array(170,90);
 
+$config["image_sizes"]["newscatalog_127_127"] = array(127,127);
 $config["image_sizes"]["partner_193_95"] = array(193,95);
 
 $config["image_sizes"]["news_hot_homepage"] = array(85,85);

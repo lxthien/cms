@@ -29,10 +29,14 @@
             <?php foreach($this->menu as $rowMenu):?>
             <li class="<?php if($this->menu_active == $rowMenu->active) echo ' act' ;?>">
                 <a href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a>
-                <!-- <ul>
-                    <li><a href="http://dienlanhtheviet.com.vn/khuyen-mai/khuyen-mai-da-qua.html">Khuyến mãi đã qua</a>
-                    </li>
-                </ul> -->
+                <?php $countChild = $rowMenu->menuItem->result_count();?>
+                <?php if($countChild > 0) { ?>
+                    <ul>
+                        <?php foreach($rowMenu->menuItem->all as $row): ?>               
+                            <li><a href="<?php echo $base_url.$row->link?>"><?php echo $row->name;?></a></li>
+                        <?php endforeach;?>
+                    </ul>
+                <?php } ?>
             </li>
             <?php endforeach;?>
             <li><img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/></li>

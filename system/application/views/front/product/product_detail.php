@@ -1,289 +1,859 @@
-<script type="text/javascript" src="<?=$base_url;?>images/js/jquery.validate.js?v1"></script>
-<script type="text/javascript">
-    var frmCommentValidator ;
-    var basePrice = '<?=$product->getRealPriceNum();?>';
-    var currentProduct = '<?=$product->id;?>';
-    var synProductId = <?=$product->id;?>;
-    function calculatePrice()
-    {
-        var sumPrice = 0;
-        sumPrice += parseInt(basePrice);
-        $(".chkAccessory:checked").each(function(){
-            sumPrice += parseInt($(this).val()); 
-        });
-        $(".p_d_price_combine").html( addCommas(sumPrice) + " VND");
-    }
-    function addCommas(nStr)
-    {
-    	nStr += '';
-    	x = nStr.split('.');
-    	x1 = x[0];
-    	x2 = x.length > 1 ? '.' + x[1] : '';
-    	var rgx = /(\d+)(\d{3})/;
-    	while (rgx.test(x1)) {
-    		x1 = x1.replace(rgx, '$1' + ',' + '$2');
-    	}
-    	return x1 + x2;
-    }
-    
-    function buildSentString()
-    {
-        var str = '';
-        str += currentProduct;
-        $(".chkAccessory:checked").each(function(){
-            var name = $(this).attr('name');
-            name = name.split("_");
-            str += "-"+name[1];
-        });
-        return str;
-    }
-    
-	$(document).ready(function(){
-        <?php if($productPhotos->result_count() > 0): ?>
-        $('#carousel-product').carouFredSel({
-            auto: {
-                play: true
-            },
-            width: 485,
-            height: null,
-            circular: true,
-            infinite: true,
-            items: {
-                visible: 1
-            },
-            scroll: {
-                items: 1,
-                duration: 1000,
-                timeoutDuration: 3000
-            },
-            prev: '#home-prev',
-            next: '#home-next',
-            pagination: {
-                container: '#thumbnail',
-                anchorBuilder: false,
-                deviation: 0
-            }
-        });
-        <?php endif; ?>
-
-        $.validator.messages.required = "Vui lòng nhập ô này";
-        $.validator.messages.email = "Email này chưa đúng.";
-		//$(".group_map_p_d").colorbox({rel:'group_map_p_d'});
-        $(".bg_p_d_detail").click(function(){
-           var addStr =  buildSentString();
-           $.colorbox({href:"<?=$base_url;?>chi-tiet-chon/" + addStr});
-           return false;
-        });
-        $(".chkAccessory").click(function(){
-            
-             calculatePrice();
-        });
-        $("#btnDetailBuy").click(function(){
-             window.location.href = "<?=$base_url;?>them-vao-gio-hang/"+ buildSentString();
-             return false;
-        });
-        $(".chkAccessory").attr('checked',false);
-
-        frmCommentValidator = $("#frmComment").validate({
-            rules:{
-                title:{required:true},
-                name:{required:true},
-                commentEmail:{
-                    required:true,
-                    email:true
-                },
-                commentPhone:{
-                    required:true
-                },
-                content:{
-                    required: true
-                },
-                captcha_code:{
-                    required:true
-                }
-            }
-        });
-        $(".btn_send_idea").click(function(){
-            if($("#frmComment").valid())
-            {
-                $.ajax({
-                       url: "<?=$base_url;?>fproduct/addComment/<?=$product->id;?>",
-                       data: $("#frmComment").serialize(),
-                       type: "POST",
-                       dataType:"JSON",
-                       success:function(data){
-                           if(data.status == false)
-                           {
-                                alert("Vui lòng nhập đúng ký tự xác nhận");
-                                $("#changeCaptcha").click();
-                           }
-                           else
-                           {
-                               loadComments();
-                               $(":input[name='name'],:input[name='title'],:input[name='commentEmail'],:input[name='commentPhone'],:input[name='content'],:input[name='captcha_code']").val("");
-                               frmCommentValidator.resetForm();
-                               $("#changeCaptcha").click();
-                               alert("Bạn vừa thêm bình luận thành công");
-                           }
-                          
-                       } 
-                    });
-            }
-         });
-        $("#comment_direction").val("asc");
-        $("#comment_direction").change(function(){
-            loadComments();
-        });
-
-
-        // jQuery to create tab
-        $('.tab-product-detail li a').click(function(){
-            $('.tab-product-detail li a').removeClass('active');
-            $(this).addClass('active');
-            $('.tab-product-detail > div').removeClass('active');
-            $('.tab-product-detail div.'+$(this).attr('id')).addClass('active');
-        });
-         
-	});
-
-    function loadComments()
-    {
-        $.ajax({
-           url: "<?=$base_url;?>fproduct/loadComment/<?=$product->id;?>" ,
-           type: "POST",
-           data:{direction: $("#comment_direction").val()},
-           dataType:"html",
-           success:function(data){
-                $("#commentArea").html(data);                
-           } 
-        });
-    }
-</script>
-
-<div id="right-cata">
-    <div class="wrapper" style="margin-bottom:10px">
-        <div class="product-detail">
-            <div class="slide-product">
-                <div class="main-carousel">
-                    <div id="carousel-product">
-                        <img src="<?php echo image($product->image, 'product_slide'); ?>" alt=""/>
-                        <?php foreach($productPhotos as $row): ?>
-                        <img src="<?php echo image($row->path, 'product_slide'); ?>" alt=""/>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-                <ul id="thumbnail">
-                    <li><a href="javascript:void(0)"><img src="<?php echo image($product->image, 'product_thumbnail'); ?>" alt=""/></a></li>
-                    <?php foreach($productPhotos as $row): ?>
-                    <li><a href="javascript:void(0)"><img src="<?php echo image($row->path, 'product_thumbnail'); ?>" alt=""/></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <div class="info-product">
-                <div class="row-info-product row-info-product-01">
-                    <h1 class="name"><?php echo $product->name; ?> </h1>
-                    <p><span>Giá xe: </span> <strong class="<?php echo $product->getPriceText() != null ? 'strike' : ''; ?>"><?php echo $product->getPrice(); ?> VNĐ</strong>
-                    <?php if( $product->getPriceText() != null): ?>
-                    <p><span style="width: 44px;display: inline-block;">&nbsp;</span> <strong style="font-size: 18px;"><?php echo $product->getPriceText(); ?> VNĐ</strong>
-                    <?php endif; ?>
-                    <?php if($product->getSalePrice() != ''): ?>
-                    <p><span>Trả trước: </span> <strong><?php echo $product->getSalePrice(); ?> VNĐ</strong>
-                    <?php endif; ?>
-                    <p><span>Tình trạng: </span><span><?php echo $product->color; ?></span></p>
-                    <p><span>Bảo hành: </span><span><?php echo $product->warranty; ?></span></p>
-                </div>
-                <div class="row-info-product row-info-product-02">
-                    <p><span>Vui lòng liên hệ: </span> <strong>0936.135.135 - Minh Hà</strong> để có giá & ưu đãi tốt nhát</p>
-                </div>
-            </div>
-            <div class="cl"></div>
-            <div class="tab-product-detail">
-                <ul>
-                    <li><a id="tab-product-detail-01" class="active" href="javascript:void(0)">Tổng quan</a></li>
-                    <li><a id="tab-product-detail-02" href="javascript:void(0)">Liên hệ</a></li>
-                    <li><a id="tab-product-detail-03" href="javascript:void(0)">Đánh giá</a></li>
-                </ul>
-                <div class="tab-product-detail-01 active">
-                    <?php echo $product->txtSumary; ?>
-                </div>
-                <div class="tab-product-detail-02">
-                    <div class="comment-facebook" style="margin-left: 0;">
-                        <div class="customer_ideas_title">Câu hỏi của bạn về xe <?=$product->name;?></div>
-                        <form id="frmComment" method="post">
-                            <br /> Lưu ý: Những ô (<span style="color: red;">*</span>) là bắt buộc.
-                            <div>
-                                <div class="regis_line">
-                                    <div class="fl regis_line_txt cs_ideas_form_txt">Tiêu đề<span style="color: red;">*</span> </div>
-                                    <div class="fl "><input type="text" name="title" id="" value="" /></div>
-                                    <div class="clr"></div>
-                                </div>
-                                <div class="regis_line">
-                                    <div class="fl regis_line_txt cs_ideas_form_txt">Họ và tên<span style="color: red;">*</span> </div>
-                                    <div class="fl "><input type="text" name="name" id="" value="" /></div>
-                                    <div class="clr"></div>
-                                </div>
-                                <div class="regis_line">
-                                    <div class="fl regis_line_txt cs_ideas_form_txt">Email<span style="color: red;">*</span> </div>
-                                    <div class="fl "><input type="text" name="commentEmail" id="" value="" /></div>
-                                    <div class="clr"></div>
-                                </div>
-                                <div class="regis_line">
-                                    <div class="fl regis_line_txt cs_ideas_form_txt">Số điện thoại<span style="color: red;">*</span> </div>
-                                    <div class="fl "><input type="text" name="commentPhone" id="" value="" /></div>
-                                    <div class="clr"></div>
-                                </div>
-                                <div class="regis_line regis_two_line">
-                                    <div>Nhận xét của bạn:<span style="color: red;">*</span> (gõ tiếng việt có dấu, không quá 1000 chữ)</div>
-                                    <div><textarea name="content" rows="4" cols="69"></textarea></div>
-                                </div>
-                            </div>
-                            <div style="text-align: left;">
-                                <div class="fl regis_line_txt cs_ideas_form_txt">
-                                    Xác nhận
-                                </div>
-                                <div class="fl msg-capcha" style="padding-left: 5px;">
-                                    <img class="fl" id="captcha" src="<?=$base_url;?>securimage/securimage_show.php" alt="CAPTCHA Image" width="100" />
-                                    <div class="fl"><a style="margin-left: 5px;" href="#" id="changeCaptcha" onclick="document.getElementById('captcha').src = '<?=$base_url;?>/securimage/securimage_show.php?' + Math.random(); return false">[ Mã khác ]</a></div>
-                                    <div style="height: 10px;clear: both;"></div>
-                                    <input  type="text" name="captcha_code"  maxlength="9" />
-                                </div>
-                                <div class="cl"></div>
-                            </div>
-                            <div class="cl"></div>
-                            <div style="text-align: right; width: 765px;">
-                                <input type="button" value="GỬI" class="btn_send_idea" id="btn_send_idea" name="btn_send_idea" />
-                            </div>
-                            <div></div>
-                        </form>
-                    </div>
-                </div>
-                <div class="tab-product-detail-03">
-                    <div class="comment-facebook">
-                        <div class="fb-comments" migrated="1" data-href="<?php echo $this->uri; ?>" data-width="755" data-numposts="50" data-colorscheme="light"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="cl"></div>
-            <?php if($sameCategoryProduct->result_count() > 0): ?>
-            <div class="product-related">
-                <h2 class="h2-bg">Sản phẩm liên quan</h2>
-                <div class="product-related-list">
-                    <?php foreach($sameCategoryProduct as $row): ?>
-                        <div class="products product_item" style="">
-                            <div class="inner-product-home">
-                                <a href="<?php echo $base_url.$row->url; ?>">
-                                    <img src="<?php echo image($row->image, 'product_list'); ?>" alt="<?php echo $row->name; ?>" >
-                                </a>
-                            </div>
-                            <div class="infor-text-pro">
-                                <a title="<?php echo $row->name; ?>" href="<?php echo $base_url.$row->url; ?>"><?php echo $row->name; ?></a>
-                                <strong><?php echo $row->getPrice(); ?> VNĐ</strong>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <?php endif; ?>
-        </div>
+<div class="main">
+  <script type="text/javascript" src="http://dienlanhtheviet.com.vn/assets/public/the-viet/js/switchtabs.js"></script>
+  <script language="javascript">
+      $(function() {
+          $('.tabs a').switchTab();
+      });
+  </script>
+  <div class="tieude"><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-dan-dung.html">Máy lạnh dân dụng</a><span>&gt;</span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech.html">Máy lạnh Reetech</a></div>
+<div class="box_list">
+    <h1>MÁY LẠNH REETECH RT/RC9BM9</h1>
+    <div class="info_products">
+                                                
+                <p class="img"><span><img src="http://dienlanhtheviet.com.vn/uploads/product/c751d7eb124d1fd71d8f8618b8bd5088.jpg" width="132" height="131"></span></p>
+        <div class="info box_reset">
+                <h3><strong><span style="font-size: small;">Tổng quan: </span></strong></h3>
+<ul>
+<li><span style="font-size: small;">&nbsp;Kiểu máy: treo tường. Công suất: 1Hp. </span></li>
+<li><span style="font-size: small;">&nbsp;Xuất xứ: Hàng Mỹ - Việt Nam. </span></li>
+<li><span style="font-size: small;">Bảo hành: 02 năm. </span></li>
+</ul>
+<h3><span style="font-size: small;"><strong>Tính năng</strong><br><br></span></h3>
+<table style="width: 100%;" border="0" cellspacing="5" cellpadding="0">
+<tbody>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Ba tốc độ quạt kèm chức năng tự động điều chỉnh</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Cánh đảo gió tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Chống các tác nhân gây ăn mòn và chịu được môi trường vùng biển</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Mặt nạ dễ dàng tháo ráp để lao chùi</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Lọc sạch không khí</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Chức năng tự chẩn đoán hỏng hóc và tự động bảo vệ</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Chế độ hoạt động êm dịu</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Tự khởi động khi có điện lại</span></p>
+</td>
+<td width="50%">
+<p><span style="font-size: small;">Chế độ làm lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p><span style="font-size: small;">Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style="font-size: small;">&nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>        </div>
+        <br class="clear">
     </div>
-</div>
+                <div class="tabs reset">
+          <ul>
+                                  <li><a href="#tongquan" class="selected">Tổng quan</a></li>
+                                         <li><a href="#dactinhkythuat">Đặc tính kỹ thuật</a></li>
+                    </ul>
+          <br class="clear">
+        </div>
+                             <div class="box_reset" id="tongquan">
+                        <h2><span style="font-size: small;">Xuất xứ sản phẩm</span></h2>
+<p><span style="font-size: small;">Nhà sản xuất: </span><span style="font-size: small;">Reetech</span></p>
+<p><span style="font-size: small;">Công nghệ sản xuất theo tiêu chuẩn: </span><span style="font-size: small;">Mỹ</span></p>
+<p><span style="font-size: small;">Sản xuất tại: </span><span style="font-size: small;">Việt Nam</span></p>
+<h2><span style="font-size: small;">Tính năng Máy lạnh</span></h2>
+<p><span style="font-size: small;">Công suất máy: 1Hp</span></p>
+<p><span style="font-size: small;">Tốc độ làm lạnh: 9200 BTU/h</span></p>
+<p><span style="font-size: small;">INVERTER - tiết kiệm điện: Không</span></p>
+<p><span style="font-size: small;">Khả năng hút ẩm: 1.0 Lít/h.</span></p>
+<p><span style="font-size: small;">Tính năng tạo ION: Không</span></p>
+<p><span style="font-size: small;">Lưu lượng gió: 450/400/350 m3/h.</span></p>
+<p><span style="font-size: small;">Phạm vi hiệu quả: 14 – 21 m2.</span></p>
+<p><span style="font-size: small;">Tiện ích khác: Ba tốc độ quạt kèm chức năng tự động điều chỉnh. Cánh đảo gió tự động. Tự chọn chế độ hoạt động. Lọc sạch không khí. Điều khiển từ xa. Chế độ hoạt động êm dịu. Hẹn giờ hoạt động. Tự khởi động khi có điện lại. Phin lọc sinh học,..</span></p>
+<p><span style="font-size: small;">Độ ồn: Dàn lạnh: 36 dB / Dàn nóng: 46 dB.</span></p>
+<p><span style="font-size: small;">Điện năng tiêu thụ: 1050 W</span></p>                    </div>
+                                        <div class="box_reset" id="dactinhkythuat" style="display:none;">
+                          <h3><span style="font-size: small;"><strong>Thông số kỹ thuật</strong><br><br></span></h3>
+<ul>
+<li><span style="font-size: small;">Công suất lạnh: 1Hp, 9200 BTU/h </span></li>
+<li><span style="font-size: small;">Công suất điện: 1050 W </span></li>
+<li><span style="font-size: small;">Hiệu suất năng lượng (EER): 8.8 BTU/W.h </span></li>
+<li><span style="font-size: small;">Nguồn điện: 220 V / 1PH / 50HZ </span></li>
+<li><span style="font-size: small;">Ống: Ống gas lỏng: 6.4 Ømm / Ống gas hơi: 9.5 Ømm / Ống nước xả: 17 Ømm </span></li>
+<li><span style="font-size: small;">Lưu lượng gió: 450/400/350 m3/h. </span></li>
+<li><span style="font-size: small;">Khả năng hút ẩm: 1.0 Lít/h. </span></li>
+<li><span style="font-size: small;">Độ ồn: Dàn lạnh: 36 dB / Dàn nóng: 46 dB. </span></li>
+<li><span style="font-size: small;">Kích thước dàn lạnh (RxCxS): 790x275x190 mm. </span></li>
+<li><span style="font-size: small;">Kích thước dàn nóng (RxCxS): 700x535x235 mm. </span></li>
+<li><span style="font-size: small;">Trọng lượng dàn nóng (kg): 30 </span></li>
+<li><span style="font-size: small;">Trọng lượng dàn lạnh (kg): 8.5 </span></li>
+<li><span style="font-size: small;">Phạm vi hiệu quả: 14 – 21 m2. </span></li>
+</ul>                        </div>
+                <div class="ln_end"></div>
+    <!-- ORTHER -->
+
+<h3>Sản phẩm khác</h3>
+  <dl class="products">
+                         <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc9h-bm8.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất : 1Hp, 2 Khối </span></li>
+<li><span style=&quot;font-size: small;&quot;>Loại 2 chiều </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm </span></li>
+<li><span style=&quot;font-size: small;&quot;>Block m&amp;aacute;y bảo h&amp;agrave;ng 7 năm </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>"><img src="http://dienlanhtheviet.com.vn/uploads/product/abc25ec2ed583e3e86feeb964dec7da5.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc9h-bm8.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất : 1Hp, 2 Khối </span></li>
+<li><span style=&quot;font-size: small;&quot;>Loại 2 chiều </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm </span></li>
+<li><span style=&quot;font-size: small;&quot;>Block m&amp;aacute;y bảo h&amp;agrave;ng 7 năm </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>">MÁY LẠNH REETECH RT/RC9(H)-BM8</a></p>      
+    </dt>
+            
+                     <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc12bm9.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường, 2 khối. C&amp;ocirc;ng suất: 1.5 Hp. </span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>"><img src="http://dienlanhtheviet.com.vn/uploads/product/e994d97efef0bc4061b153d6f383d264.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc12bm9.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường, 2 khối. C&amp;ocirc;ng suất: 1.5 Hp. </span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>">MÁY LẠNH REETECH RT/RC12BM9</a></p>      
+    </dt>
+            
+                     <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtvrcv9-be4.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường. C&amp;ocirc;ng suất: 01 Hp. </span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>L&amp;agrave;m sạch kh&amp;ocirc;ng kh&amp;iacute; bằng ion &amp;acirc;m</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng ph&amp;oacute;ng th&amp;iacute;ch Vitamin C</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Phin lọc sinh học</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>"><img src="http://dienlanhtheviet.com.vn/uploads/product/a93fd65af35ef3f177e15471b6e0d2a4.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtvrcv9-be4.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường. C&amp;ocirc;ng suất: 01 Hp. </span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>L&amp;agrave;m sạch kh&amp;ocirc;ng kh&amp;iacute; bằng ion &amp;acirc;m</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng ph&amp;oacute;ng th&amp;iacute;ch Vitamin C</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Phin lọc sinh học</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>">MÁY LẠNH REETECH RTV/RCV9-BE4</a></p>      
+    </dt>
+                    <dd class="clear"></dd>
+        
+                     <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc12h-bm3.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất : 1.5Hp, 2 Khối </span></li>
+<li><span style=&quot;font-size: small;&quot;>Loại 2 chiều </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm </span></li>
+<li><span style=&quot;font-size: small;&quot;>Block m&amp;aacute;y bảo h&amp;agrave;ng 7 năm </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>"><img src="http://dienlanhtheviet.com.vn/uploads/product/0acb9574dc6549219ab6dbdf05353e13.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc12h-bm3.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất : 1.5Hp, 2 Khối </span></li>
+<li><span style=&quot;font-size: small;&quot;>Loại 2 chiều </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm </span></li>
+<li><span style=&quot;font-size: small;&quot;>Block m&amp;aacute;y bảo h&amp;agrave;ng 7 năm </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;><strong>T&amp;iacute;nh năng</strong><br /><br /></span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>">MÁY LẠNH REETECH RT/RC12(H)-BM3</a></p>      
+    </dt>
+            
+                     <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtvrcv12-be-4.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường, 2 khối. C&amp;ocirc;ng suất: 1.5 Hp.</span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<p><strong><span style=&quot;font-size: small;&quot;>T&amp;iacute;nh năng</span></strong></p>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh </span></li>
+<li><span style=&quot;font-size: small;&quot;>L&amp;agrave;m sạch kh&amp;ocirc;ng kh&amp;iacute; bằng ion &amp;acirc;m </span></li>
+<li><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute; </span></li>
+<li><span style=&quot;font-size: small;&quot;>Điều khiển từ xa </span></li>
+<li><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu </span></li>
+<li><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại </span></li>
+<li><span style=&quot;font-size: small;&quot;>Chức năng ph&amp;oacute;ng th&amp;iacute;ch Vitamin C </span></li>
+<li><span style=&quot;font-size: small;&quot;>Phin lọc sinh học <br /><br /></span></li>
+</ul>"><img src="http://dienlanhtheviet.com.vn/uploads/product/91e9fdb4c3c7a30942846cdce49d4a1f.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtvrcv12-be-4.html" tiptitle="<h3><strong><span style=&quot;font-size: small;&quot;>Tổng quan: </span></strong></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Kiểu m&amp;aacute;y: treo tường, 2 khối. C&amp;ocirc;ng suất: 1.5 Hp.</span></li>
+<li><span style=&quot;font-size: small;&quot;>&amp;nbsp;Xuất xứ: H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh: 02 năm. </span></li>
+</ul>
+<p><strong><span style=&quot;font-size: small;&quot;>T&amp;iacute;nh năng</span></strong></p>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh </span></li>
+<li><span style=&quot;font-size: small;&quot;>L&amp;agrave;m sạch kh&amp;ocirc;ng kh&amp;iacute; bằng ion &amp;acirc;m </span></li>
+<li><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute; </span></li>
+<li><span style=&quot;font-size: small;&quot;>Điều khiển từ xa </span></li>
+<li><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu </span></li>
+<li><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động </span></li>
+<li><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại </span></li>
+<li><span style=&quot;font-size: small;&quot;>Chức năng ph&amp;oacute;ng th&amp;iacute;ch Vitamin C </span></li>
+<li><span style=&quot;font-size: small;&quot;>Phin lọc sinh học <br /><br /></span></li>
+</ul>">MÁY LẠNH REETECH RTV/RCV12-BE 4</a></p>      
+    </dt>
+            
+                     <dt>
+      <p class="img"><span><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc18bm9.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất&amp;nbsp; : 2.0HP- 2 Khối . </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;>T&amp;iacute;nh năng</span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>"><img src="http://dienlanhtheviet.com.vn/uploads/product/27e28cb91637c3162a2c413f62f3ab9b.jpg" width="148" height="110"></a></span></p>
+      <p><a href="http://dienlanhtheviet.com.vn/san-pham/may-lanh-reetech-rtrc18bm9.html" tiptitle="<h3><span style=&quot;font-size: small;&quot;>Tổng quan</span></h3>
+<ul>
+<li><span style=&quot;font-size: small;&quot;>C&amp;ocirc;ng suất&amp;nbsp; : 2.0HP- 2 Khối . </span></li>
+<li><span style=&quot;font-size: small;&quot;>H&amp;agrave;ng Mỹ - Việt Nam. </span></li>
+<li><span style=&quot;font-size: small;&quot;>Bảo h&amp;agrave;nh 2 năm. </span></li>
+</ul>
+<h3><span style=&quot;font-size: small;&quot;>T&amp;iacute;nh năng</span></h3>
+<table style=&quot;width: 100%;&quot; border=&quot;0&quot; cellspacing=&quot;5&quot; cellpadding=&quot;0&quot;>
+<tbody>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Ba tốc độ quạt k&amp;egrave;m chức năng tự động điều chỉnh</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>C&amp;aacute;nh đảo gi&amp;oacute; tự động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chống c&amp;aacute;c t&amp;aacute;c nh&amp;acirc;n g&amp;acirc;y ăn m&amp;ograve;n v&amp;agrave; chịu được m&amp;ocirc;i trường v&amp;ugrave;ng biển</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự chọn chế độ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Mặt nạ dễ d&amp;agrave;ng th&amp;aacute;o r&amp;aacute;p để lao ch&amp;ugrave;i</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Lọc sạch kh&amp;ocirc;ng kh&amp;iacute;</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chức năng tự chẩn đo&amp;aacute;n hỏng h&amp;oacute;c v&amp;agrave; tự động bảo vệ</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Điều khiển từ xa</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động &amp;ecirc;m dịu</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Hẹn giờ hoạt động</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Tự khởi động khi c&amp;oacute; điện lại</span></p>
+</td>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ l&amp;agrave;m lạnh (sưởi) nhanh</span></p>
+</td>
+</tr>
+<tr>
+<td width=&quot;50%&quot;>
+<p><span style=&quot;font-size: small;&quot;>Chế độ hoạt động tiết kiệm năng lượng</span></p>
+</td>
+<td>
+<p><span style=&quot;font-size: small;&quot;>&amp;nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>">MÁY LẠNH REETECH RT/RC18BM9</a></p>      
+    </dt>
+                    <dd class="clear"></dd>
+        
+ 
+  </dl>
+    
+<!-- /ORTHER -->
+</div>    </div>

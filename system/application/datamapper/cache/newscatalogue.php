@@ -9,18 +9,20 @@ $cache = array (
     3 => 'parentcat_id',
     4 => 'name_vietnamese',
     5 => 'name_english',
-    6 => 'group',
-    7 => 'show',
-    8 => 'name_none',
-    9 => 'recycle',
-    10 => 'title_bar',
-    11 => 'slogan',
-    12 => 'keyword',
-    13 => 'navigation',
-    14 => 'menu_active',
-    15 => 'isSystem',
-    16 => 'created',
-    17 => 'updated',
+    6 => 'description',
+    7 => 'image',
+    8 => 'group',
+    9 => 'show',
+    10 => 'name_none',
+    11 => 'recycle',
+    12 => 'title_bar',
+    13 => 'slogan',
+    14 => 'keyword',
+    15 => 'navigation',
+    16 => 'menu_active',
+    17 => 'isSystem',
+    18 => 'created',
+    19 => 'updated',
   ),
   'validation' => 
   array (
@@ -78,6 +80,20 @@ $cache = array (
     'parentcat_id' => 
     array (
       'field' => 'parentcat_id',
+      'rules' => 
+      array (
+      ),
+    ),
+    'description' => 
+    array (
+      'field' => 'description',
+      'rules' => 
+      array (
+      ),
+    ),
+    'image' => 
+    array (
+      'field' => 'image',
       'rules' => 
       array (
       ),

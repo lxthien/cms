@@ -1,6 +1,15 @@
 var frmCommentValidator ;
 
 $(document).ready(function(){
+
+    $(window).bind('scroll', function (event) {
+        if ($(window).scrollTop() > 120) {
+            $('.menu-navigation').addClass('navbar-fixed-top');
+        }else {
+            $('.menu-navigation').removeClass('navbar-fixed-top');
+        }
+    });
+
     /**
      * Jquery to run caroufredsel for partner
      */

@@ -51,6 +51,52 @@ class Newscatalogue extends DataMapper
         return $url;
     }
 
+    function getAllChildCat($parentCat = NULL, $listNewsCat = NULL) {
+        if($listNewsCat == NULL) {
+            $listNewsCat = array();
+        }
+        if($parentCat == NULL) {
+            $parentCat = $this;
+        }
+        else {
+            array_push($listNewsCat, $parentCat->get_clone());
+        }
+       
+        $child = new Newscatalogue();
+        $child->where('parentcat_id', $parentCat->id);
+        $child->get_iterated();
+        
+        if($child->result_count() > 0) {
+            foreach($child as $row) {
+                $listNewsCat = $this->getAllChildCat($row, $listNewsCat);  
+            }
+        }
+        
+        return $listNewsCat;
+    }
+
+    function getAllNews($condition = array(), $orderBy = "id",$orderDirection = "desc", $offset = null, $limit = null)
+    {
+        $listChildCat = $this->getAllChildCat();
+        $listIntChildCat = array();
+       
+        foreach($listChildCat as $row) {
+            array_push($listIntChildCat, $row->id);
+        } 
+        array_push($listIntChildCat, $this->id);
+        
+        $news = new Article();
+        $news->where_in_related_newscatalogue('id', $listIntChildCat);
+        $news->order_by($orderBy, $orderDirection);
+        if(count($condition) > 0) {
+            $news->where($condition);
+        }
+        $news->distinct();
+        $news->get_iterated($limit,$offset);
+        
+        return $news;
+    }
+
     /********************************
     * Up the position 
     * swap position with object that have higher position

@@ -1100,7 +1100,7 @@ class Search extends MY_Controller{
 
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         $dis['base_url']=base_url();
-        $dis['view']='product/product_detail';
+        $dis['view']='front/product/product_detail';
 		$this->viewfront($dis);
     }
     
