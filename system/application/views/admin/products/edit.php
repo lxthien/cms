@@ -289,7 +289,8 @@
     <ul>
         <li><a class="select" href="#products"><span>Thông tin</span></a></li>
         <li><a class="select" href="#sumary"><span>Tổng quan</span></a></li>
-        <!--<li><a class="select" href="#description"><span>Trích dẫn</span></a></li>
+        <li><a class="select" href="#description"><span>Đặc tính kĩ thuật</span></a></li>
+        <!--
         <li><a class="select" href="#gift"><span>Khuyến mãi</span></a></li>
         <li><a class="select" href="#video"><span>Video</span></a></li>
         <li><a class="select" href="#specific"><span>Thông số</span></a></li>-->
@@ -309,7 +310,7 @@
         <div class="clear"></div>
     </div>
     <div id="description"><!--begin tabs specific-->
-        <?php //$this->load->view('admin/products/tabs/tab_description'); ?>
+        <?php $this->load->view('admin/products/tabs/tab_description'); ?>
         <div class="clear"></div>
     </div>
     <div id="gift"><!--begin tabs specific-->
