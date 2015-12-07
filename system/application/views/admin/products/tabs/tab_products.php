@@ -53,13 +53,15 @@
             <td><textarea  name="inBox"  class="smallInput medium" /><?=$object->inBox;?></textarea></td>
         </tr> -->
         <tr>
-            <td>
-                <label for="name">Tình trạng:</label></td>
+            <td><label for="name">Kiểu máy:</label></td>
+            <td><input type="text" name="inBox"  class="smallInput medium fl" value="<?=$object->inBox;?>" /></td>
+        </tr>
+        <tr>
+            <td><label for="name">Xuất xứ:</label></td>
             <td><input  type="text" id="color"  class="smallInput medium fl"  name="color" value="<?=$object->color;?>" /></td>
         </tr>
         <tr>
-            <td>
-                <label for="name">Bảo hành:</label></td>
+            <td><label for="name">Bảo hành:</label></td>
             <td><input  type="text" id="warranty"  class="smallInput medium fl"  name="warranty" value="<?=$object->warranty;?>" /></td>
         </tr>
         <tr>

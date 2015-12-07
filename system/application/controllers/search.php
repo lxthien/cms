@@ -238,8 +238,6 @@ class Search extends MY_Controller{
     
     function advangeSearch()
     {
-        //var_dump($this->uri->uri_to_assoc(2));
-        //exit;
         $viewMode = $this->uri->segment(2,"") == ""?"ma-tran":$this->uri->segment(2);
         $orderBy = $this->uri->segment(3,"") == ""?"moi-nhat":$this->uri->segment(3);
         $page = $this->uri->segment(4,"") == "" ? "trang-1":$this->uri->segment(4);
@@ -326,13 +324,11 @@ class Search extends MY_Controller{
      */
     function getListId($list)
     {
-        
         $listIntChildCat = array();
-       
         foreach($list as $row)
         {
             array_push($listIntChildCat,$row->id);
-       //     array_push($listNameChildCat,$row->name);
+            //array_push($listNameChildCat,$row->name);
         } 
         return $listIntChildCat;
     }

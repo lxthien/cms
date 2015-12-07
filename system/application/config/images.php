@@ -46,6 +46,7 @@ $config["image_sizes"]["product_admin_list"] = array(50,  0);
 $config["image_sizes"]["product_detailSameCategory"] = array(0,  50);
 
 $config["image_sizes"]["product_list_138_108"] = array(138,108);
+$config["image_sizes"]["product_list_138_110"] = array(138,110);
 
 $config["image_sizes"]["news_270_225"] = array(270, 225);
 $config["image_sizes"]["news_80_60"] = array(270, 225);

@@ -52,15 +52,8 @@
                 $("#keyword").focus();
                 return false;
             }
-            if (!jQuery.trim($('#findw').val())) {
-                err = 'Nhóm sản phẩm';
-                alert('Quý khách cần nhập các thông tin sau: \n' + err);
-                $("#findw").val('')
-                $("#findw").focus();
-                return false;
-            }
+
             action = document.frmSearch.action;
-            action = action + '/' + $("#keyword").val() + '/' + $("#findw").val() + '/1';
             document.frmSearch.action = action;
 
             document.frmSearch.submit();
@@ -68,15 +61,13 @@
     </script>
 
     <div class="box_search">
-        <form action="<?php echo $base_url.'search'; ?>" method="post" name="frmSearch" id="frmSearch">
-            <p class="btn_red"><a href="#" onclick="return SendFormSearch();"><strong>Tìm</strong></a></p>
+        <form action="<?php echo $base_url.'tim-kiem'; ?>" method="post" name="frmSearch" id="frmSearch">
+            <p class="btn_red"><a href="javascript:void(0)" onclick="return SendFormSearch();"><strong>Tìm</strong></a></p>
             <p>
                 <select class="input_select" name="value" id="findw">
                     <option value="">Tất cả</option>
-                    <option value="40">Kho đông lạnh thực phẩm</option>
-                    <option value="17">Máy lạnh dân dụng</option>
-                    <option value="14">Máy lạnh trung tâm</option>
-                    <option value="22">Vật tư - linh kiện nghành lạnh</option>
+                    <option value="40">Sản phẩm mới</option>
+                    <option value="17">Sản phẩm cũ</option>
                 </select>
             </p>
             <p><input type="text" id="keyword" name="keyword" class="input_txt" value=""/></p>
