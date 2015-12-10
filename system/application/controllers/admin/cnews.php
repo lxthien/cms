@@ -327,9 +327,13 @@ class Cnews extends MY_Controller{
         }
         //setup start folder for kfm
         
-        $newscat = new newscatalogue();
-        $newscat->where('parentcat_id !=','NULL');
-        $newscat->where('parentcat_id',$newscatalogue->parentcat_id);
+        $newscatRoot = new Newscatalogue();
+        $newscatRoot->where('parentcat_id', NULL);
+        $newscatRoot->order_by('position','asc');
+        $newscatRoot->get();
+        $dis['newscatRoot'] = $newscatRoot;
+
+        $newscat = new Newscatalogue();
         $newscat->order_by('position','asc');
         $newscat->get();
 

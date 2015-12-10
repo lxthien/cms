@@ -1,69 +1,23 @@
-<?php $this->load->view('front/includes/breadcrumb') ?>
-<?php if($phoneTabletProduct->result_count()){?>
-<div class="pp_separate"></div>
-<div class="main_title">
-	<h2 class="">Kết quả tìm kiếm Điện thoại & Máy tính bảng</h2>
-	<a class="fr" style="padding-top: 5px;" href="<?=$base_url.'tim-kiem/'.urlencode(htmlentities($searchKey));?>/dien-thoai-may-tinh-bang">Xem tất cả kết quả tìm kiếm</a>	
+<div class="main">
+  <div class="tieude">Sản Phẩm</div>
+  <div class="box_list">
+    <dl class="products">
+      <?php $i=0; foreach($product as $row): $i++; ?>
+      <dt>
+        <p class="img">
+          <span>
+            <a href="<?php echo $base_url.$row->url; ?>">
+              <img src="<?php echo image($row->image, 'product_list_138_108'); ?>" width="138" height="108" alt="<?php echo $row->name; ?>">
+            </a>
+          </span>
+        </p>
+        <p><a href="<?php echo $base_url.$row->url; ?>" tiptitle=""><?php echo $row->name; ?></a></p>
+      </dt>
+      <?php if($i%3 == 0): ?>
+      <dd class="clear"></dd>
+      <?php endif; ?>
+      <?php endforeach; ?>
+    </dl>
+    <div class="pages"><span class="selected">1</span>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>2</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/3.html"><strong>3</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/4.html"><strong>4</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/5.html"><strong>5</strong></a>&nbsp;<span class="del"><a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>›</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/7.html"><strong>»</strong></a>&nbsp;</span></div>  
+  </div>
 </div>
-<div class="main_product">
-        <?php $i=0; foreach($phoneTabletProduct as $row):$i++;?>
-        <?php if($i% 5 == 1) echo '<div class="pp_line">';?>
-		<?=printProduct($row);?>
-        <?php if($i% 5 == 0) echo '</div><div class="clr"></div>';?>
-        <?php endforeach;?>
-        <?php if($i% 5 > 0) echo '</div><div class="clr"></div>';?>
-  
-</div>
-<?php } ?>
-
-	
-<?php if($accessoryProduct->result_count()){?>
-<div class="pp_separate"></div>
-<div class="main_title">
-	<h2 class="">Kết quả tìm kiếm Phụ kiện</h2>
-	<a class="fr" style="padding-top: 5px;" href="<?=$base_url.'tim-kiem/'.urlencode(htmlentities($searchKey));?>/phu-kien">Xem tất cả kết quả tìm kiếm</a>	
-</div>
-<div class="main_product">
-        <?php $i=0; foreach($accessoryProduct as $row):$i++;?>
-        <?php if($i% 5 == 1) echo '<div class="pp_line">';?>
-		<?=printProduct($row);?>
-        <?php if($i% 5 == 0) echo '</div><div class="clr"></div>';?>
-        <?php endforeach;?>
-        <?php if($i% 5 > 0) echo '</div><div class="clr"></div>';?>
-  
-</div>
-<?php } ?>
-
-
-
-<?php if($newsResult->result_count()){?>
-<div class="pp_separate"></div>
-<div class="main_title">
-	<h2 class="">Kết quả tìm kiếm Tin tức</h2>
-	<a class="fr" style="padding-top: 5px;" href="<?=$base_url.'tim-kiem/'.urlencode(htmlentities($searchKey));?>/tin-tuc">Xem tất cả kết quả tìm kiếm</a>		
-</div>
-<div class="main_product">
-        <?php $i = 1; foreach($newsResult as $row): ?>
-			<div class="news_ln news_ln_cat">
-				<div class="fl news_de_img">
-					<a href="<?=$base_url."tin-tuc/d/".$row->{'title_none'}?>" title="<?=$row->{'title_vietnamese'}?>">
-						<img alt="<?=$row->{'title_vietnamese'}?>" src="<?=image($row->dir.$row->image,'new_cat');?>"  />
-					</a>
-				</div>
-				<div class="fl news_ln_txt" style="width: 587px;">
-					<div>
-						<a href="<?=$base_url."tin-tuc/d/".$row->{'title_none'}?>" title="<?=$row->{'title_vietnamese'}?>" class="news_link font_bold">
-							<?=$row->{'title_vietnamese'}?>
-						</a>
-					</div>
-					<div class="news_de_txt">
-						<?=cut_string($row->{'full_vietnamese'},500).' ...';?>
-					</div>
-					<div class="news_view_more"><a href="<?=$base_url."tin-tuc/d/".$row->{'title_none'}?>" title="<?=$row->{'title_vietnamese'}?>">Chi tiết</a></div>
-				</div>
-				<div class="clr"></div>
-			</div>
-		<?php $i++; endforeach; ?>
-  
-</div>
-<?php } ?>

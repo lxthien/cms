@@ -11,8 +11,9 @@
         </li>
     </ul>
     <div class="nenfooter">
-        <center>© 2010 Dienlanhtheviet.com.vn | 29 đường số 1, P.26, Q.Bình Thạnh, TP.HCM | Hotline (08) 35 03 68 73.</center>
+        <center><?php echo getconfigkey('copy_right'); ?></center>
     </div>
+    <!--
     <br>
     Links: 
     <a style="color:#424242;" href="http://dienlanhtheviet.com.vn/dich-vu/trung-tam-bao-hanh-may-lanh.html" title="trung tam bao hanh may lanh" target="_blank">trung tam bao hanh may lanh</a> | 
@@ -23,4 +24,5 @@
     <a style="color:#424242;" href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-nuoc-nong.html" title="sua may nuoc nong" target="_blank">sua may nuoc nong</a> | 
     <a style="color:#424242;" href="http://dienlanhtheviet.com.vn/dich-vu/sua-lo-vi-song.html" title="sua lo vi song" target="_blank">sua lo vi song</a> | 
     <a style="color:#424242;" href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-lanh-quan-1.html" title="sua may lanh quan 1">sua may lanh quan 1</a>
+    -->
 </div>

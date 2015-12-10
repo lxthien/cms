@@ -49,18 +49,18 @@
     <div class="tieude">Liên kết web</div>
     <div class="weblink">
         <ul class="list_white">
-            <li><a href="http://dienlanhachau.vn/sua-may-lanh.html" target="_blank">Sửa máy lạnh</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/ve-sinh-may-lanh-quan-1.html" target="_blank">ve sinh may lanh quan 1</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/ve-sinh-may-lanh-quan-binh-thanh.html" target="_blank">ve sinh may lanh quan binh thanh</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-lanh-cong-nghiep.html" target="_blank">sua may lanh trung tam</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/bao-tri-may-lanh-cong-nghiep.html" target="_blank">bao tri may lanh trung tam</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-lanh-quan-thu-duc.html" target="_blank">sua may lanh quan thu duc</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-lanh-quan-2.html" target="_blank">sua may lanh quan 2</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-may-nuoc-nong-quan-1.html" target="_blank">sua may nuoc nong quan 1</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-lo-vi-song-quan-7.html" target="_blank">sua lo vi song quan 7</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-lo-vi-song-quan-phu-nhuan.html" target="_blank">sua lo vi song quan phu nhuan</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-lo-vi-song-quan-binh-thanh.html" target="_blank">sua lo vi song quan binh thanh</a></li>
-            <li><a href="http://dienlanhtheviet.com.vn/dich-vu/sua-lo-vi-song-quan-1.html" target="_blank">sua lo vi song quan 1</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-may-lanh.html" target="_blank">Sửa máy lạnh</a></li>
+            <li><a href="<?php echo $base_url; ?>ve-sinh-may-lanh-quan-1.html" target="_blank">ve sinh may lanh quan 1</a></li>
+            <li><a href="<?php echo $base_url; ?>ve-sinh-may-lanh-quan-binh-thanh.html" target="_blank">ve sinh may lanh quan binh thanh</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-may-lanh-cong-nghiep.html" target="_blank">sua may lanh trung tam</a></li>
+            <li><a href="<?php echo $base_url; ?>bao-tri-may-lanh-cong-nghiep.html" target="_blank">bao tri may lanh trung tam</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-may-lanh-quan-thu-duc.html" target="_blank">sua may lanh quan thu duc</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-may-lanh-quan-2.html" target="_blank">sua may lanh quan 2</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-may-nuoc-nong-quan-1.html" target="_blank">sua may nuoc nong quan 1</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-7.html" target="_blank">sua lo vi song quan 7</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-phu-nhuan.html" target="_blank">sua lo vi song quan phu nhuan</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-binh-thanh.html" target="_blank">sua lo vi song quan binh thanh</a></li>
+            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-1.html" target="_blank">sua lo vi song quan 1</a></li>
         </ul>
     </div>
     <ul class="visitor">

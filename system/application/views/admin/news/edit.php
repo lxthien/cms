@@ -145,8 +145,13 @@ $().ready(function(){
              	<td><label for="name">Danh mục:</label></td>
                 <td>
                 	<select name="newscatalogue" class="smallInput big">
-						<?php foreach($newscatalogue as $row): ?>
+						<?php foreach($newscatRoot as $row): ?>
 		                <option value="<?=$row->id;?>" <?php if($row->id==$currentcatalogue->id) echo 'selected="selected"';?> ><?php echo $row->name_vietnamese;?></option>
+		                	<?php foreach($newscatalogue as $_row): ?>
+		                	<?php if($_row->parentcat_id == $row->id): ?>
+		                	<option value="<?=$_row->id;?>" <?php if($_row->id==$currentcatalogue->id) echo 'selected="selected"';?> >..........<?php echo $_row->name_vietnamese;?></option>
+		                	<?php endif; ?>
+		                	<?php endforeach;?>	
 		                <?php endforeach;?>
 					</select>
 				</td>

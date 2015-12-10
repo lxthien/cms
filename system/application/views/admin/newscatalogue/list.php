@@ -22,7 +22,7 @@
               <td class="a-center"><div align="center"><?php echo $i;?></div></td>
               <td><a href="<?=$this->admin_url;?>newscatalogues/edit/<?=$row->id;?>"><?php echo $row->name_vietnamese;?></a></td>
               <td><?=$row->group;?></td>
-              <td><a href="<?=$this->admin_url;?>cnews/list_by_cat/<?=$row_sub->id;?>" ><?=$row->article->where('recycle',0)->count();?> Tin</a></td>
+              <td><a href="<?=$this->admin_url;?>cnews/list_by_cat/<?=$row->id;?>" ><?=$row->article->where('recycle',0)->count();?> Tin</a></td>
               <td>
 								<div align="center">
 									<?php

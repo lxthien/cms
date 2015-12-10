@@ -64,10 +64,10 @@
         <form action="<?php echo $base_url.'tim-kiem'; ?>" method="post" name="frmSearch" id="frmSearch">
             <p class="btn_red"><a href="javascript:void(0)" onclick="return SendFormSearch();"><strong>Tìm</strong></a></p>
             <p>
-                <select class="input_select" name="value" id="findw">
-                    <option value="">Tất cả</option>
-                    <option value="40">Sản phẩm mới</option>
-                    <option value="17">Sản phẩm cũ</option>
+                <select class="input_select" name="type" id="findw">
+                    <option value="81">Tất cả</option>
+                    <option value="300">Sản phẩm mới</option>
+                    <option value="301">Sản phẩm cũ</option>
                 </select>
             </p>
             <p><input type="text" id="keyword" name="keyword" class="input_txt" value=""/></p>
@@ -75,16 +75,4 @@
             <br class="clear"/>
         </form>
     </div>
-    <script language="javascript" type="text/javascript">
-        function search_submit() {
-            iform = document.id('frmSearch');
-            keyword = document.id('keyword').value;
-            findw = document.id('findw').value;
-            if (findw == '') findw = 'product';
-            iform.action = iform.action + '/' + keyword + '/' + findw + '/1';
-            alert(iform.action);
-            return;
-            this.form.submit();
-        }
-    </script>
 </div>
