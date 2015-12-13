@@ -1,20 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <?php $this->load->view('front/includes/headerUI'); ?>
-    <body>
-        <div class="wrapper">
-            <?php $this->load->view('front/includes/header'); ?>
-            <div class="content reset">
-                <?php $this->load->view('front/includes/col-left'); ?>
+<!DOCTYPE html>
+<html lang="vi">
+<?php $this->load->view('front/includes/headerUI'); ?>
+
+<body role="document">
+    <?php echo $this->load->view('front/includes/header'); ?>
+    <div class="cl"></div>
+    <?php echo $this->load->view('front/includes/slide'); ?>
+    <div class="cl"></div>
+    <?php echo $this->load->view('front/includes/slogan'); ?>
+    <div class="cl"></div>
+    <div class="container">
+        <?php if( $this->menu_active == 'home' ): ?>
+            <?php $this->load->view($view); ?>
+        <?php else: ?>
+            <div class="row" id="wrapper">
                 <?php $this->load->view($view); ?>
-                <?php $this->load->view('front/includes/col-right'); ?>
-                <?php $this->load->view('front/includes/partner'); ?>            
+                <?php $this->load->view('front/includes/col-left'); ?>
             </div>
-            <?php $this->load->view('front/includes/footer'); ?>
-        </div>
-        <script type="text/javascript">
-            fn_fixpng();
-        </script>
-    </body>
+        <?php endif; ?>
+        <div class="cl"></div>
+        <?php $this->load->view('front/includes/partner'); ?>
+    </div>
+    <div class="cl"></div>
+    <?php echo $this->load->view('front/includes/footer'); ?>
+
+    <?php $this->load->view('front/includes/footerUI'); ?>
+</body>
 </html>

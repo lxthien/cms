@@ -289,17 +289,15 @@
     <ul>
         <li><a class="select" href="#products"><span>Thông tin</span></a></li>
         <li><a class="select" href="#sumary"><span>Tổng quan</span></a></li>
-        <li><a class="select" href="#description"><span>Đặc tính kĩ thuật</span></a></li>
-        <li><a class="select" href="#video"><span>Tính năng</span></a></li>
-        <!--
+        <!--<li><a class="select" href="#description"><span>Trích dẫn</span></a></li>
         <li><a class="select" href="#gift"><span>Khuyến mãi</span></a></li>
+        <li><a class="select" href="#video"><span>Video</span></a></li>
         <li><a class="select" href="#specific"><span>Thông số</span></a></li>-->
         <?php if($object->exists()){ ?>
-        <!--<li><a class="select" href="#accessories"><span>Phụ kiện</span></a></li>
+        <!--<li><a class="select" href="#accessories"><span>Phụ kiện</span></a></li>-->
         <li><a class="select" href="#images"><span>Hình ảnh</span></a></li>
         <li><a class="select" href="#comments"><span>Comments</span></a></li>
         <?php } ?>
-        -->
     </ul>
     <div id="products"><!--begin products tabs-->
         <?php $this->load->view('admin/products/tabs/tab_products'); ?>
@@ -311,7 +309,7 @@
         <div class="clear"></div>
     </div>
     <div id="description"><!--begin tabs specific-->
-        <?php $this->load->view('admin/products/tabs/tab_description'); ?>
+        <?php //$this->load->view('admin/products/tabs/tab_description'); ?>
         <div class="clear"></div>
     </div>
     <div id="gift"><!--begin tabs specific-->
@@ -325,7 +323,7 @@
     </div>
     
     <div id="video"><!--begin tabs specific-->
-        <?php $this->load->view('admin/products/tabs/tab_video'); ?>
+        <?php //$this->load->view('admin/products/tabs/tab_video'); ?>
         <div class="clear"></div>
     </div>
     
@@ -336,11 +334,11 @@
         <div class="clear"></div>
     </div><!--end tabs images-->
     <div id="images"><!--begin tabs images-->
-    	<?php //$this->load->view('admin/products/tabs/tab_images'); ?>
+    	<?php $this->load->view('admin/products/tabs/tab_images'); ?>
         <div class="clear"></div>
     </div><!--end tabs images-->
     <div id="comments"><!--begin tabs comments-->
-        <?php //$this->load->view('admin/products/tabs/tab_comments'); ?>
+        <?php $this->load->view('admin/products/tabs/tab_comments'); ?>
         <div class="clear"></div>
     </div><!--end tabs comments-->
     <?php  } ?>
