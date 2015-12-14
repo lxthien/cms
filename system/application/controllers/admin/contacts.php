@@ -15,7 +15,6 @@ class Contacts extends MY_Controller{
     function list_all()
     {
         $contact = new contact();
-        $contact->where('cat', 1);
         $contact->order_by('id','desc');
         $contact->get();
 

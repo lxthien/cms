@@ -107,6 +107,35 @@ class Home extends MY_Controller
 
         $this->viewfront($dis);
     }
+
+    function contacts() {
+        $contact = new Contact();
+        $msg = "";
+       
+        if( $_SERVER['REQUEST_METHOD'] == "POST" ) {
+            $contact->name = $this->input->post('name');
+            $contact->title = $this->input->post('title');
+            $contact->email = $this->input->post('email');
+            $contact->content = $this->input->post('content');
+            $contact->address = $this->input->post('address');
+            $contact->phone = $this->input->post('phone');
+
+
+            if( $contact->save() ) {
+                $msg = "Chúng tôi đã nhận được thông tin của bạn. Cám ơn .";
+                $contact->clear();
+                redirect(base_url().'lien-he.html');
+            } else {
+                print_r($contact->error->all); die;
+                $msg="Có 1 số lỗi sau :\n";
+                foreach($contact->error->all as $row) {
+                    $msg.=$row."\n";
+                }
+            }
+        }
+
+        redirect(base_url().'lien-he.html');
+    }
     
     
     function newLetter()

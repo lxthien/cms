@@ -55,6 +55,7 @@ a:hover, a:focus {color: #555555;}
 	height: 120px;
 }
 .menu-navigation {background: #fdd504;}
+.menu-navigation.navbar-fixed-top{width: 1030px; margin: 0 auto;}
 
 /**
  * Slide
@@ -244,3 +245,14 @@ ul.ul-partner-home li img{padding: 0;border-width: 3px;border-radius: 0;width: 1
  **/
 .form-contact{padding-top: 15px; padding-bottom: 15px;}
 .form-contact .block{margin-top: 5px; margin-bottom: 5px;}
+.form-contact .block input{padding: 0 5px;}
+.form-contact .block textarea{height: 100px; padding: 0 5px; resize: none;}
+.form-contact .block label.error{font-weight: 400; font-style: italic; font-size: 13px;}
+.form-contact .btn-submit{background: #fdd504; border: none; cursor: pointer; width: 80px; height: 30px; text-transform: uppercase;
+	line-height: 30px; color: #ffffff; font-weight: 600;}
+
+/**
+ * Go to top
+ **/
+.back-to-top {position: fixed; right: 30px; bottom: 100px; z-index: 9999; display: none;}
+.back-to-top img{width: 50px;}

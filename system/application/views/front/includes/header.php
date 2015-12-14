@@ -18,7 +18,7 @@
                     <img src="<?php echo $base_url.'images/assets/icon-phone.gif'; ?>"><br />
                     <span>0903.931.595 A.Tý</span>
                 </div>-->
-                <img src="<?php echo $base_url.'images/assets/header.gif'; ?>">
+                <img src="<?php echo $base_url.'images/assets/logo.jpg'; ?>">
             </div>
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">

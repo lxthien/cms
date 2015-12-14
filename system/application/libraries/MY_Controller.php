@@ -197,10 +197,11 @@ class MY_Controller extends Controller{
             $bannerDetail->get_iterated();
             $this->bannerDetail = $bannerDetail;*/
 
-            /*$bannerLeft = new Banner();
+            $bannerLeft = new Banner();
             $bannerLeft->where('bannercat_id', 19);
+            $bannerLeft->order_by('id', 'asc');
             $bannerLeft->get_iterated();
-            $this->bannerLeft = $bannerLeft;*/
+            $this->bannerLeft = $bannerLeft;
             
             /*$bannerFooter = new Banner();
             $bannerFooter->where('bannercat_id',20);

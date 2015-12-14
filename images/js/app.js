@@ -1,6 +1,23 @@
 var frmCommentValidator ;
 
 $(document).ready(function(){
+
+    $(window).bind('scroll', function (event) {
+        if ($(window).scrollTop() > 120) {
+            $('.menu-navigation').addClass('navbar-fixed-top');
+            $('.back-to-top').fadeIn(500);
+        }else {
+            $('.menu-navigation').removeClass('navbar-fixed-top');
+            $('.back-to-top').fadeOut(500);
+        }
+    });
+
+    $(".back-to-top a").click(function(){
+        $('html, body').animate({scrollTop : 0}, 800);
+        return false;
+    });
+
+
     /**
      * Jquery to run caroufredsel for partner
      */
@@ -215,6 +232,64 @@ $(document).ready(function(){
             },
             captcha_code:{
                 required: "<br />Nhập lại mã bảo vệ"
+            }
+        }
+    });
+
+    $('#myformContact').validate({
+        rules:{
+            title:{
+                required:true,
+                maxlength:100
+                },
+            name:{
+                required: true,
+                maxlength:50
+            },
+            email:{
+                required: true,
+                email:true
+            },
+            address:{
+                required: true
+            },
+            phone:{
+                number: true,
+                required: true
+            },
+            content:{
+                required: true
+            },
+            captcha_code:{
+                required: true
+            }
+            
+        },
+        messages:{
+            title:{
+                required:"<font color=red>Vui lòng nhập chủ đề</font>"  ,
+                maxlength:"<font color=red>Tiêu đề tối đa 100 kí tự</font>"
+                },
+            name:{
+                required: "<font color=red>Vui lòng nhập họ tên của bạn</font>",
+                maxlength:"<font color=red>Tên không quá 50 kí tự</font>"
+            },
+            email:{
+                required: "<font color=red>Vui lòng nhập địa chỉ email</font>",
+                email: "<font color=red>Nhập đúng dạng địa chỉ email</font>"
+            },
+            address:{
+                required: "<font color=red>Vui lòng nhập địa chỉ</font>"
+            },
+            phone:{
+                number: "<font color=red>Vui lòng chỉ nhập số</font>",
+                required: "<font color=red>Vui lòng nhập số điện thoại</font>"
+            },
+            content:{
+                required: "<font color=red>Vui lòng nhập nội dung</font>"
+            },
+            captcha_code:{
+                required: "<font color=red>Nhập lại mã bảo vệ</font>"
             }
         }
     });

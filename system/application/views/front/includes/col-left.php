@@ -7,18 +7,11 @@
     </div>
     <div class="cl"></div>
     <div class="col-left-advertsing">
-        <h2>Quảng cáo</h2>
+        <h2>Khuyến mãi</h2>
+        <?php foreach($this->bannerLeft as $row) :?>
         <div class="advertsing-item">
-            <a href=""><img src="<?php echo $base_url . 'images/assets/advertsing.jpg' ?>" alt=""/></a>
+            <a href=""><img src="<?= image($row->image, 'slide_left'); ?>" alt=""/></a>
         </div>
-        <div class="advertsing-item">
-            <a href=""><img src="<?php echo $base_url . 'images/assets/advertsing-2.jpg' ?>" alt=""/></a>
-        </div>
-        <div class="advertsing-item">
-            <a href=""><img src="<?php echo $base_url . 'images/assets/advertsing-3.jpg' ?>" alt=""/></a>
-        </div>
-        <div class="advertsing-item">
-            <a href=""><img src="<?php echo $base_url . 'images/assets/advertsing-4.jpg' ?>" alt=""/></a>
-        </div>
+        <?php endforeach ?>
     </div>
 </div>

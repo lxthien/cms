@@ -10,7 +10,7 @@
     </div>
     <div class="cl"></div>
     <div class="form-contact">
-        <form action="<?php echo $base_url.'lien-he.html'; ?>" method="post">
+        <form id="myformContact" action="<?php echo $base_url.'lien-he'; ?>" method="post">
             <?php if( isset($msg) ): ?>
             <div class="block row">
                 <p class="col-md-12 center block"><?php echo $msg; ?></p>
@@ -18,28 +18,58 @@
             <?php endif; ?>
             <div class="block row">
                 <span class="block bold col-md-2">Tiêu đề:</span>
-                <input class="col-md-10" type="text" name="title" placeholder="Tiêu đề"/>
+                <div class="col-md-10">
+                    <div class="row">
+                        <input class="col-md-12" type="text" name="title" placeholder="Tiêu đề"/>
+                    </div>
+                </div>
             </div>
             <div class="block row">
                 <span class="block bold col-md-2">Email:</span>
-                <input class="col-md-10" type="text" name="email" placeholder="Email"/>
+                <div class="col-md-10">
+                    <div class="row">
+                        <input class="col-md-12" type="text" name="email" placeholder="Email"/>
+                    </div>
+                </div>
             </div>
             <div class="block row">
                 <span class="block bold col-md-2">Tên:</span>
-                <input class="col-md-10" type="text" name="name" placeholder="Tên"/>
+                <div class="col-md-10">
+                    <div class="row">
+                        <input class="col-md-12" type="text" name="name" placeholder="Tên"/>
+                    </div>
+                </div>
+            </div>
+            <div class="block row">
+                <span class="block bold col-md-2">Điện thoại:</span>
+                <div class="col-md-10">
+                    <div class="row">
+                        <input class="col-md-12" type="text" name="phone" placeholder="Điện thoại"/>
+                    </div>
+                </div>
             </div>
             <div class="block row">
                 <span class="block bold col-md-2">Địa chỉ:</span>
-                <input class="col-md-10" type="text" name="address" placeholder="Địa chỉ"/>
+                <div class="col-md-10">
+                    <div class="row">
+                        <input class="col-md-12" type="text" name="address" placeholder="Địa chỉ"/>
+                    </div>
+                </div>
             </div>
             <div class="block row">
                 <span class="block bold col-md-2">Nội dung:</span>
-                <textarea class="col-md-10" name="content" placeholder="Nội dung"></textarea>
+                <div class="col-md-10">
+                    <div class="row">
+                        <textarea class="col-md-12" name="content" placeholder="Nội dung"></textarea>
+                    </div>
+                </div>
             </div>
             <div class="block row">
                 <div class="col-md-2">&nbsp;</div>
                 <div class="col-md-10">
-                    <input type="submit" value="Gửi"/>
+                    <div class="row">
+                        <input class="btn-submit" type="submit" value="Gửi"/>
+                    </div>
                 </div>
             </div>
         </form>

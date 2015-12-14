@@ -92,6 +92,7 @@ $route['tim-kiem']			                = "home/searchParams";
 $route['tim-kiem(:any)']                    = "home/searchParams";
 $route['search']                      		= "home/searchs";
 
+$route['lien-he']                      		= "home/contacts";
 
 $route['default_controller'] 	     		= "home";
 $route['scaffolding_trigger'] 	     		= "";

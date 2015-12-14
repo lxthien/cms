@@ -23,7 +23,7 @@
     </div>
     <div class="cl"></div>
     <?php echo $this->load->view('front/includes/footer'); ?>
-
+    <?php echo $this->load->view('front/includes/gototop'); ?>
     <?php $this->load->view('front/includes/footerUI'); ?>
 </body>
 </html>
