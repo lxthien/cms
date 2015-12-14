@@ -1,4 +1,4 @@
-<h2>Trích dẫn thông số</h2>
+<h2>Đặc tính kĩ thuật</h2>
 <textarea  name="txtDescription"><?php echo $object->txtDescription;?></textarea>
 <script type="text/javascript">
     editorDescription = CKEDITOR.replace( 'txtDescription',

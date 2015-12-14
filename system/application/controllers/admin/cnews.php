@@ -12,6 +12,7 @@ class Cnews extends MY_Controller{
         $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>91));
         $this->load->library('login_manager');
     }
+
     /**
      * Cnews::index()
      * 
@@ -21,6 +22,7 @@ class Cnews extends MY_Controller{
     {
         $this->list_all();
     }
+
     /**
      * Cnews::list_all()
      * 
@@ -28,14 +30,15 @@ class Cnews extends MY_Controller{
      * @param integer $limit
      * @return
      */
-    function list_all($offset=0,$limit=5)
+    function list_all($offset=0, $limit=50)
     {      
-        $news=new article();
-        $news->where(array('recycle'=>0));
-        $news->where_related_newscatalogue('group',1);
+        $news = new article();
+        $news->where(array('recycle'=>0,'active'=>1));
         $news->order_by('id','desc');
         $news->get_paged($offset,$limit,TRUE);
-        setPagination($this->admin.'cnews/list_all/',$news->paged->total_rows,$limit,4);
+        
+        setPagination($this->admin.'cnews/list_all/', $news->paged->total_rows, $limit, 4);
+        
         $dis['base_url']=base_url();
         $dis['view']='news/list';
         $dis['news']=$news;
@@ -44,6 +47,7 @@ class Cnews extends MY_Controller{
         $dis['title']="Tất cả các tin";
         $this->viewadmin($dis);
     }
+
     //list all news in cat by catalogue_id
     /**
      * Cnews::list_by_cat()
@@ -59,7 +63,7 @@ class Cnews extends MY_Controller{
         $news=new article();
         $news->where('newscatalogue_id',$catalogue_id);
         $news->where(array('recycle'=>0));
-         $news->order_by('id','desc');
+        $news->order_by('id','desc');
         $news->get_paged($offset,$limit,TRUE);
         $total=count($news);
         setPagination($this->admin.'cnews/list_by_cat/'.$catalogue_id,$news->paged->total_rows,$limit,5);
@@ -75,42 +79,36 @@ class Cnews extends MY_Controller{
         $n->where('newscatalogue_id',$catalogue_id);
         $n->where(array('recycle'=>1));
         $count_recycle = $n->count();
+        
         $dis['nav_menu']=array(
-                array(
-    				"type"=>"back",
-    				"text"=>"Về danh mục",
-    				"link"=>"{$this->admin_url}newscatalogues/list_by_catparent/7",
-    				"onclick"=>""		
-    			),
-    			array(
-    				"type"=>"add",
-    				"text"=>"Thêm tin mới",
-    				"link"=>"{$this->admin_url}cnews/edit/".$catalogue_id,
-    				"onclick"=>""		
-    			)
-                
-    			
-                
+            array(
+				"type"=>"back",
+				"text"=>"Về danh mục",
+				"link"=>"{$this->admin_url}newscatalogues/list_by_catparent/7",
+				"onclick"=>""		
+			),
+			array(
+				"type"=>"add",
+				"text"=>"Thêm tin mới",
+				"link"=>"{$this->admin_url}cnews/edit/".$catalogue_id,
+				"onclick"=>""		
+			)
          );
        
-         if($this->logged_in_user->adminrole->id==1)
-            {
-                array_push($dis['nav_menu'],
-                array(
-    				"type"=>"recycle",
-    				"text"=>"Thùng rác <span style='color:red'>(".$count_recycle.") </span>",
-    				"link"=>"{$this->admin_url}cnews/list_recycle_by_cat/".$catalogue_id,
-    				"onclick"=>""		
-    			));
-            }
+        if($this->logged_in_user->adminrole->id==1) {
+            array_push($dis['nav_menu'],
+            array(
+				"type"=>"recycle",
+				"text"=>"Thùng rác <span style='color:red'>(".$count_recycle.") </span>",
+				"link"=>"{$this->admin_url}cnews/list_recycle_by_cat/".$catalogue_id,
+				"onclick"=>""		
+			));
+        }
         $this->viewadmin($dis);
     }
     
-    
-    
-    function isolate_list_by_cat($catalogue_id=0,$offset=0,$limit=10)
-    {
-        
+
+    function isolate_list_by_cat($catalogue_id=0,$offset=0,$limit=10) {
         $newscatalogue=new newscatalogue($catalogue_id);
         $news=new article();
         $news->where('newscatalogue_id',$catalogue_id);
@@ -132,32 +130,29 @@ class Cnews extends MY_Controller{
         $n->where(array('recycle'=>1));
         $count_recycle = $n->count();
         $dis['nav_menu']=array(     
-    			array(
-    				"type"=>"add",
-    				"text"=>"Thêm tin mới",
-    				"link"=>"{$this->admin_url}cnews/isolate_edit/".$catalogue_id,
-    				"onclick"=>""		
-    			)             
-         );
+			array(
+				"type"=>"add",
+				"text"=>"Thêm tin mới",
+				"link"=>"{$this->admin_url}cnews/isolate_edit/".$catalogue_id,
+				"onclick"=>""		
+			)
+        );
          
-         if($this->logged_in_user->adminrole->id==1)
-            {
-                array_push($dis['nav_menu'],
-                array(
-    				"type"=>"recycle",
-    				"text"=>"Thùng rác <span style='color:red'>(".$count_recycle.") </span>",
-    				"link"=>"{$this->admin_url}cnews/list_recycle_by_cat/".$catalogue_id,
-    				"onclick"=>""		
-    			));
-            }
+        if($this->logged_in_user->adminrole->id==1)
+        {
+            array_push($dis['nav_menu'],
+            array(
+				"type"=>"recycle",
+				"text"=>"Thùng rác <span style='color:red'>(".$count_recycle.") </span>",
+				"link"=>"{$this->admin_url}cnews/list_recycle_by_cat/".$catalogue_id,
+				"onclick"=>""		
+			));
+        }
             
         $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>$newscatalogue->navigation));
-        if(empty($newscatalogue->menu_active))
-        {
+        if(empty($newscatalogue->menu_active)) {
             $dis['menu_active'] = $newscatalogue->name_vietnamese;
-        }
-        else
-        {
+        } else {
             $dis['menu_active'] = $newscatalogue->menu_active;
         }
         
@@ -202,6 +197,7 @@ class Cnews extends MY_Controller{
          );
         $this->viewadmin($dis);
     }
+
     /**
      * Cnews::list_by_catparent()
      * 
@@ -246,127 +242,109 @@ class Cnews extends MY_Controller{
      * @param integer $news_id
      * @return
      */
-    function edit($catalogue_id=0,$news_id=0)
-    {
-        $newscatalogue=new newscatalogue($catalogue_id);
+    function edit($catalogue_id=0, $news_id=0) {
+        $newscatalogue = new Newscatalogue($catalogue_id);
         if(!$newscatalogue->exists())
             show_404();
         
-        $news=new article($news_id);
-        if($_SERVER['REQUEST_METHOD']=="GET")
-        {
-                if(!$news->exists())
-                {
-                    
-                }
-                else
-                {
-                    if(getconfigkey('use_ftp'))
-                    {
-                        $this->load->library('ftp');
-                		$config['hostname'] = $this->cauhinh->where('fieldname','ftp_server')->get()->value;
-                		$config['username'] = $this->cauhinh->where('fieldname','ftp_username')->get()->value;
-                		$config['password'] = $this->cauhinh->where('fieldname','ftp_password')->get()->value;
-                        if(empty($news->dir)  )
-                        {
-                            $ex=explode(' ',$news->created);
-                            $createdate=$ex[0];
-                            $y=getyear($createdate);
-                            $m=getmonth($createdate);
-                            $d=getday($createdate);
-                            $ddir="img/news/".$y.'/'.$m.'/'.$d.'/'.md5(date("Y-m-d h:i:s")).'/';
-                            $news->dir=$ddir;
-                            $news->save();
-                            $this->_create_dir($ddir);
+        $news = new Article($news_id);
+        if($_SERVER['REQUEST_METHOD']=="GET") {
+            if(!$news->exists()) {
+                //
+            } else {
+                $news->dir = "img/news/";
+                /*if(getconfigkey('use_ftp')) {
+                    $this->load->library('ftp');
+            		$config['hostname'] = $this->cauhinh->where('fieldname','ftp_server')->get()->value;
+            		$config['username'] = $this->cauhinh->where('fieldname','ftp_username')->get()->value;
+            		$config['password'] = $this->cauhinh->where('fieldname','ftp_password')->get()->value;
+                    if(empty($news->dir) ) {
+                        $ex=explode(' ',$news->created);
+                        $createdate=$ex[0];
+                        $y=getyear($createdate);
+                        $m=getmonth($createdate);
+                        $d=getday($createdate);
+                        $ddir="img/news/".$y.'/'.$m.'/'.$d.'/'.md5(date("Y-m-d h:i:s")).'/';
+                        $news->dir=$ddir;
+                        $news->save();
+                        $this->_create_dir($ddir);
+                    } else {
+                        if($this->ftp->list_files($news->dir) == FALSE) {
+                            $this->_create_dir($news->dir);
                         }
-                        else{
-                                if($this->ftp->list_files($news->dir) == FALSE)
-                                {
-                                    $this->_create_dir($news->dir);
-                                }
-                            
-                        }
-                        $this->ftp->close();
                     }
-                    else
-                    {
-                        if(empty($news->dir)  )
-                            $news->dir = getconfigkey("default_news_dir");
-                    }
-                    
-                    
+                    $this->ftp->close();
+                } else {
+                    if(empty($news->dir)  )
+                        $news->dir = getconfigkey("default_news_dir");
+                }*/
+            }
+        } else {
+            $this->load->helper('remove_vn_helper');
+            $this->load->library('file_lib');
+            $news->title_vietnamese=$this->input->post('title_vietnamese');
+            $news->title_english=$this->input->post('title_english');
+            $news->title_none=remove_vn($news->title_vietnamese);
+            $news->author= $this->input->post('author');
+            $news->tag=$this->input->post('tag');
+            $news->short_vietnamese = strip_tags($this->input->post('short_vietnamese'));
+            $news->full_vietnamese = $this->input->post('txtFull_vietnamese');
+            $news->short_english = strip_tags($this->input->post('txtShort_english'));
+            $news->full_english = $this->input->post('txtFull_english');
+            $news->dir=$this->input->post('dir');
+            $news->pagi = $this->input->post('pagi');
+            $news->active = 1;
+            $news->page_title = $this->input->post('page_title');
+            $news->page_keyword = $this->input->post('page_keyword');
+            $news->page_description = $this->input->post('page_description');
+            if($this->logged_in_user->adminrole->id == 1) {
+                $news->navigation =  $this->input->post('navigation');
+                $news->menu_active = $this->input->post('menu_active');
+                $news->old_id = $this->input->post('old_id');
+            }
+            
+            if($_FILES['image']['name'] != "") {
+                $dataupload=$this->file_lib->upload('image',"img/news/");
+                if(!is_array($dataupload)) {
+                    flash_message('error',$dataupload);
                 }
-                
-        }
-        else
-        {
-                $this->load->helper('remove_vn_helper');
-                $this->load->library('file_lib');
-                $news->title_vietnamese=$this->input->post('title_vietnamese');
-                $news->title_english=$this->input->post('title_english');
-                $news->title_none=remove_vn($news->title_vietnamese);
-                $news->author= $this->input->post('author');
-                $news->tag=$this->input->post('tag');
-                $news->short_vietnamese=strip_tags($this->input->post('txtShort_vietnamese'));
-                $news->full_vietnamese=$this->input->post('txtFull_vietnamese');
-                $news->short_english=strip_tags($this->input->post('txtShort_english'));
-                $news->full_english=$this->input->post('txtFull_english');
-                $news->dir=$this->input->post('dir');
-                $news->pagi = $this->input->post('pagi');
-                if($this->logged_in_user->adminrole->id == 1)
-                {
-                    $news->navigation =  $this->input->post('navigation');
-                    $news->menu_active = $this->input->post('menu_active');
-                    $news->old_id = $this->input->post('old_id');
+                else{
+                    $news->image=$news->dir.$dataupload['file_name'];
                 }
-                $new_image=$this->input->post('newimage');
-                if($new_image=='1')
-                {
-                    $dataupload=$this->file_lib->upload('image',"img/news");
-                    if(!is_array($dataupload))
-                    {
-                        flash_message('error',$dataupload);
-                    }
-                    else{
-                        $news->image=$dataupload['file_name'];
-                        $this->resize_image($news->dir.$dataupload['file_name']);
-                    }
-                }
-                else
-                {
-                    $news->image=trim($this->input->post('imagelink'));
-                }
-                //newstopic
-                $newstp=new newstopic($this->input->post('newstopic'));
-                $newsc=new newscatalogue($this->input->post('newscatalogue'));
-                if(!$news->exists())
-                {
-                    $news->active=0;
-                }
-               if($news->save(array($newsc,$newstp)))
-               {         
-                    $this->session->unset_userdata('dir_for_news');
-                   
-                    redirect($this->admin.'cnews/edit/'.$news->newscatalogue->id.'/'.$news->id);
-               }
-               else
-               {
-                    flash_message("error","Lỗi");
-               }
+            }
+
+            $newstp = new newstopic($this->input->post('newstopic'));
+            $newsc = new newscatalogue($this->input->post('newscatalogue'));
+            if(!$news->exists()) {
+                $news->active=0;
+            }
+            if($news->save(array($newsc,$newstp))) {         
+                $this->session->unset_userdata('dir_for_news');
+                redirect($this->admin.'cnews/edit/'.$news->newscatalogue->id.'/'.$news->id);
+            } else {
+                flash_message("error","Lỗi");
+            }
         }
         //setup start folder for kfm
         
-        $newscat = new newscatalogue();
-        $newscat->where('parentcat_id !=','NULL');
-        $newscat->where('parentcat_id',$newscatalogue->parentcat_id);
+        $newscatRoot = new Newscatalogue();
+        $newscatRoot->where('parentcat_id', NULL);
+        $newscatRoot->order_by('position','asc');
+        $newscatRoot->get();
+        $dis['newscatRoot'] = $newscatRoot;
+
+        $newscat = new Newscatalogue();
         $newscat->order_by('position','asc');
         $newscat->get();
+
         $newstopic=new newstopic();
         $newstopic->order_by('id','desc');
         $newstopic->get();
+        
         $sitelanguage=new Sitelanguage();
         $sitelanguage->order_by('position','asc');
         $sitelanguage->get();
+        
         $dis['sitelanguage']=$sitelanguage;
         $dis['newstopic']=$newstopic;
         $dis['base_url']=base_url();
@@ -377,24 +355,23 @@ class Cnews extends MY_Controller{
         $dis['view']="news/edit";
         $dis['object']=$news;
         $dis['nav_menu']=array(
-    			array(
-    				"type"=>"back",
-    				"text"=>"Back",
-    				"link"=>"{$this->admin_url}cnews/list_by_cat/".$catalogue_id,
-    				"onclick"=>""		
+			array(
+				"type"=>"back",
+				"text"=>"Back",
+				"link"=>"{$this->admin_url}cnews/list_by_cat/".$catalogue_id,
+				"onclick"=>""		
+			)
+        );
+        if($this->logged_in_user->adminrole->id == 1 && $this->logged_in_user->adminrole->id == 1) {
+            array_push($dis['nav_menu'],
+                array(
+    				"type"=>"copymove",
+    				"text"=>"Copy/Move",
+    				"link"=>"javascript:void(0);",
+    				"onclick"=>"show_copy()"		
     			)
-         );
-          if($this->logged_in_user->adminrole->id == 1 && $this->logged_in_user->adminrole->id == 1)
-            {
-                array_push($dis['nav_menu'],
-                    array(
-        				"type"=>"copymove",
-        				"text"=>"Copy/Move",
-        				"link"=>"javascript:void(0);",
-        				"onclick"=>"show_copy()"		
-        			)
-                );
-            }
+            );
+        }
         
         $this->viewadmin($dis);
     }
@@ -431,10 +408,6 @@ class Cnews extends MY_Controller{
             $new_image=$this->input->post('newimage');
             $news->pagi = $this->input->post('pagi');
 
-            $tags = remove_vn($this->input->post('title_vietnamese') . ' ' . $this->input->post('title_english') .' '. $this->input->post('tag_vietnamese'). ' ' . $this->input->post('tag_english'). ' ' . $this->input->post('keyword_vietnamese'). ' ' . $this->input->post('keyword_english'));
-            $tags = explode('-', $tags);
-            $news->tag_search = implode(' ', $tags);
-
             $folder = 'img/news/';
             if($_FILES['image']['name'] != "") {
                 $dataupload=$this->file_lib->upload('image', $folder);
@@ -446,38 +419,52 @@ class Cnews extends MY_Controller{
             }
 
             //newstopic
-            $newstp = new newstopic($this->input->post('newstopic'));
-            $newsc = new newscatalogue($this->input->post('newscatalogue'));
+            $newstp=new newstopic($this->input->post('newstopic'));
+            $newsc=new newscatalogue($this->input->post('newscatalogue'));
             $isnews = $news->exists();
-            if(!$news->exists()) {
+            if(!$news->exists())
+            {
                 $news->active=1;
             }
-
-            if($news->save(array($newsc,$newstp))) {
+            if($news->save(array($newsc,$newstp)))
+            {
                 $this->session->unset_userdata('dir_for_news');
-                if($isnews) {
+                if($isnews)
+                {
                     flash_message("success","Cập nhật thành công");
-                } else {
+                }
+                else
+                {
                     flash_message("success","Thêm mới thành công");
                 }
-
-                if($news->navigation != "") {
+                if($news->navigation != "")
+                {
                     $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>$newscatalogue->navigation));
-                    if(empty($newscatalogue->menu_active)) {
+                    if(empty($newscatalogue->menu_active))
+                    {
                         $dis['menu_active'] = "Tin";
-                    } else {
+                    }
+                    else
+                    {
                         $dis['menu_active'] = $newscatalogue->menu_active;
                     }
-                } else {
+                }
+                else
+                {
                     $this->session->set_userdata(array(config_item('session_admin').'menu_current'=>$news->navigation));
-                    if(empty($newscatalogue->menu_active)) {
+                    if(empty($newscatalogue->menu_active))
+                    {
                         $dis['menu_active'] = "Tin";
-                    } else {
+                    }
+                    else
+                    {
                         $dis['menu_active'] = $news->title_vietnamese;
                     }
                 }
                 redirect($this->admin.'cnews/isolate_edit/'.$news->newscatalogue->id.'/'.$news->id);
-            } else {
+            }
+            else
+            {
                 flash_message("error","Lỗi");
             }
         }
@@ -488,11 +475,11 @@ class Cnews extends MY_Controller{
         $newscat->order_by('position','asc');
         $newscat->get();
 
-        $newstopic = new newstopic();
+        $newstopic=new newstopic();
         $newstopic->order_by('id','desc');
         $newstopic->get();
 
-        $sitelanguage = new Sitelanguage();
+        $sitelanguage=new Sitelanguage();
         $sitelanguage->order_by('position','asc');
         $sitelanguage->get();
 
@@ -504,9 +491,12 @@ class Cnews extends MY_Controller{
         $dis['title']="Thêm/ Sửa tin tức";
         $dis['menu_active']="Tin";
         
-        if($catalogue_id == 39) {
+        if($catalogue_id == 39)
+        {
             $dis['view'] = "news/isolate_full_hirarchy_edit";
-        } else {
+        }
+        else
+        {
             $dis['view']="news/isolate_edit";
         }
 

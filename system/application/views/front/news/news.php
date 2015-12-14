@@ -1,23 +1,23 @@
-<div class="col-md-9 col-right">
-    <?php $this->load->view('front/includes/breadcrumb'); ?>
-    
-    <h1 class="name-cat" itemprop="name"><?php echo $cat_name; ?></h1>
-    <div class="cl"></div>
-    <div class="row list-news">
-        <?php $i=0; foreach($cat_news as $_row): $i++; ?>
-        <div class="col-xs-6 col-sm-4 col-md-4">
-            <a class="img-news" href="<?php echo create_url($_row->id); ?>" title="">
-                <img alt="<?php echo $_row->title_vietnamese; ?>" src="<?php echo image($_row->image, 'news_list'); ?>">
-            </a>
-            <a class="title-news" href="<?php echo create_url($_row->id); ?>" title="<?php echo $_row->title_vietnamese; ?>" >
-                <?php echo $_row->title_vietnamese; ?>
-            </a>
-        </div>
-        <?php endforeach; ?>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <?=$this->pagination->create_links();?>
-        </div>
+<div class="main">
+    <div class="tieude"><?php echo $category->name_vietnamese; ?></div>
+    <div class="box_list">
+        <ul class="news">
+            <?php foreach ($news as $row) : ?>
+            <li>
+                <p class="img">
+                    <span>
+                        <a href="<?php echo create_url($row->id); ?>">
+                            <img src="<?= image($row->image, 'news_130_100'); ?>" width="130" height="100" alt="<?php echo $row->title_vietnamese; ?>">
+                        </a>
+                    </span>
+                </p>
+                <div class="information">
+                    <h2><a href="<?php echo create_url($row->id); ?>"><?php echo $row->title_vietnamese; ?></a></h2>
+                    <p><?php echo $row->short_vietnamese; ?></p>
+                </div>
+                <br class="clear">
+            </li>
+            <?php endforeach; ?>
+        </ul>        
     </div>
 </div>

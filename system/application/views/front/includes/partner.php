@@ -1,50 +1,34 @@
-<div class="row partner-home">
-    <div class="col-md-12 top-partner">
-        <h2 class="title title-news-hot">Đối tác</h2>
-        <div class="nav-partner">
-            <a href="javascript:void(0)" id="partner-prev" class="icon-prev"></a>
-            <a href="javascript:void(0)" id="partner-next" class="icon-next"></a>
-        </div>
-    </div>
-    <div class="cl"></div>
-    <div class="col-md-12 slide-partner">
-        <ul class="ul-partner-home">
-            <li>
-                <a href=""><img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner.jpg' ?>" alt=""/></a>
-            </li>
-            <li>
-                <a href=""><img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-01.jpg' ?>" alt=""/></a>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-02.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-03.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-04.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-05.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-01.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-02.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-03.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-04.jpg' ?>" alt=""/>
-            </li>
-            <li>
-                <img class="img-thumbnail" src="<?php echo $base_url.'images/assets/partner-05.jpg' ?>" alt=""/>
-            </li>
-        </ul>
-    </div>
+<br class="clear"/>
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $("#partners").jCarouselLite({
+            btnNext: ".nextPartner",
+            btnPrev: ".prevPartner",
+            visible: 5,
+            circular: true,
+            speed: 1500,
+            auto: 1500
+        });
+
+    });
+</script>
+<div class="prevPartner"><a href="javascript:void(0)">
+    <strong><img src="<?php echo $base_url.'images/assets/dienlanh/back.png'; ?>" alt="back" title=""/></strong></a>
+</div>
+<div class="nextPartner"><a href="javascript:void(0)">
+    <strong><img src="<?php echo $base_url.'images/assets/dienlanh/next.png'; ?>" alt="next" title=""/></strong></a>
+</div>
+<div class="partners" id="partners">
+    <ul>
+        <?php foreach ($this->partners as $row) : ?>
+        <li>
+            <span>
+                <a href="<?php echo $row->link; ?>" target="_blank">
+                    <img src="<?php echo image($row->logo, 'partner_193_95') ?>" width="193" height="95" alt=""/>
+                </a>
+            </span>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <br class="clear"/>
 </div>

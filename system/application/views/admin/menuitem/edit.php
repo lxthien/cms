@@ -1,5 +1,5 @@
 <div class="grid_15" id="textcontent"> 
-    <form id="form" class="table_input" action="<?=$base_url;?>admin/menuitems/edit/<?=$menu_id?>/<?=$object->id;?>" method="post">
+    <form id="form" class="table_input" action="<?=$base_url;?>admin/menuitems/edit/<?=$menu_id?>/<?=$object->id != '' ? $object->id : 0;?>" method="post">
         <table class="table_input">
             <tr>
              	<td><label for="name">Tên menu:</label></td>

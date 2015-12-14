@@ -1,41 +1,80 @@
-<header class="navbar navbar-static-top bs-docs-nav navbar-fixed-tops" id="top" role="banner">
-    <div class="container">
-        <div class="row">
-            <div class="top-head">
-                <!--<div class="logo-sologan">
-                    <a href="<?php echo $base_url; ?>" class="navbar-brand logo-page">
-                        <img src="<?php echo $base_url.'images/assets/logo.gif'; ?>" alt=""/>
-                        <span>Niềm Tin Ngôi Nhà Việt</span>
-                    </a>
+<div class="header reset">
+    <div class="logo" id="logo"></div>
+    <div class="slogan" id="slogan">
+        <img src="<?php echo $base_url.'images/assets/dienlanh/slogan.gif'; ?>" width="729" height="58" alt=""/>
+    </div>
+    <div class="bn_970x269" id="bn_970x269">
+        <div class="slider">
+            <div class="slide">
+                <div class="main-slide">
+                    <div class="main-lide-images">
+                        <div id="wrapper">
+                            <div class="slider-wrapper theme-default">
+                                <div id="slider" class="nivoSlider">
+                                    <?php foreach($this->banner as $row) :?>
+                                        <a href="<?=$row->link?>" title="<?php echo $row->name_vietnamese; ?>">
+                                            <img src="<?= $base_url.$row->image?>" alt="<?php echo $row->name_vietnamese; ?>" />
+                                        </a>
+                                    <?php endforeach ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="company">
-                    <p class="first">CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ - XÂY DỰNG PHỐ VIỆT</p>
-                    <p>Số 52/21, Đường 15, KP.9, P.Bình Hưng Hòa, Q.Bình Tân, TP.HCM</p>
-                    <p>Email: xaynhaphoviet@gmail.com</p>
-                    <p>Website: www.xaynhaphoviet.com</p>
-                </div>
-                <div class="hotline">
-                    <img src="<?php echo $base_url.'images/assets/icon-phone.gif'; ?>"><br />
-                    <span>0903.931.595 A.Tý</span>
-                </div>-->
-                <img src="<?php echo $base_url.'images/assets/logo.jpg'; ?>">
             </div>
-            <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>        
-            </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse menu-navigation" role="navigation">
-                <ul class="nav navbar-nav">
-                    <li><a class="alone <?php if($this->menu_active == "homepage") echo ' black_bg' ;?>" href="<?php echo $base_url; ?>">Trang chủ</a></li>
-                    <?php foreach($this->menu as $rowMenu):?>
-                    <li><a class="alone <?php if($this->menu_active == $rowMenu->active) echo ' black_bg' ;?>" href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a></li>
-                    <?php endforeach;?>
-                </ul>
-            </nav>
         </div>
     </div>
-</header>
+    <div id="myslidemenu" class="jqueryslidemenu">
+        <ul class="nav">
+            <li class="padL_vn"><img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/></li>
+            <li><a href="<?php echo $base_url; ?>">Trang chủ</a></li>
+            <?php foreach($this->menu as $rowMenu):?>
+            <li class="<?php if($this->menu_active == $rowMenu->active) echo ' act' ;?>">
+                <a href="<?php echo $base_url.$rowMenu->link?>"><?php echo $rowMenu->name;?></a>
+                <?php $countChild = $rowMenu->menuItem->result_count();?>
+                <?php if($countChild > 0) { ?>
+                    <ul>
+                        <?php foreach($rowMenu->menuItem->all as $row): ?>               
+                            <li><a href="<?php echo $base_url.$row->link?>"><?php echo $row->name;?></a></li>
+                        <?php endforeach;?>
+                    </ul>
+                <?php } ?>
+            </li>
+            <?php endforeach;?>
+            <li><img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/></li>
+        </ul>
+    </div>
+    <br class="clear"/>
+    <script language="javascript" type="text/javascript">
+        function SendFormSearch() {
+            if (!jQuery.trim($("#keyword").val())) {
+                err = 'Thông tin cần tìm';
+                alert('Quý khách cần nhập các thông tin sau: \n' + err);
+                $("#keyword").val('')
+                $("#keyword").focus();
+                return false;
+            }
+
+            action = document.frmSearch.action;
+            document.frmSearch.action = action;
+
+            document.frmSearch.submit();
+        }
+    </script>
+
+    <div class="box_search">
+        <form action="<?php echo $base_url.'tim-kiem'; ?>" method="post" name="frmSearch" id="frmSearch">
+            <p class="btn_red"><a href="javascript:void(0)" onclick="return SendFormSearch();"><strong>Tìm</strong></a></p>
+            <p>
+                <select class="input_select" name="type" id="findw">
+                    <option value="81">Tất cả</option>
+                    <option value="300">Sản phẩm mới</option>
+                    <option value="301">Sản phẩm cũ</option>
+                </select>
+            </p>
+            <p><input type="text" id="keyword" name="keyword" class="input_txt" value=""/></p>
+            <label>Tìm kiếm</label>
+            <br class="clear"/>
+        </form>
+    </div>
+</div>

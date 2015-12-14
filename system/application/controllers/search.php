@@ -51,7 +51,14 @@ class Search extends MY_Controller{
                     }
                 }else
                 { 
-                   $this->test();
+                   // Set action for news.
+                    if( strpos($this->uri->uri_string, '.html') ){
+                        $title_none = gettitlenonefromlink(get_url($this->uri->uri_string));
+                        $this->newsDetail($title_none);
+                    }else{
+                        $cat = get_url($this->uri->uri_string);
+                        $this->newCategory($cat);
+                    }
                 }
             }
         } else {
@@ -74,6 +81,10 @@ class Search extends MY_Controller{
         // Find offset pagination
         $offset = get_offset($this->uri->uri_string);
         
+        if($cat == "dich-vu") {
+            $cat = "dien-lanh-dan-dung";
+        }
+
         $category = new Newscatalogue();
         $category->where(array('name_none' => $cat))->get();
         if(!$category->exists()){
@@ -87,7 +98,7 @@ class Search extends MY_Controller{
         $cat_news->where('newscatalogue_id', $category->id);
         $cat_news->order_by('created','desc');
         $cat_news->get_paged($offset, $limit, TRUE);
-        $dis['cat_news'] = $cat_news;
+        $dis['news'] = $cat_news;
 
         // Pagination
         setPaginationVb(gen_seo_url($category->name_none), $cat_news->paged->total_rows, $limit, 2);
@@ -141,19 +152,14 @@ class Search extends MY_Controller{
         $category->where(array('id' => $news->newscatalogue_id))->get();
 
         // Create seo for news
-        $this->page_title = $news->{'title_vietnamese'};
-        $this->page_description = $news->short_vietnamese;
-        $this->page_keyword = $news->tag;
+        $this->page_title = $news->page_title;
+        $this->page_description = $news->page_description;
+        $this->page_keyword = $news->page_keyword;
 
         $dis['breadcum'] = $news->buildBreadCum();
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         $dis['base_url'] = base_url();
         $dis['view'] = 'front/news/news_de';
-
-        if($title_none == 'lien-he'){
-            $dis['view']='front/contact';
-        }
-
         $this->viewfront($dis) ;
     }
     
@@ -232,8 +238,6 @@ class Search extends MY_Controller{
     
     function advangeSearch()
     {
-        //var_dump($this->uri->uri_to_assoc(2));
-        //exit;
         $viewMode = $this->uri->segment(2,"") == ""?"ma-tran":$this->uri->segment(2);
         $orderBy = $this->uri->segment(3,"") == ""?"moi-nhat":$this->uri->segment(3);
         $page = $this->uri->segment(4,"") == "" ? "trang-1":$this->uri->segment(4);
@@ -320,13 +324,11 @@ class Search extends MY_Controller{
      */
     function getListId($list)
     {
-        
         $listIntChildCat = array();
-       
         foreach($list as $row)
         {
             array_push($listIntChildCat,$row->id);
-       //     array_push($listNameChildCat,$row->name);
+            //array_push($listNameChildCat,$row->name);
         } 
         return $listIntChildCat;
     }
@@ -409,57 +411,52 @@ class Search extends MY_Controller{
     
     
     
-    function search()
+    function searchKey()
     {
-        if($_SERVER['REQUEST_METHOD']=="POST")
-        {
-            $searchKey = $this->input->post('searchKey');
-            redirect("tim-kiem/".urlencode(htmlentities($searchKey)));
-            
+        if($_SERVER['REQUEST_METHOD']=="POST") {
+            $searchKey = $this->input->post('keyword');
+            $searchType = $this->input->post('type');
+            redirect("tim-kiem?q=".urlencode(htmlentities($searchKey)).'&type='.urlencode(htmlentities($searchType)));
         }
-        $searchKey = $this->uri->segment(2,"");
-        $viewType = $this->uri->segment(3,"all") ;
+
+
+        parse_str(array_pop(explode('?', $_SERVER['REQUEST_URI'], 2)), $_GET);
+
+        $searchKey = $_GET['q'];
+        $viewType = $_GET['type'];
+
         $page = $this->uri->segment(4,"trang-1");
         $limitProduct = 50;
         $limitNews = 10;
         $dis['page'] = $page;
-        //$searchKey = urldecode($searchKey);
         $searchKeyEncode = $searchKey;
         $searchKey = html_entity_decode(urldecode($searchKey));
                 
-        if($searchKey == "")
-        {
+        if($searchKey == "") {
             $resultStatus = false;
         }
         
-        if($viewType == "all")
-        {
+        if($viewType == 81 || $viewType == 300 || $viewType == 301) {
 
             $resultStatus = true;
-            //find dien thoai & mtb
-            $phoneCat = new productcat($this->config->item('catPhoneId'));
-            $phoneChildCat = $this->getListId($phoneCat->getAllChildCat());
+
+            $productCat = new Productcat($viewType);
+            $productChildCat = $this->getListId($productCat->getAllChildCat());
             
-            $tabletCat = new productcat($this->config->item('catTabletId'));
-            $tabletChildCat = $this->getListId($tabletCat->getAllChildCat());
-            
-            $phoneTabletCat = array_merge($phoneChildCat,$tabletChildCat);
-            
-            $phoneTabletProduct = new product();
-            $phoneTabletProduct->distinct();
-            $phoneTabletProduct->group_start();
-            $phoneTabletProduct->like('name',$searchKey);
-            $phoneTabletProduct->or_like('searchKey',$searchKey);
-            $phoneTabletProduct->group_end();  
-            $phoneTabletProduct->where_in_related_productcat('id',$phoneTabletCat);
-            $phoneTabletProduct->where('active',1);
-            $phoneTabletProduct->order_by('id','desc');
-            $phoneTabletProduct->group_by('id');
-            $phoneTabletProduct->get_iterated(10);
-            $dis['phoneTabletProduct'] = $phoneTabletProduct;
+            $product = new product();
+            $product->distinct();
+            $product->group_start();
+            $product->like('name',$searchKey);
+            $product->group_end();  
+            $product->where_in_related_productcat('id', $productChildCat);
+            $product->where('active',1);
+            $product->order_by('id','desc');
+            $product->group_by('id');
+            $product->get_iterated(10);
+            $dis['product'] = $product;
             
             //find accessory with the searchkey condition
-            $accessoryCat = new productcat();
+            /*$accessoryCat = new productcat();
             $accessoryCat->where_in('id',$this->config->item('allAccessoriesId'));
             $accessoryCat->get_iterated();
             $accessoryChildCat = array();
@@ -480,11 +477,11 @@ class Search extends MY_Controller{
             $accessoryProduct->order_by('id','desc');
             $accessoryProduct->get_iterated(10);
             
-            $dis['accessoryProduct'] = $accessoryProduct;
+            $dis['accessoryProduct'] = $accessoryProduct;*/
             
             
             //find the new by keyword
-            $newCat = array(58,59,60,61,62,64);
+            /*$newCat = array(58,59,60,61,62,64);
             $newsResult =  new article();
             $newsResult->where_in('newscatalogue_id',$newCat);
             $newsResult->like('title_vietnamese',$searchKey);
@@ -492,13 +489,10 @@ class Search extends MY_Controller{
             $newsResult->where('recycle',0);
             $newsResult->order_by('id','desc');
             $newsResult->get_iterated(10);
-            $dis['newsResult'] = $newsResult;
-            
-            $dis['view'] = 'product/search_all';
+            $dis['newsResult'] = $newsResult;*/
         }
      
-        if($viewType == "dien-thoai-may-tinh-bang")
-        {
+        if($viewType == "dien-thoai-may-tinh-bang") {
             $resultStatus = true;
             //find dien thoai & mtb
             $phoneCat = new productcat($this->config->item('catPhoneId'));
@@ -555,9 +549,7 @@ class Search extends MY_Controller{
         }
         
         
-        
-        if($viewType == "phu-kien")
-        {
+        if($viewType == "phu-kien") {
             $resultStatus = true;
             //find dien thoai & mtb
             $phoneCat = new productcat($this->config->item('catPhoneId'));
@@ -630,8 +622,7 @@ class Search extends MY_Controller{
         }
         
         
-        if($viewType == "tin-tuc")
-        {
+        if($viewType == "tin-tuc") {
             $resultStatus = true;
             //find dien thoai & mtb
             $phoneCat = new productcat($this->config->item('catPhoneId'));
@@ -690,9 +681,8 @@ class Search extends MY_Controller{
         }
         
         
+        $dis['view'] = 'front/product/search_all';
         $dis['searchKey'] = $searchKey;
-        
-        
         $dis['base_url']=base_url();
         
 		$this->viewfront($dis);
@@ -862,9 +852,9 @@ class Search extends MY_Controller{
         $this->pagination->initialize($config);      
         
         if($viewMode == 'ma-tran')
-            $dis['view']='product/product_grid';
+            $dis['view']='front/product/product_grid';
         else
-            $dis['view']='product/product_list';
+            $dis['view']='front/product/product_list';
                  
         
         $productSaleOff = new product();
@@ -1098,7 +1088,7 @@ class Search extends MY_Controller{
 
         $this->uri = base_url().substr($this->uri->uri_string, 1, strlen($this->uri->uri_string));
         $dis['base_url']=base_url();
-        $dis['view']='product/product_detail';
+        $dis['view']='front/product/product_detail';
 		$this->viewfront($dis);
     }
     

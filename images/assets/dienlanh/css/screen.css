@@ -73,7 +73,7 @@ h1,h2,h3,h4,h5,h6{ font-family:Arial; font-size:100%;}
 		.header .nav li{ float:left; font-size:0px;}
 		.header .nav a{ float:left; height:27px; font-size:11px; font-weight:bold; color:#fff; text-transform:uppercase; text-decoration:none; padding:17px 15px 0;}
 		.header .nav a:hover, .header .nav .act a{ background:#147ad3;}
-		.header .nav .padL_vn{ padding-left:110px;}
+		.header .nav .padL_vn{ padding-left:75px;}
 		.header .nav .padL_en{ padding-left:185px;}
 	.header .box_search{ width:940px; padding:12px 30px 20px 0;}
 		.header .box_search label{ float:right; font-weight:bold; padding:4px 6px 0 0; _padding-top:5px;}
