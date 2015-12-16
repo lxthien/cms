@@ -21,12 +21,3 @@
 
 <!--Main jquery site app.js-->
 <script src="<?php echo $base_url; ?>images/js/app.js"></script>
-
-<script type="text/javascript" src="<?= $base_url?>images/js/nivo-slider/jquery.nivo.slider.js"></script><script type="text/javascript" src="<?= $base_url?>images/js/nivo-slider/jquery.nivo.slider.js"></script>
-<script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider({
-            pauseTime: 5000
-        });
-    });
-</script>

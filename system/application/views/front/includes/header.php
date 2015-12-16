@@ -1,5 +1,7 @@
 <div class="header reset">
-    <div class="logo" id="logo"></div>
+    <div class="logo" id="logo">
+        <a href="<?php echo $base_url ?>"><img src="<?php echo $base_url.'images/assets/dienlanh/logo.png'; ?>"></a>
+    </div>
     <div class="slogan" id="slogan">
         <img src="<?php echo $base_url.'images/assets/dienlanh/slogan.gif'; ?>" width="729" height="58" alt=""/>
     </div>
@@ -13,7 +15,7 @@
                                 <div id="slider" class="nivoSlider">
                                     <?php foreach($this->banner as $row) :?>
                                         <a href="<?=$row->link?>" title="<?php echo $row->name_vietnamese; ?>">
-                                            <img src="<?= $base_url.$row->image?>" alt="<?php echo $row->name_vietnamese; ?>" />
+                                            <img src="<?= image($row->image, 'slide_home'); ?>" alt="<?php echo $row->name_vietnamese; ?>" />
                                         </a>
                                     <?php endforeach ?>
                                 </div>
@@ -24,6 +26,34 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="<?= $base_url?>images/js/nivo-slider/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider({
+                pauseTime: 5000
+            });
+        });
+    </script>
+    <!--
+    <script type="text/javascript">
+        var logo = new SWFObject("http://dienlanhtheviet.com.vn/assets/public/the-viet/images/logo_104x95.swf", "vidPlayer", "104", "95", "0", "");
+        logo.addParam("wmode", "transparent");
+        logo.write("logo");
+        /*var slogan = new SWFObject("http://dienlanhtheviet.com.vn/assets/public/the-viet/images/slogan.swf", "vidPlayer", "730", "60", "0", "");
+         slogan.addParam("wmode","transparent");
+         slogan.write("slogan");*/
+        var bn_970x269 = new SWFObject("http://dienlanhtheviet.com.vn/assets/public/the-viet/images/bn_970x269.swf", "vidPlayer", "970", "269", "0", "");
+        bn_970x269.addParam("wmode", "transparent");
+        bn_970x269.addVariable('varXML', 'http://dienlanhtheviet.com.vn/flash.xml?' + rnd());
+        bn_970x269.write("bn_970x269");
+
+        function search() {
+            var frm = document.getElementById('frmSearch');
+            frm.submit();
+        }
+    </script>
+    -->
     <div id="myslidemenu" class="jqueryslidemenu">
         <ul class="nav">
             <li class="padL_vn"><img src="<?php echo $base_url.'images/assets/dienlanh/nav_header_ln.gif'; ?>" width="1" height="44" alt=""/></li>

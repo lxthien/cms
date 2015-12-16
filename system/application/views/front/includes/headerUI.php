@@ -21,12 +21,16 @@
     
     <script type="text/javascript">
         <!--
-        var base_url = "http://dienlanhtheviet.com.vn/";
+        var base_url = "<?php echo $base_url; ?>";
         // -->
     </script>
-    <link href="<?php echo $base_url.'images/assets/dienlanh//css/screen.css'; ?>" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo $base_url.'images/assets/dienlanh//css/qc.css'; ?>" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/jquery.js'; ?>"></script>
+    <link href="<?php echo $base_url.'images/assets/dienlanh/css/screen.css'; ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo $base_url.'images/assets/dienlanh/css/qc.css'; ?>" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="<?php echo $base_url; ?>images/js/nivo-slider/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo $base_url; ?>images/js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="<?php echo $base_url; ?>images/js/jquery-1.7.1.min.js"></script>
+
     <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/jquery.ifixpng2.js'; ?>"></script>
     <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/commons.js'; ?>"></script>
     <script type="text/javascript" src="<?php echo $base_url.'images/assets/dienlanh/js/swfobject.js'; ?>"></script>

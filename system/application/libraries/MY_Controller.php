@@ -112,69 +112,34 @@ class MY_Controller extends Controller{
             $productRelated->get_iterated(10);
             */
             
-            $news = new Article();
-            $news->where('recycle',0);
-            $news->where('active',1);
-            $news->where_in('newscatalogue_id', array(82, 66, 67, 68, 69));
-            $news->order_by('created', 'DESC');
-            $news->get_iterated(10);
-
-            $news_cat = new Newscatalogue();
-            $news_cat->where('parentcat_id', 58);
-            $news_cat->get_iterated();
-
             $services_cat = new Newscatalogue();
             $services_cat->where('parentcat_id', 59);
             $services_cat->get_iterated();
 
-            $news_post = new Newscatalogue();
-            $news_post->where('parentcat_id', 65);
-            $news_post->get_iterated();
+            $news_sale_off = new Article();
+            $news_sale_off->where('newscatalogue_id', 66);
+            $news_sale_off->where(array('recycle' => 0, 'active'=>1));
+            $news_sale_off->order_by('created', 'desc');
+            $news_sale_off->get_iterated();
 
-            $news_services = new Article();
-            $news_services->where('newscatalogue_id', 59);
-            $news_services->order_by('created', 'desc');
-            $news_services->get_iterated();
-
-            $news_technical = new Newscatalogue();
-            $news_technical->where('parentcat_id', 60);
-            $news_technical->get_iterated();
-
-            $news_abouts = new Article();
-            $news_abouts->where('recycle',0);
-            $news_abouts->where('active',1);
-            $news_abouts->where('newscatalogue_id', 83);
-            $news_abouts->order_by('created', 'ASC');
-            $news_abouts->get_iterated(10);
-
-            $news_product_related = new Article();
-            $news_product_related->where('recycle',0);
-            $news_product_related->where('active',1);
-            $news_product_related->where_in('newscatalogue_id', array(72, 73, 74, 75, 67));
-            $news_product_related->order_by('created', 'ASC');
-            $news_product_related->get_iterated(10);
+            $servicesCat = new Newscatalogue(59);
+            $newsServices = $servicesCat->getAllNews(
+                                            array("recycle" => 0, "active"=>1)
+                                            );
             
-            //store load
-            //$store = new Store();
-            //$store->order_by('id','asc');
-            //$store->get_iterated();
-            //TODO: will delete
-            //$this->visitedProduct = $this->getVisitedProduct();
+            $khachhang = new khachhang();
+            $khachhang->order_by('position','asc');
+            $khachhang->get();
             
             
             
             //$this->store = $store;
             //$this->productCat = $productCat;
             //$this->productCatAll = $productCatAll;
-            //$this->productViewMore = $productViewMore;
-            //$this->productRelated = $productRelated;
-            $this->news = $news;
-            $this->news_cat = $news_cat;
+            $this->newsServices = $newsServices;
+            $this->partners = $khachhang;
+            $this->news_sale_off = $news_sale_off;
             $this->services_cat = $services_cat;
-            $this->news_post = $news_post;
-            $this->news_services = $news_services;
-            $this->news_technical = $news_technical;
-            $this->news_abouts = $news_abouts;
             $this->news_product_related = $news_product_related;
             
             $this->show_analytic = TRUE;
@@ -442,7 +407,7 @@ class MY_Controller extends Controller{
     
 
     function checkRole($role = array()) {
-        if(!in_array($this->logged_in_user->adminrole_id, $role))
-            show_error('Bạn không có quyền truy cập chức năng này.');
+        //if(!in_array($this->logged_in_user->adminrole_id, $role))
+            //show_error('Bạn không có quyền truy cập chức năng này.');
     }
 }

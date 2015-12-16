@@ -71,4 +71,4 @@ $config["image_sizes"]["product_list"] = array(214,135);
 $config["image_sizes"]["product_slide"] = array(485,250);
 $config["image_sizes"]["product_thumbnail"] = array(60,40);
 
-$config["image_sizes"]["slide_home"] = array(1030, 400);
+$config["image_sizes"]["slide_home"] = array(970, 269);

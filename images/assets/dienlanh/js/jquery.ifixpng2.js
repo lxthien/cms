@@ -56,7 +56,7 @@
 	},
 	
 	$.ifixpng.getPixel = function() {
-		return $.ifixpng.pixel || 'images/pixel.gif';
+		return $.ifixpng.pixel || 'images/assets/dienlanh/pixel.gif';
 	};
 	
 	var hack = {
