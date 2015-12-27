@@ -18,6 +18,6 @@
       <?php endif; ?>
       <?php endforeach; ?>
     </dl>
-    <div class="pages"><span class="selected">1</span>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>2</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/3.html"><strong>3</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/4.html"><strong>4</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/5.html"><strong>5</strong></a>&nbsp;<span class="del"><a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>›</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/7.html"><strong>»</strong></a>&nbsp;</span></div>  
+    <!--<div class="pages"><span class="selected">1</span>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>2</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/3.html"><strong>3</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/4.html"><strong>4</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/5.html"><strong>5</strong></a>&nbsp;<span class="del"><a href="http://dienlanhtheviet.com.vn/san-pham/2.html"><strong>›</strong></a>&nbsp;<a href="http://dienlanhtheviet.com.vn/san-pham/7.html"><strong>»</strong></a>&nbsp;</span></div>-->  
   </div>
 </div>

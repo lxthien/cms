@@ -6,7 +6,7 @@
         </li>
         <li class="w_yofi">
             <?php echo getconfigkey('address_company_2'); ?>
-        <li class="w_yofi">
+        <li class="w_yofi w_yofi_2">
             <?php echo getconfigkey('address_company_3'); ?>
         </li>
     </ul>

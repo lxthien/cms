@@ -1,9 +1,6 @@
 <div class="header reset">
     <div class="logo" id="logo">
-        <a href="<?php echo $base_url ?>"><img src="<?php echo $base_url.'images/assets/dienlanh/logo.png'; ?>"></a>
-    </div>
-    <div class="slogan" id="slogan">
-        <img src="<?php echo $base_url.'images/assets/dienlanh/slogan.gif'; ?>" width="729" height="58" alt=""/>
+        <a href="<?php echo $base_url ?>"><img src="<?php echo $base_url.'images/assets/dienlanh/logo.gif'; ?>"></a>
     </div>
     <div class="bn_970x269" id="bn_970x269">
         <div class="slider">

@@ -124,7 +124,7 @@ class bannercats extends MY_Controller{
     {
         $this->checkRole(array(1));
         $id=$this->uri->segment(4);
-        if($id != 1 && $id != 19)
+        if($id != 1)
         {
             $bannercat=new bannercat($id);
             //delete city

@@ -14,7 +14,7 @@
 
         });
     </script>
-    <div class="tieude">Dịch vụ sửa chữa</div>
+    <div class="tieude">Dịch vụ Nam Cường</div>
     <div class="works">
         <div class="paddL" style="margin-bottom:5px;">
             <p class="prev">
@@ -33,7 +33,7 @@
                     <p class="img">
                         <span>
                             <a href="<?php echo create_url($row->id); ?>">
-                                <img src="http://dienlanhtheviet.com.vn/uploads/about/01f6020aa42c7859ee534fa9922c26eb.jpg" width="127" height="77" alt=""/>
+                                <img src="<?= image($row->image, 'news_127_77'); ?>" width="127" height="77" alt=""/>
                             </a>
                         </span>
                     </p>

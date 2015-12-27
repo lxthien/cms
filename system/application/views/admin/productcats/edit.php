@@ -357,7 +357,7 @@
             <li><a href="#category"><span>Danh mục sản phẩm</span></a></li>
             <?php if($object->exists()){?>
             <!-- <li><a href="#specification"><span>Thông số kĩ thuật</span></a></li>
-            <li><a href="#productHome"><span>Sp Trang chủ</span></a></li> -->
+            <li><a href="#productHome"><span>Sp Trang chủ</span></a></li>
             <li><a href="#about"><span>Giới thiệu</span></a></li>
             <li><a href="#exterior"><span>Ngoại thất</span></a></li>
             <li><a href="#interior"><span>Nội thất</span></a></li>
@@ -365,7 +365,7 @@
             <li><a href="#color"><span>Màu xe</span></a></li>
             <li><a href="#video"><span>Video</span></a></li>
             <li><a href="#specification"><span>Thông số kĩ thuật</span></a></li>
-            <li><a href="#accessories"><span>Phụ kiện</span></a></li>
+            <li><a href="#accessories"><span>Phụ kiện</span></a></li> -->
             <?php } ?>
         </ul>
         <div id="category">
@@ -445,6 +445,7 @@
                 </table>
     		</div>
         </div>
+        <!-- 
         <?php if($object->exists()){ ?>
         <div id="about">
             <?php $this->load->view("admin/productcats/tabs/about");?>
@@ -471,6 +472,7 @@
             <?php $this->load->view('admin/productcats/tabs/accessories');?>
         </div>
         <?php } ?>
+         -->
     </div><!-- end tab panel -->
     <div style="text-align: center;"><?php create_form_button('submit_button button_ok','Luu dữ liệu');?></div>
 </form>

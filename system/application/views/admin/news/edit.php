@@ -139,7 +139,7 @@ $().ready(function(){
 	}
 </style>
 <div class="grid_15" id="textcontent">
-    <form id="form" class="table_input" action="<?=$base_url;?>admin/cnews/edit/<?=$currentcatalogue->id;?>/<?=$object->id;?>" method="post" enctype="multipart/form-data">
+    <form id="form" class="table_input" action="<?=$base_url;?>admin/cnews/edit/<?=$currentcatalogue->id;?>/<?=$object->id != '' ? $object->id : 0 ;?>" method="post" enctype="multipart/form-data">
         <table class="table_input">
             <tr >
              	<td><label for="name">Danh mục:</label></td>
@@ -176,6 +176,10 @@ $().ready(function(){
             <tr>
              	<td><label for="name">Description (SEO):</label></td>
                 <td><textarea style="height: 100px;" name="page_description" class="smallInput big"><?=$object->page_description;?></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="name">Hiển thị trang chủ:</label></td>
+                <td><input type="checkbox" name="home_hot" value="1" <?php if($object->home_hot == 1) echo "checked";?> /></td>
             </tr>
             <?php if($this->logged_in_user->adminrole->id  ==  1) { ?>
             <tr>

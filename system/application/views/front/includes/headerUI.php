@@ -42,5 +42,10 @@
             return String((new Date()).getTime()).replace(/\D/gi, '')
         }
     </script>
-
+    <!-- Api google plus -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'vi'}
+    </script>
+    <?php echo getconfigkey('google_analytic'); ?>
 </head>

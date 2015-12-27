@@ -28,7 +28,7 @@
           <td widtd="68%"><div align="center"><a href="<?=$this->admin_url.'cnews/edit/'.$row->newscatalogue_id.'/'.$row->id;?>"><img src="<?=image($row->image,'news_160');?>" width="100" height="100" /></a></div></td>
           <td widtd="68%"><a href="<?=$this->admin_url.'cnews/edit/'.$row->newscatalogue_id.'/'.$row->id;?>"><?php echo $row->title_vietnamese;?> <span style="color:#9C3">(<?=get_from_datetime($row->created);?>)</span></a></td>
           <td widtd="68%">
-            <div align="left">
+            <div align="center">
 					  <?php if($row->hot == 1) { ?> <img src="<?=$admin_resource;?>new/images/hot.jpg"/> <?php }?>
             <?php if($row->home_hot == 1) { ?> <img src="<?=$admin_resource;?>new/images/icons/home.gif"/> <?php }?>
             </div>

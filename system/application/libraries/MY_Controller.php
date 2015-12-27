@@ -117,10 +117,31 @@ class MY_Controller extends Controller{
             $services_cat->get_iterated();
 
             $news_sale_off = new Article();
-            $news_sale_off->where('newscatalogue_id', 66);
+            $news_sale_off->where('newscatalogue_id', 83);
             $news_sale_off->where(array('recycle' => 0, 'active'=>1));
             $news_sale_off->order_by('created', 'desc');
             $news_sale_off->get_iterated();
+
+            $news_dldd = new Article();
+            $news_dldd->where('newscatalogue_id', 86);
+            $news_dldd->where(array('recycle' => 0, 'active'=>1));
+            $news_dldd->order_by('created', 'asc');
+            $news_dldd->get_iterated();
+            $this->news_dldd = $news_dldd;
+
+            $news_dlcn = new Article();
+            $news_dlcn->where('newscatalogue_id', 87);
+            $news_dlcn->where(array('recycle' => 0, 'active'=>1));
+            $news_dlcn->order_by('created', 'asc');
+            $news_dlcn->get_iterated();
+            $this->news_dlcn = $news_dlcn;
+
+            $news_home_hot = new Article();
+            $news_home_hot->where(array('recycle' => 0, 'active'=>1, 'home_hot'=>1));
+            $news_home_hot->order_by('created', 'desc');
+            $news_home_hot->where_in_related_newscatalogue('id', array(83, 86, 87, 88));
+            $news_home_hot->get_iterated(10);
+            $this->news_home_hot = $news_home_hot;
 
             $servicesCat = new Newscatalogue(59);
             $newsServices = $servicesCat->getAllNews(

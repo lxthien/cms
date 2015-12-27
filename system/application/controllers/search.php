@@ -81,7 +81,7 @@ class Search extends MY_Controller{
         // Find offset pagination
         $offset = get_offset($this->uri->uri_string);
         
-        if($cat == "dich-vu") {
+        if($cat == "dich-vu-dien-lanh") {
             $cat = "dien-lanh-dan-dung";
         }
 
@@ -769,8 +769,6 @@ class Search extends MY_Controller{
     
     function productCat($level)
     {
-       
-        //load param from url
         $categoryUrl = $this->uri->segment($level);
         $viewMode = $this->uri->segment($level + 1,"") == ""?"ma-tran":$this->uri->segment($level + 1);
         $orderBy = $this->uri->segment($level + 2,"") == ""?"moi-nhat":$this->uri->segment($level + 2);
@@ -782,7 +780,7 @@ class Search extends MY_Controller{
         
         
         //limit
-        $limit = $viewMode == "ma-tran"?15:10;
+        $limit = $viewMode == "ma-tran"?12:12;
         $offset = ( $this->getPageNumber($page) - 1)*$limit;
 
         $productCat = new productCat();

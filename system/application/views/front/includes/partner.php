@@ -24,7 +24,7 @@
         <li>
             <span>
                 <a href="<?php echo $row->link; ?>" target="_blank">
-                    <img src="<?php echo image($row->logo, 'partner_193_95') ?>" width="193" height="95" alt=""/>
+                    <img src="<?php echo image($row->logo, 'partner_193_95') ?>" alt=""/>
                 </a>
             </span>
         </li>

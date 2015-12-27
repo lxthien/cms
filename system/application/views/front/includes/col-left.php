@@ -1,13 +1,25 @@
 <div class="sub_left">
-    <div class="tieude">Dịch Vụ</div>
+    <div class="tieude">Dịch vụ điện lạnh</div>
     <ul class="nav_sub">
         <?php foreach($this->services_cat as $row): ?>
-        <li><a href="<?php echo $base_url.'dich-vu/'.$row->name_none; ?>"><?php echo $row->name_vietnamese; ?></a></li>
+        <li><a href="<?php echo $base_url.'dich-vu-dien-lanh/'.$row->name_none; ?>"><?php echo $row->name_vietnamese; ?></a></li>
         <?php endforeach; ?>
     </ul>
-    <div class="tieude">Khuyến mãi</div>
+    <div class="tieude">Dịch vụ điện tử</div>
     <ul class="news">
         <?php foreach($this->news_sale_off as $row): ?>
+        <li><a href="<?php echo create_url($row->id); ?>"><?php echo $row->title_vietnamese; ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="tieude">Điện lạnh dân dụng</div>
+    <ul class="news">
+        <?php foreach($this->news_dldd as $row): ?>
+        <li><a href="<?php echo create_url($row->id); ?>"><?php echo $row->title_vietnamese; ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="tieude">Điện lạnh công nghiệp</div>
+    <ul class="news">
+        <?php foreach($this->news_dlcn as $row): ?>
         <li><a href="<?php echo create_url($row->id); ?>"><?php echo $row->title_vietnamese; ?></a></li>
         <?php endforeach; ?>
     </ul>
@@ -48,20 +60,7 @@
     </div>
     <div class="tieude">Liên kết web</div>
     <div class="weblink">
-        <ul class="list_white">
-            <li><a href="<?php echo $base_url; ?>sua-may-lanh.html" target="_blank">Sửa máy lạnh</a></li>
-            <li><a href="<?php echo $base_url; ?>ve-sinh-may-lanh-quan-1.html" target="_blank">ve sinh may lanh quan 1</a></li>
-            <li><a href="<?php echo $base_url; ?>ve-sinh-may-lanh-quan-binh-thanh.html" target="_blank">ve sinh may lanh quan binh thanh</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-may-lanh-cong-nghiep.html" target="_blank">sua may lanh trung tam</a></li>
-            <li><a href="<?php echo $base_url; ?>bao-tri-may-lanh-cong-nghiep.html" target="_blank">bao tri may lanh trung tam</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-may-lanh-quan-thu-duc.html" target="_blank">sua may lanh quan thu duc</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-may-lanh-quan-2.html" target="_blank">sua may lanh quan 2</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-may-nuoc-nong-quan-1.html" target="_blank">sua may nuoc nong quan 1</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-7.html" target="_blank">sua lo vi song quan 7</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-phu-nhuan.html" target="_blank">sua lo vi song quan phu nhuan</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-binh-thanh.html" target="_blank">sua lo vi song quan binh thanh</a></li>
-            <li><a href="<?php echo $base_url; ?>sua-lo-vi-song-quan-1.html" target="_blank">sua lo vi song quan 1</a></li>
-        </ul>
+        <?php echo getconfigkey('lien_ket_web'); ?>
     </div>
     <ul class="visitor">
         <li>Lượt truy cập : <span><?php echo $this->hit_counter->getTotalVisitCount();?></span></li>

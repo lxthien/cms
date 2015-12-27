@@ -38,6 +38,15 @@ class Cnews extends MY_Controller{
         $news->get_paged($offset,$limit,TRUE);
         
         setPagination($this->admin.'cnews/list_all/', $news->paged->total_rows, $limit, 4);
+
+        $dis['nav_menu']=array(
+            array(
+                "type"=>"add",
+                "text"=>"Thêm tin mới",
+                "link"=>"{$this->admin_url}cnews/edit/0/0",
+                "onclick"=>""       
+            )
+        );
         
         $dis['base_url']=base_url();
         $dis['view']='news/list';
@@ -57,7 +66,7 @@ class Cnews extends MY_Controller{
      * @param integer $limit
      * @return
      */
-    function list_by_cat($catalogue_id=0,$offset=0,$limit=5)
+    function list_by_cat($catalogue_id=0, $offset=0, $limit=30)
     {
         $newscatalogue=new newscatalogue($catalogue_id);
         $news=new article();
@@ -244,40 +253,13 @@ class Cnews extends MY_Controller{
      */
     function edit($catalogue_id=0, $news_id=0) {
         $newscatalogue = new Newscatalogue($catalogue_id);
-        if(!$newscatalogue->exists())
-            show_404();
-        
+        /*if(!$newscatalogue->exists())
+            show_404();*/
         $news = new Article($news_id);
         if($_SERVER['REQUEST_METHOD']=="GET") {
             if(!$news->exists()) {
-                //
             } else {
                 $news->dir = "img/news/";
-                /*if(getconfigkey('use_ftp')) {
-                    $this->load->library('ftp');
-            		$config['hostname'] = $this->cauhinh->where('fieldname','ftp_server')->get()->value;
-            		$config['username'] = $this->cauhinh->where('fieldname','ftp_username')->get()->value;
-            		$config['password'] = $this->cauhinh->where('fieldname','ftp_password')->get()->value;
-                    if(empty($news->dir) ) {
-                        $ex=explode(' ',$news->created);
-                        $createdate=$ex[0];
-                        $y=getyear($createdate);
-                        $m=getmonth($createdate);
-                        $d=getday($createdate);
-                        $ddir="img/news/".$y.'/'.$m.'/'.$d.'/'.md5(date("Y-m-d h:i:s")).'/';
-                        $news->dir=$ddir;
-                        $news->save();
-                        $this->_create_dir($ddir);
-                    } else {
-                        if($this->ftp->list_files($news->dir) == FALSE) {
-                            $this->_create_dir($news->dir);
-                        }
-                    }
-                    $this->ftp->close();
-                } else {
-                    if(empty($news->dir)  )
-                        $news->dir = getconfigkey("default_news_dir");
-                }*/
             }
         } else {
             $this->load->helper('remove_vn_helper');
@@ -293,7 +275,7 @@ class Cnews extends MY_Controller{
             $news->full_english = $this->input->post('txtFull_english');
             $news->dir=$this->input->post('dir');
             $news->pagi = $this->input->post('pagi');
-            $news->active = 1;
+            $news->home_hot = $this->input->post('home_hot');
             $news->page_title = $this->input->post('page_title');
             $news->page_keyword = $this->input->post('page_keyword');
             $news->page_description = $this->input->post('page_description');
@@ -316,9 +298,10 @@ class Cnews extends MY_Controller{
             $newstp = new newstopic($this->input->post('newstopic'));
             $newsc = new newscatalogue($this->input->post('newscatalogue'));
             if(!$news->exists()) {
-                $news->active=0;
+                $news->active = 1;
             }
-            if($news->save(array($newsc,$newstp))) {         
+
+            if($news->save(array($newsc, $newstp))) {         
                 $this->session->unset_userdata('dir_for_news');
                 redirect($this->admin.'cnews/edit/'.$news->newscatalogue->id.'/'.$news->id);
             } else {
